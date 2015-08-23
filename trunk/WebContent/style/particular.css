@@ -1,0 +1,206 @@
+*{margin:0px auto;}
+div{font-family:"寰蒋闆呴粦";}
+a{text-decoration:none;}
+a img{display:block; border:none;}
+ul,dl{margin:0px; padding:0px;}
+li{list-style:none;}
+.clear{clear:both;}
+
+body{}
+
+#main{width:100%; height:100%; min-width:1200px;}
+
+#header{width:100%; height:200px; margin-bottom:20px;}
+
+#centre{width:100%;  margin-bottom:15px;}
+
+#footer{width:100%; background:url(../images/fotterbg.png) no-repeat; padding-bottom:30px;}
+
+/********************************************* logo *************************************************************/
+
+.logo{width:100%; height:150px; font-size:48px;}
+
+/********************************************* nav *************************************************************/
+
+.nav{width:auto; height:46px; background:url(../images/nav.png); padding-left:200px;}
+
+.nav li{float:left; font-size:22px; font-family:"瀹嬩綋";}
+
+.navli{width:140px; height:46px; line-height:46px; text-align:center;}
+
+.nline{width:2px; height:44px; background:url(../images/line.png) no-repeat;}
+
+.nav li a{display:inline-block; width:140px; height:44px; color:#FFF;}
+
+.npitchon{display:inline-block; width:140px; height:46px; line-height:46px; text-align:center; background:url(../images/pitch-up.png) no-repeat;}
+
+.pline{width:2px; height:44px; background:url(../images/pline.png) no-repeat;}
+
+.navli:hover{width:140px; height:46px; font-weight:bold; background:url(../images/action.png) no-repeat;}
+
+/********************************************* 鎵�湪浣嶇疆 location *************************************************************/
+
+.location{width:1000px; height:40px; line-height:40px; text-indent:20px; background:url(../images/place.png); color:#666; border:1px solid #CCC; margin-bottom:15px;}
+
+.location a{color:#666;}
+
+.location a:hover{color:#F90;}
+
+.bencentre{width:auto; margin-top:10px;}
+
+/********************************************* 鍏氬憳鏈嶅姟姝ｆ枃 particular *************************************************************/
+
+.details_div{padding:15px 0px; width:1000px; border:1px solid #CCC;}
+
+.details_title{width:890px;}
+
+.detImgL{float:left;}
+
+.detImgL img{border:0px; width:195px; height:195px;}
+
+.dettxtR{float:left; width:auto; padding-left:15px;}
+
+.dettxtR p{font-size:14px; line-height:25px;}
+
+.dettxtR b{color:#F90;}
+
+.schedule_div{width:276px; height:21px; margin:0px; padding:0px;}
+
+.plan{width:227px; height:12px; float:left; border:1px solid #689936;}
+
+.progress{height:12px; vertical-align:middle; background:#689936; margin:0px; padding:0px;}
+
+.barTxt{font-size:12px; color:#F00; float:left; margin-left:5px;}
+
+.donationButt{width:90px; height:31px; display:inline-block; background:url(../images/beginbutt.png) no-repeat;}
+
+.cheerButt{width:90px; height:31px; display:inline-block; background:url(../images/refuelbutt.png);}
+
+.finishButt{width:90px; height:31px; display:inline-block; background:url(../images/finishbutt.png) no-repeat;}
+
+.infoItem{padding:0px 20px; font-size:16px; line-height:30px; margin-top:10px;}
+
+.infoItem p{text-indent:35px; color:#999;}
+
+.donation{width:890px; margin-top:20px; padding-top:15px; border-top:1px dashed #CCC;}
+
+.donationInfo{line-height:28px; padding:25px 0px; font-size:15px;}
+
+.radio_div{width:auto; height:auto; margin-top:20px;}
+
+.radio_div label{width:110px; height:28px; display:block; float:left; text-align:right;}
+
+.radio_inp{margin-left:15px;}
+
+.anonymity{width:auto; height:auto; margin-top:20px;}
+
+.anonymity div{width:auto;}
+
+.phonean{padding-left:35px;}
+
+.passwordan{padding-left:35px;}
+
+.text_inp{width:180px; height:20px; border:1px solid #999; margin-top:3px; margin-left:15px;}
+
+.anonymity span{display:block; color:#D86900; font-size:14px; padding-left:90px; }
+
+.autonym{width:auto; height:auto; margin-top:20px;}
+
+.autonym div{width:auto; height:45px; line-height:40px;}
+
+.nameau{} 
+
+.identityau{padding-left:20px;}
+
+.work{padding-left:35px;}
+
+.phoneau{padding-left:34px;}
+
+.emailau{padding-left:51px;}
+
+.show{display:block;}
+
+.none{display:none;}
+
+.else{width:50px; height:18px; border:1px solid #999; margin-left:5px;}
+
+.textarea_inp{width:auto; height:auto; margin-top:40px;}
+
+.textarea_inp label{width:110px; text-align:right; display:block; float:left; vertical-align:middle;}
+
+.lab{width:110px; text-align:right; display:block; float:left; vertical-align:middle;}
+
+.nextstep{width:90px; height:31px; display:inline-block; background:url(../images/nextbutt.png) no-repeat;}
+
+.comentBox{width:890px; height:auto; font-size:14px;}
+
+.titleBox{height:35px; line-height:35px; font-weight:bold; padding-left:25px; border-bottom:1px solid #CCC; margin-bottom:10px;}
+
+.comentMain{width:auto; height:auto;}
+
+.comentMain li{padding:15px 25px 10px 25px; border-bottom:1px dashed #CCC; margin-bottom:10px;}
+
+.comentUser{padding:3px; float:left; border:1px solid #CCC;}
+
+.comentUser img{width:48px; height:48px; border:0px;}
+
+.comentText{float:left; width:570px; margin-left:10px;}
+
+.spanName{font-weight:bold;}
+
+.spanTime{font-size:12px; color:#999; margin-left:20px;}
+
+.spanTxt{margin-top:5px;}
+
+.comentWrite{width:auto; height:auto; margin-top:20px;}
+
+.wishUser{padding-left:30px;}
+
+.wishUser label{margin-right:10px;}
+
+.wishUser .usertext{border:1px solid #CCC; height:20px;}
+
+.wishWrite{padding-left:85px; margin-top:15px;}
+
+.writeCon{width:465px; height:160px; border:1px solid #CCC;}
+
+.wishCaptcha{padding-left:85px; margin-top:25px;}
+
+.captchatext{width:80px; height:25px; float:left; border:1px solid #CCC;}
+
+.wishCaptcha img{width:100px; height:28px; float:left; margin-left:10px; margin-right:10px;}
+
+.wishSubmit{padding-left:85px; margin-top:25px;}
+
+.submitbutt{width:90px; height:31px; display:inline-block; background:url(../images/submitbutt.png) no-repeat; border:none; cursor:pointer;}
+
+/********************************************* 鍏憡姝ｆ枃 noticemain *************************************************************/
+
+.noticemain-div{width:900px; border-top:none; background:#FFF; padding-bottom:40px;}
+
+.notice_body{padding:15px 0px; width:1000px; border:1px solid #CCC;}
+
+.notice_header{width:950px; border-bottom:1px dashed #CCC; padding-bottom:20px;}
+
+.notice_title{text-align:center; font-weight:bold; font-size:24px; margin-bottom:10px;}
+
+.noticeT{text-align:center;}
+
+.noticeT span{margin:0px 20px;}
+
+.notice_middle{width:950px; color:#666; font-size:16px;}
+
+.notice_middle .txt_1{margin-top:20px;}
+
+.notice_middle .txt_2{margin-top:30px; text-indent:35px; line-height:35px;}
+
+.notice_middle .txt_3{margin-top:30px; text-align:center;}
+
+/********************************************* 搴曢儴 fotter *************************************************************/
+
+.fotter_div{width:1000px; font-size:14px; text-align:center; padding-top:30px;}
+
+.fotter_div div{margin-top:20px;}
+
+
+

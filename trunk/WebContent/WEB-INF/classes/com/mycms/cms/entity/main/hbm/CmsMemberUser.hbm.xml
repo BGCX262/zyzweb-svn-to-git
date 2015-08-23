@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mycms.cms.entity.main">
+	<class name="CmsMemberUser" table="T_MEMBER_USER">
+		<meta attribute="sync-DAO">false</meta>
+		<cache usage="read-write"/>
+		<id name="id" type="java.lang.Integer" column="id"><generator class="identity"/></id>
+		
+		<property name="userMobile" column="USER_MOBILE" type="string" not-null="false" length="11"/>
+		<property name="mimsi" column="M_IMSI" type="string" not-null="false" length="50"/>
+		<property name="userName" column="USER_NAME" type="string" not-null="false" length="30"/>
+		<property name="userType" column="USER_TYPE" type="java.lang.Integer" not-null="false" length="2"/>
+		<property name="password" column="PASSWORD" type="string" not-null="false" length="100"/>
+		<property name="userGender" column="USER_GENDER" type="java.lang.Integer" not-null="false" length="2"/>
+		<property name="userEmail" column="USER_EMAIL" type="string" not-null="false" length="60"/>
+		<property name="userAddress" column="USER_ADDRESS" type="string" not-null="false" length="100"/>
+		<property name="otherPhone" column="OTHER_PHONE" type="string" not-null="false" length="20"/>
+		<property name="identifier" column="IDENTIFIER" type="string" not-null="false" length="30"/>
+		<property name="carType" column="CAR_TYPE" type="string" not-null="false" length="2"/>
+		<property name="validBeginDate" column="VALID_BEGIN_DATE" type="string" not-null="false" length="10"/>
+		<property name="validPeriod" column="VALID_PERIOD" type="string" not-null="false" length="2"/>
+		<property name="carNumber" column="CAR_NUMBER" type="string" not-null="false" length="10"/>
+		<property name="suffixNum" column="SUFFIX_NUM" type="string" not-null="false" length="4"/>
+		
+		
+		<property name="carRegisterTime" column="CAR_REGISTER_TIME" type="string" not-null="false" length="10"/>
+		<property name="userRegisterChannelId" column="USER_REGISTER_CHANNEL_ID" type="string" not-null="false" length="8"/>
+		<property name="userRegisterCpServiceId" column="USER_REGISTER_CP_SERVICE_ID" type="string" not-null="false" length="12"/>
+		<property name="registerTime" column="REGISTER_TIME" type="java.sql.Date" not-null="false"/>
+		<property name="updateTime" column="UPDATE_TIME" type="java.sql.Date" not-null="false"/>
+		<property name="userStatus" column="USER_STATUS" type="java.lang.Integer" not-null="false" length="2"/>
+		<property name="lastUpdateBy" column="LAST_UPDATE_BY" type="string" not-null="false" length="20"/>
+		<property name="lastUpdateTime" column="LAST_UPDATE_TIME" type="java.sql.Date" not-null="false"/>
+		<property name="memo" column="MEMO" type="string" not-null="false"  length="255"/>
+		
+	
+	</class>
+</hibernate-mapping>

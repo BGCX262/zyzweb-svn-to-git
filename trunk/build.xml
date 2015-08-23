@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<project name="clw" default="zipfile">
+<property name="release" value="release" /> 
+ 
+		<target name="init">
+			<tstamp>
+				<format property="TODAY" pattern="yyyyMMdd" locale="cn" />
+			</tstamp> 
+			<mkdir dir="${release}" />
+			<delete file="${release}/clw_${TODAY}.zip" />
+		</target> 
+ 
+    
+  <target  name="zipfile" depends="init" > 
+   			  <zip destfile="${release}/clw_${TODAY}.zip">
+					<fileset dir="WebContent" includes="**/*.*">
+					<!-- MM/dd/yyyy -->
+					    <date datetime="9/26/2014 09:27 AM" when="after"/>
+					</fileset>
+			  </zip>
+  </target>  
+     
+</project>

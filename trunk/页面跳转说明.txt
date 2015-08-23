@@ -1,0 +1,70 @@
+
+后台：
+业务审批：WEB-INF\mycms_sys\frame\busiprocess_left.html
+统计查询：busiquery_left.html
+前台：
+业务审批：front\ywsp_left.html
+业务申报：front\companyapply_left.html
+申报入口：/qjscapplyflowinfo/flow.do
+--------------------------------
+企业备案：
+
+查询备案状态，根据username查询最近1条，如果记录为0，则是未申请过的
+
+企业备案状态为未申请过的 /qjscrecord/qjscrecordAdd.do -> qjscrecordAdd.jsp
+企业备案状态为退回的 /qjscrecord/qjscrecordEdit1.do?actiontype=edit -> qjscrecordEdit.jsp
+企业备案状态为草稿的 /qjscrecord/qjscrecordEdit1.do?actiontype=edit -> qjscrecordEdit.jsp
+
+前台已备案资料查询
+/qjscrecord/qjscrecordEdit1.do?actiontype=view ->qjscrecordView_f
+
+
+管理用户列表：
+/qjscrecord/qjscrecordList.do?isfront1=0&status=0&order=desc&sort=modtime -》qjscrecordList.jsp
+管理用户编辑（status!='1'）：
+qjscrecordEdit.do?actiontype=edit&infoid=<c:out value="${row.infoid}"/> ->qjscrecordEdit.jsp
+管理用户审核（status=='0'):
+qjscrecordEdit.do?actiontype=audit&infoid=<c:out value="${row.infoid}"/> -> qjscrecordAudit.jsp
+管理用户详情
+qjscrecordEdit.do?actiontype=view&infoid=<c:out value="${row.infoid}"/> ->qjscrecordView
+
+-----
+
+审核进度
+
+工作进度状态为未申请过的
+/qjscworkprogress/qjscworkprogressAdd.do?actiontype=add -》qjscworkprogressEdit
+工作进度状态为退回的
+/qjscworkprogress/qjscworkprogressEdit.do?actiontype=edit&infoid=${workprogressid} -》qjscworkprogressEdit
+工作进度状态为草稿的
+/qjscworkprogress/qjscworkprogressEdit.do?actiontype=edit&infoid=${workprogressid} -》qjscworkprogressEdit
+
+管理列表： /qjscworkprogress/qjscworkprogressList.do?isfront1=0&status=0status1=-1&order=desc&sort=modtime -》qjscworkprogressList
+管理审核：qjscworkprogressEdit.do?actiontype=audit&infoid=<c:out value="${row.infoid}"/> -》qjscworkprogressAudit
+管理修改：qjscworkprogressEdit.do?actiontype=edit&infoid=<c:out value="${row.infoid}"/> -》qjscworkprogressEdit
+管理详情：qjscworkprogressEdit.do?actiontype=view&infoid=<c:out value="${row.infoid}"/> -》qjscworkprogressView
+
+-----
+
+验收申请
+验收申请状态为未申请过的
+/qjscacceptapply/qjscacceptapplyMainAdd.do?actiontype=add&flowInfoid=${infoid} ->qjscacceptapplyMain
+验收申请状态为退回/草稿的
+/qjscacceptapply/qjscacceptapplyMainEdit.do?actiontype=edit&infoid=${acceptapplyid}&processinfo1id=${processinfo1id}&processinfo2id=${processinfo2id}&processinfo3id=${processinfo3id} 
+qjscacceptapplyMain
+
+管理列表：/qjscacceptapply/qjscacceptapplyList.do?isfront1=0&status=0&order=desc&sort=modtime -》 qjscacceptapplyList
+管理审核：qjscacceptapplyEdit.do?actiontype=audit&infoid=<c:out value="${row.infoid}"/> -》 qjscacceptapplyAudit
+管理修改：qjscacceptapplyEdit.do?actiontype=edit&infoid=<c:out value="${row.infoid}"/> -》qjscacceptapplyEdit
+管理详情：qjscacceptapplyEdit.do?actiontype=MainView&infoid=<c:out value="${row.infoid}"/> -》qjscacceptapplyMainView
+
+
+-----
+现场验收
+现场验收状态为未申请过的 /qjscfieldaccept/qjscfieldacceptMainAdd.do?actiontype=edit&flowInfoid=${infoid} ->qjscfieldacceptEdit
+现场验收状态为退回的  /qjscfieldaccept/qjscfieldacceptEdit.do?actiontype=edit&infoid=${fieldacceptid} ->qjscfieldacceptEdit
+
+管理列表：/qjscfieldaccept/qjscfieldacceptList.do?status=0&order=desc&sort=modtime -》qjscfieldacceptList
+管理审核 qjscfieldacceptEdit.do?actiontype=audit&infoid=<c:out value="${row.infoid}"/> -》qjscfieldacceptEdit
+管理修改 qjscfieldacceptEdit.do?actiontype=edit&infoid=<c:out value="${row.infoid}"/> -》qjscfieldacceptEdit
+管理详情 qjscfieldacceptEdit.do?actiontype=view&infoid=<c:out value="${row.infoid}"/> qjscfieldacceptView

@@ -1,0 +1,315 @@
+*{margin:0px auto;}
+div{font-family:"微软雅黑";}
+a{text-decoration:none;}
+a img{display:block; border:none;}
+ul,dl{margin:0px; padding:0px;}
+li{list-style:none;}
+.clear{clear:both;}
+
+.body{background:url(../images/bg1366-768.png) no-repeat;}
+
+@media screen and (max-width:1920px){
+	.body{background:url(../images/bg1920-1050.png) no-repeat;}
+}
+
+@media screen and (max-width:1440px){
+	.body{background:url(../images/bg1440-900.png) no-repeat;}
+}
+
+@media screen and (max-width:1366px){
+	.body{background:url(../images/bg1366-768.png) no-repeat;}
+}
+
+@media screen and (max-width:1280px){
+	.body{background:url(../images/bg1280-800.png) no-repeat;}
+}
+
+#main{width:1200px; height:auto; min-width:1200px; padding-bottom:10px;}
+
+#header{width:100%; height:auto;}
+
+#centre{width:100%; height:auto;}
+
+#footer{width:100%; height:auto;}
+
+/********************************************* top *************************************************************/
+
+.top{width:950px; height:146px;}
+
+.logo{width:281px; height:85px; float:left; margin-top:40px; margin-left:40px;}
+
+.splendidBg{width:186px; height:57px; float:right; margin-top:60px; margin-right:20px;}
+
+/********************************************* frame *************************************************************/
+
+.frame{width:950px; height:500px; background:url(../images/frame.png) no-repeat;}
+
+.frameLeft{width:741px; height:500px; float:left;}
+
+.frameRight{width:209px; height:500px; float:left;}
+
+/********************************************* 志愿ATM *************************************************************/
+
+.show-div{width:678px; height:409px; margin-top:44px; margin-left:44px;}
+
+/********************************************* serve *************************************************************/
+
+.serve-div{width:678px; height:409px; background:#FFF;}
+
+/********************************************* data *************************************************************/
+
+.data{width:auto; height:30px; line-height:30px; font-size:12px;}
+
+.data li{float:left; width:158px; height:35px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; margin-left:10px;}
+
+.data li font{color:#090;}
+
+/********************************************* finish *************************************************************/
+
+.finish{width:650px; height:auto; border:1px solid #999; margin-bottom:20px;}
+
+.finish_title{height:35px; width:auto; line-height:35px; border-bottom:2px solid #29a6d2;}
+
+.finish_title b{color:#29a6d2; margin-left:20px;}
+
+.finish_title a{color:#F90; margin-left:500px;}
+
+.finish_title a:hover{text-decoration:underline;}
+
+.loopPic{width:650px; height:120px; overflow:hidden; font-size:12px;} 
+ 
+.loopPic li{display:inline; width:295px; height:110px; float:left; margin-left:25px;margin-top: 10px;}  
+
+.matter_bg{float:left; width:90px; height:90px; border:1px solid #CCC;}
+
+.finish_details{float:left; width:182px; height:102px; margin-left:10px;}
+
+.finish_details h4{white-space:nowrap; text-overflow:ellipsis; overflow:hidden; color:#F93;}
+
+.finish_details h4 a{color:#F93; font-size:12px;}
+
+.finish_details h4 a:hover{text-decoration:underline;}
+
+.content{width:192px; line-height:18px;}
+
+.content .k{height:18px; width:192px;}
+
+.proceed_div{width:60px; height:8px; line-height:8px; float:left; border:1px solid #689936; margin-right:2px; margin-top:5px; +margin-top:0px;}
+
+.proceed_bg{height:8px; background:#689936; float:left;}
+
+.foncolor{color:#F00;}
+
+.finishbutt{width:90px; height:31px; margin:0px;}
+
+.begin{width:650px; height:auto; border:1px solid #999; margin-bottom:20px;}
+
+.begin_title{height:35px; line-height:35px; border-bottom:2px solid #29a6d2;}
+
+.begin_title b{color:#29a6d2; margin-left:20px;}
+
+.begin_title a{color:#F90; margin-left:518px;}
+
+.begin_title a:hover{text-decoration:underline;}
+
+.begin_details{float:left; margin-left:10px;}
+
+.begin_details h4 a{color:#F93;}
+
+.beginbutt{width:90px; height:31px; margin:0px;}
+
+.recommend{width:650px; height:auto; border:1px solid #999; margin-bottom:20px;}
+
+.recommend_title{height:35px; line-height:35px; border-bottom:2px solid #29a6d2;}
+
+.recommend_title b{color:#29a6d2; margin-left:20px;}
+
+.recommend_title a{color:#F90; margin-left:516px;}
+
+.recommend_title a:hover{text-decoration:underline;}
+
+.recommend_details{float:left; margin-left:10px;}
+
+.recommend_details h4 a{color:#F93;}
+
+.recommendbutt{width:90px; height:31px; margin:0px;}
+
+/********************************************* data *************************************************************/
+
+/********************************************* data *************************************************************/
+
+/********************************************* box *************************************************************/
+
+.box-div{width:170px; height:auto;}
+
+.ATM-bg{width:170px; height:73px; text-align:center; margin-top:30px;}
+
+/********************************************* nav *************************************************************/
+
+.nav{width:170px; height:auto; margin-top:20px; margin-bottom:90px;}
+
+.nav li{float:left; width:52px; height:57px;}
+
+.nav li a img{border:0px; width:52px; height:57px;}
+
+/********************************************* inquire *************************************************************/
+
+.inquire-div{width:auto; height:auto; text-align:center; margin-top:38px; margin-bottom:38px;}
+
+.inquireBG{width:170px; height:30px; background:url(../images/inquire.png) no-repeat;}
+
+.inquireBG .textinqu{width:122px; height:21px; line-height:21px; font-size:16px; float:left; border:0px; margin-left:10px; margin-top:3px;}
+
+.inquireBG .subinqu{width:30px; height:29px; float:left; background:url(../images/glassBg.png) no-repeat 10px 7px; cursor:pointer; border:0px;}
+
+/********************************************* operation *************************************************************/
+
+.operation-div{width:170px; height:auto;}
+
+.operation-div ul{width:170px; height:50px; padding-left:16px; margin-bottom:20px;}
+
+.operation-div ul li{width:52px; height:52px; float:left; margin-right:25px;}
+
+.operation-div ul li a{display:inline-block; width:52px; height:52px;}
+
+.operation-div ul li a img{border:0px; width:52px; height:52px;}
+
+
+/********************************************* 项目页 *************************************************************/
+/********************************************* item *************************************************************/
+
+.item-div{width:678px; height:409px; background:#FFF; overflow:hidden;}
+
+.result-div{width:648px;; height:40px; font-size:15px; border-bottom:3px solid #CCC;}
+
+.result-div em{display:inline-block; width:80px; height:30px; line-height:30px; background:url(../images/tobg.png) no-repeat; color:#FFF; text-align:center; margin-right:310px; margin-left:30px;}
+
+.result-div a{margin-right:30px;}
+
+.itemList{width:678px;; height:auto;}
+
+.itemBox{width:648px; height:148px; border-bottom:3px solid #CCC; margin-top:10px;}
+
+.itemImg{float:left; width:191px; height:138px;}
+
+.itemImg img{border:0px; width:161px; height:138px;}
+
+.recordTxt{float:left; width:435px; height:auto; font-size:12px; margin-left:15px;}
+
+.recordTxt li{width:435px; line-height:18px;}
+
+.reco_1{font-weight:bold; color:#F90; overflow:hidden;}
+
+.reco_1 a{color:#F90;}
+
+.reco_2{height:34px; overflow:hidden; text-overflow:ellipsis;} 
+
+.co_1{color:#0C0;}
+
+.co_2{color:#F00;}
+
+/********************************************* 项目正文 *************************************************************/
+/********************************************* details *************************************************************/
+
+.details-div{width:678px; height:409px; background:#FFF; overflow:hidden;}
+
+/********************************************* details_title *************************************************************/
+
+.details_title{width:auto; height:auto; font-size:16px; margin-top:10px;}
+
+.detImgL{float:left; width:230px; height:auto; margin-left:50px;}
+
+.dettxtR{float:left; width:auto; height:auto;}
+
+.detImgL p{width:auto; height:200px;}
+
+.detImgL p img{border:0px; width:230px; height:200px;}
+
+.detitem{width:340px; height:auto; margin-left:20px;}
+
+.titlePart{width:auto; height:25px; overflow:hidden;}
+
+.detitem p{line-height:25px;}
+
+.detitem p b{color:#F90;}
+
+.schedule_div{width:auto; height:21px; margin:0px; padding:0px;}
+
+.plan{width:227px; height:12px; float:left; border:1px solid #689936;}
+
+.progress{height:12px; vertical-align:middle; background:#689936; margin:0px; padding:0px;}
+
+.barTxt{font-size:12px; color:#F00; float:left; margin-left:5px;}
+
+.donationButt{width:90px; height:31px; display:inline-block; background:url(../images/beginbutt.png) no-repeat;}
+
+.cheerButt{width:90px; height:31px; display:inline-block; background:url(../images/refuelbutt.png) no-repeat;}
+
+.finishButt{width:90px; height:31px; display:inline-block; background:url(../images/finishbutt.png) no-repeat;}
+
+/********************************************* infoItem *************************************************************/
+
+.infoItem-div{padding:0px 20px; font-size:14px; line-height:25px; margin-top:10px;}
+
+.donation{width:635px; margin-top:20px; padding-top:15px; border-top:1px dashed #CCC;}
+
+.titleBox{height:35px; line-height:35px; font-weight:bold; padding-left:25px; border-bottom:1px solid #CCC; margin-bottom:10px;}
+
+.donationInfo{line-height:28px; padding:10px 0px; font-size:13px;}
+
+.radio_div{width:auto; height:auto; margin-left:80px;}
+
+.phonean{margin-left:67px;}
+
+.nameau{margin-left:93px;}
+
+.identityau{margin-left:55px;}
+
+.emailau{margin-left:80px;}
+
+.money_div{margin-left:67px;}
+
+.nextstep{width:90px; height:31px; display:inline-block; background:url(../images/submitbutt.png) no-repeat; margin-left:40px;}
+
+/********************************************* 项目信息列表 *************************************************************/
+/********************************************* benefit *************************************************************/
+
+.benefit-div{width:678px; height:409px; background:#FFF; overflow:hidden;}
+
+.mainBox{width:668px; height:auto; float:left;}
+
+.mainBox th{font-size:14px;}
+
+.mainBox td{border-bottom:1px dashed #CCC; font-size:14px;}
+
+/********************************************* 捐助查询 *************************************************************/
+/********************************************* benefit *************************************************************/
+
+.select-div{width:678px; height:409px; background:#FFF; overflow:hidden;}
+
+.selectBox{width:668px; height:auto; float:left;}
+
+.inquireBox{width:auto; height:auto;}
+
+.phoneSele{width:650px; height:40px; text-align:center; margin-top:20px;}
+
+.phoneSele label{margin-left:10px; margin-right:5px;}
+
+.phoneSele .selectTxt{width:100px;}
+
+.donationSelectList{margin-top:10px; width:650px;}
+
+.donationSelectList table{width:100%; border-left:1px solid #CCC; border-top:1px solid #CCC; font-size:14px;}
+
+.donationSelectList table tr td{border-right:1px solid #CCC; border-bottom:1px solid #CCC; text-align:center;}
+
+
+/********************************************* bottom *************************************************************/
+
+.bottom{width:860px; height:80px;}
+
+
+
+
+
+

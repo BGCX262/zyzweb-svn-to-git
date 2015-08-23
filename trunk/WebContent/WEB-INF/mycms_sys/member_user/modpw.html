@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>会员注册</title>
+<#include "/mycms_sys/head.html"/>
+<script type="text/javascript">
+$(function() {
+	$("#cmForm").validate();
+});
+</script>
+</head>
+<body>
+<div class="body-box">
+<div class="rhead">
+	<div class="clear"></div>
+</div>
+<@p.form id="cmForm" action="o_savepw.do" labelWidth="12">
+<@p.text width="50" colspan="2" label="用户名"  required="true" name="username"/><@p.tr/>
+
+<@p.password width="50" colspan="2" label="原密码"  id="oldPassword" name="oldPassword" maxlength="100" class="required" required="true" /><@p.tr/>
+<@p.password width="50" colspan="2" label="新密码"  id="newPassword" name="newPassword" maxlength="100" class="required" required="true" /><@p.tr/>
+<@p.password width="50" colspan="2" label="确认新密码" class="required" required="true" equalTo="#newPassword" /><@p.tr/>
+
+<@p.td colspan="2">
+	<@p.hidden name="id" />
+	<@p.submit code="global.submit"/> &nbsp; <@p.reset code="global.reset"/>
+</@p.td>
+</@p.form>
+</div>
+</body>
+</html>

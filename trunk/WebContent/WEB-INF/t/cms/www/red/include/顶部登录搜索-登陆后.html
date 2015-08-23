@@ -1,0 +1,48 @@
+<script>
+function search1(){
+ 
+}
+</script>
+<div id="header">
+	<div id="top">
+        <span id="login">
+        <#if userSessionInfo?exists>
+                <span id="login">
+ 		<strong>${userSessionInfo.truename}</strong>  欢迎您光临！ 		<a target="_self" href="/qjscuser/render.do">会员中心</a>  <a target="_self" href="/quit.jsp">退出登录</a>
+           </span>
+          <#else>
+            <form onsubmit="return checkform();" id=form1 action="http://qq.gzcpc.org/member/login.php" method="post" name="loginform">  
+            会员登录 
+            <input type="text" value="" id="username" class="input" name="username" />
+            <input type="password" value="" class="input"   name="passwd" />
+            验证码
+            <input type="text" value="" class="input w40"  id="checkCode" name="checkCode" />
+            <IMG height="20" align="absmiddle" onclick="this.src='/CaptchaImg?time='+Math.random()"  src="/CaptchaImg?time="+Math.random() />
+            <input type="button" onclick="userLogin()" value="登录" id="dosubmit" class="btn" name="dosubmit" />
+            <a href="/qjscuser/reg_shengming.do">注册</a>
+            <a href="#">忘记密码</a>
+            </form>
+            </#if>
+           </span>
+            <span id="search">
+            <form name="searchform" target="_self" method="get" action="/search.jspx"  onsubmit="if(this.q.value==''){alert('请输入查询关键字');return false;}">            
+                <input type="text" class="input w135" name="q"/>  
+                    <select id="channelId" name="channelId">
+                        <option value="1">动态信息</option>  
+                        <option value="6">通知公告</option>  
+                        <option value="9">政策法规</option>  
+                        <option value="12">企业风采</option>  
+                        <option value="15">供求信息</option>  
+                        <option value="19">动态信息</option>  
+                        <option value="87">技术与产品</option>  
+                        </select>
+                <input type="submit" value="搜索" onclick="" class="btn" />
+              </form>
+            </span>
+        </div>
+    <div id="flash">
+        <object type="application/x-shockwave-flash" data="/${res}/flash/flash.swf" width="960" height="235" id="banner">
+        <param name="movie" value="/${res}/flash/flash.swf" />
+    </object>
+    </div>
+</div>

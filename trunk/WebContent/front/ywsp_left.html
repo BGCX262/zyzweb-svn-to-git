@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>mycms-left</title>
+<link href="/res/mycms/css/admin.css" rel="stylesheet" type="text/css"/>
+<link href="/res/common/css/theme.css" rel="stylesheet" type="text/css"/>
+<link href="/res/common/css/jquery.validate.css" rel="stylesheet" type="text/css"/>
+<link href="/res/common/css/jquery.treeview.css" rel="stylesheet" type="text/css"/>
+<link href="/res/common/css/jquery.ui.css" rel="stylesheet" type="text/css"/>
+
+<script src="/thirdparty/fckeditor/fckeditor.js" type="text/javascript"></script>
+<script src="/thirdparty/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script src="/res/common/js/jquery.js" type="text/javascript"></script>
+<script src="/res/common/js/jquery.ext.js" type="text/javascript"></script>
+<script src="/res/common/js/pony.js" type="text/javascript"></script>
+<script src="/res/mycms/js/admin.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(function(){
+	Cms.lmenu('lmenu');
+});
+</script>
+</head>
+<body class="lbody" bgcolor="#F7FFF7">
+<ul id="lmenu">
+<li><a href="/qjscuser/qjscuserList.do?usertype=1&usertype1=4&isfront1=0&status=0&sort=regtime&order=desc" target="rightFrame">企业用户管理</a></li>
+<li><a href="/qjscuser/qjscuserList.do?usertype=2&usertype1=3&isfront1=0&status=0&sort=regtime&order=desc" target="rightFrame">一般用户管理</a></li>
+<li><a href="/qjscrecord/qjscrecordList.do?isfront1=0&status=0&order=desc&sort=modtime" target="rightFrame">备案管理</a></li>
+<li><a href="/qjscworkprogress/qjscworkprogressList.do?isfront1=0&status=0&status1=-1&order=desc&sort=modtime" target="rightFrame">审核工作进度管理</a></li>
+<li><a href="/qjscacceptapply/qjscacceptapplyList.do?isfront1=0&status=0&order=desc&sort=modtime" target="rightFrame">清洁生产审核验收管理</a></li>
+<li><a href="/qjscfieldaccept/qjscfieldacceptList.do?isfront1=0&status=0&order=desc&sort=modtime" target="rightFrame">现场验收管理</a></li>
+<li><a href="/qjscapplyflowinfo/qjscapplyflowinfoList.do?isfront1=0&status=0&order=desc&sort=modtime" target="rightFrame">验收材料管理</a></li>
+<li><a href="/qjscchangecertapply/qjscchangecertapplyList.do?isfront1=0&status=0&order=desc&sort=modtime" target="rightFrame">企业换证管理</a></li>
+<li><a href="/qjscsupply/qjscsupplyList.do?isfront1=0&status=0&order=desc&sort=modtime" target="rightFrame">供求信息管理</a></li>
+<li><a href="/qjscservregister/qjscservregisterList.do?isfront1=0&status=0&order=desc&sort=modtime" target="rightFrame">清洁生产技术服务单位登记表</a></li>
+<li><a href="/qjscservsurvey/qjscservsurveyList.do?isfront1=0&status=0&order=desc&sort=modtime" target="rightFrame">服务单位满意度调查表</a></li>
+<li><a href="/qjscservperformance/qjscservperformanceList.do?isfront1=0&status=0&order=desc&sort=modtime" target="rightFrame">服务单位年度工作业绩表</a></li>
+<li><a href="/qjscservchangereg/qjscservchangeregList.do?isfront1=0&status=0&order=desc&sort=modtime" target="rightFrame">技术服务单位信息变更登记表</a></li>
+<li><a href="/qjscprojadd/qjscprojaddList.do?isfront1=0&status=0&order=desc&sort=modtime" target="rightFrame">清洁生产入库项目</a></li>
+<li><a href="/qjscprojmoneyapply/qjscprojmoneyapplyList.do?isfront1=0&status=0&order=desc&sort=modtime" target="rightFrame">节能专项资金申请</a></li>
+<li><a href="/qjscprojregister/qjscprojregisterList.do?isfront1=0&status=0&order=desc&sort=modtime" target="rightFrame">节能项目登记</a></li>
+<li><a href="/qjscprojapplysummary/qjscprojapplysummaryList.do?isfront1=0&status=0&order=desc&sort=modtime" target="rightFrame">节能专项资金申报项目汇总</a></li>
+<li><a href="/qjscexpert/qjscexpertList.do?isfront1=0&order=desc&sort=modtime" target="rightFrame">专家信息申报</a></li>
+
+<!-- 实地评估审批 -->
+<li style="background-image: url('../res/mycms/img/admin/circle_sdpg.gif')"><a href="/qjscsdpgrecord/qjscsdpgrecordList.do?isfront1=0&status=0&order=desc&sort=audittime" target="rightFrame">实地评估申请管理</a></li>
+</ul>
+</body>
+</html>

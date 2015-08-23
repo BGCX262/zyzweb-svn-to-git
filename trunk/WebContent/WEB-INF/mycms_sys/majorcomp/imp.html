@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title></title>
+<#include "/mycms_sys/head.html"/>
+<script type="text/javascript">
+$(function() {
+	$("#jvForm").validate();	
+});
+</script>
+</head>
+<body>
+<div class="body-box">
+<div class="rhead">
+	<div class="rpos"><@s.m "global.position"/>: 商户管理 - 数据导入</div>
+	<form class="ropt">
+		<input type="submit" value="<@s.m "global.backToList"/>" onclick="this.form.action='o_impSave.do';"/>
+	</form>
+	<div class="clear"></div>
+</div>
+<@p.form id="jvForm" action="o_impSave.do" labelWidth="12" enctype="multipart/form-data">
+
+<@p.td width="50" colspan="1" label="选择要导入的xls文件" >
+<span id="ufc2"><input type="file" id="uploadFile" name="uploadFile" size="20" style="width:415px"/></span>
+</@p.td>
+<@p.td colspan="1" ><@p.submit code="global.submit"/> &nbsp; <@p.reset code="global.reset"/></@p.td><@p.tr/>
+</@p.form>
+</div>
+</body>
+</html>

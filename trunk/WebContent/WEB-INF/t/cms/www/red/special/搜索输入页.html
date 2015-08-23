@@ -1,0 +1,63 @@
+[#include "../include/页头.html"/]
+
+<body>
+<!-- 顶部_Start -->
+[#include "../include/顶部登录搜索.html"/]
+</div>
+<!-- 顶部_End -->
+
+<!-- 导航菜单_Start --> 
+[#include "../include/顶部导航菜单.html"/]
+<!-- 导航菜单_End -->
+
+
+ 
+<!-- 文章内容_Start -->
+<div class="layout">
+         <!-- 通知公告_Start -->
+ [#include "../include/通知公告.html"/]
+        <!-- 通知公告_End --> 
+      <div class="right">
+    	<!-- 当前位置_Start -->
+		<!-- 当前位置_End -->
+        <div class="box" id="article-box">    	
+   		 [#if q??]
+		 
+		 [@cms_lucene_page q=q channelId=channelId descLen='100' append='...' count='10']
+		    <div  >
+				您搜索的<span class="red">“${q!}”</span>， 共有 <span class="red">${tag_list?size} 条</span> 查询结果
+			</div>
+			<hr>
+			[#list tag_list as s]
+		     <dl >
+				<dt><span>[<a href="${s.ctgUrl}" target="_blank">${s.ctgName}</a>]</span>  <a href="${s.url}" title="${s.title}" target="_blank">${s.title}</a></dt>
+				<dd class="zy">[@text_cut s=s.description len=descLen append=append/]</dd>
+				<dd>浏览次数：${s.views}次 &nbsp;&nbsp; 发布时间： ${s.releaseDate} </dd>
+			 </dl>
+			 <hr>
+			 [/#list]
+			 <div class="pagination">[@cms_pagination sysPage='1'/]</div>
+		    [/@cms_lucene_page]	  
+         [/#if]		
+		</div>
+        
+    </div>
+    <div class="clear"></div>
+    
+ 
+</div>
+<!-- 文章内容_End -->
+ 
+ 
+<!-- 底部_Start -->
+[#include "../include/底部网站信息.html"/]
+<!-- 底部_End -->
+<script type="text/javascript"> 
+<!--
+function doZoom(size){
+  document.getElementById('article-box').style.fontSize=size+'px';
+}
+//-->
+</script>
+</body>
+</html>

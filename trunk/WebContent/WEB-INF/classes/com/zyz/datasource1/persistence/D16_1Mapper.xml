@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zyz.datasource1.persistence.D16_1Mapper">
+
+  <insert id="insertD16" parameterType="D16" >
+  	INSERT INTO D16 (D0100,D1600,D1601,D1601A,D1624,D1631,D1634,D1660,D1661,D1664,D1671,D1674,D1677,D1681,D1684,D1687,D1689,D1691,D1692,D1694,D1697,D1699,D16A1,D16A2,D16A3,D16A4,D16B1,D16B2,D16B3,D16B4,D16B5,D16B6,D16B7,SORTID) VALUES (#{D0100,jdbcType=VARCHAR},#{D1600,jdbcType=VARCHAR},#{D1601,jdbcType=VARCHAR},#{D1601A,jdbcType=VARCHAR},#{D1624,jdbcType=VARCHAR},#{D1631,jdbcType=VARCHAR},#{D1634,jdbcType=VARCHAR},#{D1660,jdbcType=VARCHAR},#{D1661,jdbcType=VARCHAR},#{D1664,jdbcType=VARCHAR},#{D1671,jdbcType=VARCHAR},#{D1674,jdbcType=VARCHAR},#{D1677,jdbcType=VARCHAR},#{D1681,jdbcType=VARCHAR},#{D1684,jdbcType=VARCHAR},#{D1687,jdbcType=VARCHAR},#{D1689,jdbcType=VARCHAR},#{D1691,jdbcType=NUMERIC},#{D1692,jdbcType=NUMERIC},#{D1694,jdbcType=NUMERIC},#{D1697,jdbcType=NUMERIC},#{D1699,jdbcType=VARCHAR},#{D16A1,jdbcType=VARCHAR},#{D16A2,jdbcType=VARCHAR},#{D16A3,jdbcType=VARCHAR},#{D16A4,jdbcType=TIMESTAMP},#{D16B1,jdbcType=VARCHAR},#{D16B2,jdbcType=VARCHAR},#{D16B3,jdbcType=VARCHAR},#{D16B4,jdbcType=NUMERIC},#{D16B5,jdbcType=VARCHAR},#{D16B6,jdbcType=VARCHAR},#{D16B7,jdbcType=VARCHAR},#{SORTID,jdbcType=NUMERIC})
+  </insert>
+
+
+  <delete id="deleteD16"  parameterType="map">
+  	DELETE FROM D16 WHERE  D1601=#{D1601} 
+  </delete>
+
+
+  <update id="updateD16"  parameterType="D16"> 
+	UPDATE D16
+	<set>
+		<if test="D0100 != null">D0100=#{D0100},</if>
+		<if test="D1600 != null">D1600=#{D1600},</if>
+		<if test="D1601 != null">D1601=#{D1601},</if>
+		<if test="D1601A != null">D1601A=#{D1601A},</if>
+		<if test="D1624 != null">D1624=#{D1624},</if>
+		<if test="D1631 != null">D1631=#{D1631},</if>
+		<if test="D1634 != null">D1634=#{D1634},</if>
+		<if test="D1660 != null">D1660=#{D1660},</if>
+		<if test="D1661 != null">D1661=#{D1661},</if>
+		<if test="D1664 != null">D1664=#{D1664},</if>
+		<if test="D1671 != null">D1671=#{D1671},</if>
+		<if test="D1674 != null">D1674=#{D1674},</if>
+		<if test="D1677 != null">D1677=#{D1677},</if>
+		<if test="D1681 != null">D1681=#{D1681},</if>
+		<if test="D1684 != null">D1684=#{D1684},</if>
+		<if test="D1687 != null">D1687=#{D1687},</if>
+		<if test="D1689 != null">D1689=#{D1689},</if>
+		<if test="D1691 != null">D1691=#{D1691},</if>
+		<if test="D1692 != null">D1692=#{D1692},</if>
+		<if test="D1694 != null">D1694=#{D1694},</if>
+		<if test="D1697 != null">D1697=#{D1697},</if>
+		<if test="D1699 != null">D1699=#{D1699},</if>
+		<if test="D16A1 != null">D16A1=#{D16A1},</if>
+		<if test="D16A2 != null">D16A2=#{D16A2},</if>
+		<if test="D16A3 != null">D16A3=#{D16A3},</if>
+		<if test="D16A4 != null">D16A4=#{D16A4},</if>
+		<if test="D16B1 != null">D16B1=#{D16B1},</if>
+		<if test="D16B2 != null">D16B2=#{D16B2},</if>
+		<if test="D16B3 != null">D16B3=#{D16B3},</if>
+		<if test="D16B4 != null">D16B4=#{D16B4},</if>
+		<if test="D16B5 != null">D16B5=#{D16B5},</if>
+		<if test="D16B6 != null">D16B6=#{D16B6},</if>
+		<if test="D16B7 != null">D16B7=#{D16B7},</if>
+		<if test="SORTID != null">SORTID=#{SORTID}</if>
+	</set>
+	WHERE  D1601=#{D1601}   
+  </update>
+ 
+    <select id="getD16" parameterType="map" resultType="D16">
+    SELECT
+     D0100,
+     D1600,
+     D1601,
+     D1601A,
+     D1624,
+     D1631,
+     D1634,
+     D1660,
+     D1661,
+     D1664,
+     D1671,
+     D1674,
+     D1677,
+     D1681,
+     D1684,
+     D1687,
+     D1689,
+     D1691,
+     D1692,
+     D1694,
+     D1697,
+     D1699,
+     D16A1,
+     D16A2,
+     D16A3,
+     D16A4,
+     D16B1,
+     D16B2,
+     D16B3,
+     D16B4,
+     D16B5,
+     D16B6,
+     D16B7,
+     SORTID      
+    FROM D16
+    WHERE  D1601 = #{D1601}   
+    </select>
+    
+    
+    <select id="getD16List" parameterType="map" resultType="D16">
+      <if test="endRows != null ">
+    select * from(select a.*,row_number() over (order by D1600 desc) rownum from( 
+    </if>
+    SELECT
+     D0100,
+     D1600,
+     D1601,
+     D1601A,
+     D1624,
+     D1631,
+     D1634,
+     D1660,
+     D1661,
+     D1664,
+     D1671,
+     D1674,
+     D1677,
+     D1681,
+     D1684,
+     D1687,
+     D1689,
+     D1691,
+     D1692,
+     D1694,
+     D1697,
+     D1699,
+     D16A1,
+     D16A2,
+     D16A3,
+     D16A4,
+     D16B1,
+     D16B2,
+     D16B3,
+     D16B4,
+     D16B5,
+     D16B6,
+     D16B7,
+     SORTID      
+    FROM D16
+     <where>
+    	<if test="D0100 != null and D0100 != ''">
+    		D0100 = #{D0100}
+    	</if>
+    	<if test="D1600 != null and D1600 != ''">
+    		AND D1600 = #{D1600}
+    	</if>     
+    	<if test="D1601 != null and D1601 != ''">
+    		AND D1601 = #{D1601}
+    	</if>     
+    	<if test="D1601A != null and D1601A != ''">
+    		AND D1601A = #{D1601A}
+    	</if>     
+    	<if test="D1624 != null and D1624 != ''">
+    		AND D1624 = #{D1624}
+    	</if>     
+    	<if test="D1631 != null and D1631 != ''">
+    		AND D1631 = #{D1631}
+    	</if>     
+    	<if test="D1634 != null and D1634 != ''">
+    		AND D1634 = #{D1634}
+    	</if>     
+    	<if test="D1660 != null and D1660 != ''">
+    		AND D1660 = #{D1660}
+    	</if>     
+    	<if test="D1661 != null and D1661 != ''">
+    		AND D1661 = #{D1661}
+    	</if>     
+    	<if test="D1664 != null and D1664 != ''">
+    		AND D1664 = #{D1664}
+    	</if>     
+    	<if test="D1671 != null and D1671 != ''">
+    		AND D1671 = #{D1671}
+    	</if>     
+    	<if test="D1674 != null and D1674 != ''">
+    		AND D1674 = #{D1674}
+    	</if>     
+    	<if test="D1677 != null and D1677 != ''">
+    		AND D1677 = #{D1677}
+    	</if>     
+    	<if test="D1681 != null and D1681 != ''">
+    		AND D1681 = #{D1681}
+    	</if>     
+    	<if test="D1684 != null and D1684 != ''">
+    		AND D1684 = #{D1684}
+    	</if>     
+    	<if test="D1687 != null and D1687 != ''">
+    		AND D1687 = #{D1687}
+    	</if>     
+    	<if test="D1689 != null and D1689 != ''">
+    		AND D1689 = #{D1689}
+    	</if>     
+    	<if test="D1691 != null and D1691 != ''">
+    		AND D1691 = #{D1691}
+    	</if>     
+    	<if test="D1692 != null and D1692 != ''">
+    		AND D1692 = #{D1692}
+    	</if>     
+    	<if test="D1694 != null and D1694 != ''">
+    		AND D1694 = #{D1694}
+    	</if>     
+    	<if test="D1697 != null and D1697 != ''">
+    		AND D1697 = #{D1697}
+    	</if>     
+    	<if test="D1699 != null and D1699 != ''">
+    		AND D1699 = #{D1699}
+    	</if>     
+    	<if test="D16A1 != null and D16A1 != ''">
+    		AND D16A1 = #{D16A1}
+    	</if>     
+    	<if test="D16A2 != null and D16A2 != ''">
+    		AND D16A2 = #{D16A2}
+    	</if>     
+    	<if test="D16A3 != null and D16A3 != ''">
+    		AND D16A3 = #{D16A3}
+    	</if>     
+    	<if test="D16A4 != null and D16A4 != ''">
+    		AND D16A4 = #{D16A4}
+    	</if>     
+    	<if test="D16B1 != null and D16B1 != ''">
+    		AND D16B1 = #{D16B1}
+    	</if>     
+    	<if test="D16B2 != null and D16B2 != ''">
+    		AND D16B2 = #{D16B2}
+    	</if>     
+    	<if test="D16B3 != null and D16B3 != ''">
+    		AND D16B3 = #{D16B3}
+    	</if>     
+    	<if test="D16B4 != null and D16B4 != ''">
+    		AND D16B4 = #{D16B4}
+    	</if>     
+    	<if test="D16B5 != null and D16B5 != ''">
+    		AND D16B5 = #{D16B5}
+    	</if>     
+    	<if test="D16B6 != null and D16B6 != ''">
+    		AND D16B6 = #{D16B6}
+    	</if>     
+    	<if test="D16B7 != null and D16B7 != ''">
+    		AND D16B7 = #{D16B7}
+    	</if>     
+    	<if test="SORTID != null and SORTID != ''">
+    		AND SORTID = #{SORTID}
+    	</if>     
+     </where>
+      <if test="endRows != null ">
+       	) a )b where rownum&gt;  ${startRows} and rownum &lt;= ${endRows}   
+      </if>    
+ <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>     
+    </select>
+  
+    <select id="getTotalRows"  parameterType="map" resultType="int">
+    SELECT count(*) 
+    FROM D16
+     <where>
+    	<if test="D0100 != null and D0100 != ''">
+    		D0100 = #{D0100}
+    	</if>
+    	<if test="D1600 != null and D1600 != ''">
+    		AND D1600 = #{D1600}
+    	</if>     
+    	<if test="D1601 != null and D1601 != ''">
+    		AND D1601 = #{D1601}
+    	</if>     
+    	<if test="D1601A != null and D1601A != ''">
+    		AND D1601A = #{D1601A}
+    	</if>     
+    	<if test="D1624 != null and D1624 != ''">
+    		AND D1624 = #{D1624}
+    	</if>     
+    	<if test="D1631 != null and D1631 != ''">
+    		AND D1631 = #{D1631}
+    	</if>     
+    	<if test="D1634 != null and D1634 != ''">
+    		AND D1634 = #{D1634}
+    	</if>     
+    	<if test="D1660 != null and D1660 != ''">
+    		AND D1660 = #{D1660}
+    	</if>     
+    	<if test="D1661 != null and D1661 != ''">
+    		AND D1661 = #{D1661}
+    	</if>     
+    	<if test="D1664 != null and D1664 != ''">
+    		AND D1664 = #{D1664}
+    	</if>     
+    	<if test="D1671 != null and D1671 != ''">
+    		AND D1671 = #{D1671}
+    	</if>     
+    	<if test="D1674 != null and D1674 != ''">
+    		AND D1674 = #{D1674}
+    	</if>     
+    	<if test="D1677 != null and D1677 != ''">
+    		AND D1677 = #{D1677}
+    	</if>     
+    	<if test="D1681 != null and D1681 != ''">
+    		AND D1681 = #{D1681}
+    	</if>     
+    	<if test="D1684 != null and D1684 != ''">
+    		AND D1684 = #{D1684}
+    	</if>     
+    	<if test="D1687 != null and D1687 != ''">
+    		AND D1687 = #{D1687}
+    	</if>     
+    	<if test="D1689 != null and D1689 != ''">
+    		AND D1689 = #{D1689}
+    	</if>     
+    	<if test="D1691 != null and D1691 != ''">
+    		AND D1691 = #{D1691}
+    	</if>     
+    	<if test="D1692 != null and D1692 != ''">
+    		AND D1692 = #{D1692}
+    	</if>     
+    	<if test="D1694 != null and D1694 != ''">
+    		AND D1694 = #{D1694}
+    	</if>     
+    	<if test="D1697 != null and D1697 != ''">
+    		AND D1697 = #{D1697}
+    	</if>     
+    	<if test="D1699 != null and D1699 != ''">
+    		AND D1699 = #{D1699}
+    	</if>     
+    	<if test="D16A1 != null and D16A1 != ''">
+    		AND D16A1 = #{D16A1}
+    	</if>     
+    	<if test="D16A2 != null and D16A2 != ''">
+    		AND D16A2 = #{D16A2}
+    	</if>     
+    	<if test="D16A3 != null and D16A3 != ''">
+    		AND D16A3 = #{D16A3}
+    	</if>     
+    	<if test="D16A4 != null and D16A4 != ''">
+    		AND D16A4 = #{D16A4}
+    	</if>     
+    	<if test="D16B1 != null and D16B1 != ''">
+    		AND D16B1 = #{D16B1}
+    	</if>     
+    	<if test="D16B2 != null and D16B2 != ''">
+    		AND D16B2 = #{D16B2}
+    	</if>     
+    	<if test="D16B3 != null and D16B3 != ''">
+    		AND D16B3 = #{D16B3}
+    	</if>     
+    	<if test="D16B4 != null and D16B4 != ''">
+    		AND D16B4 = #{D16B4}
+    	</if>     
+    	<if test="D16B5 != null and D16B5 != ''">
+    		AND D16B5 = #{D16B5}
+    	</if>     
+    	<if test="D16B6 != null and D16B6 != ''">
+    		AND D16B6 = #{D16B6}
+    	</if>     
+    	<if test="D16B7 != null and D16B7 != ''">
+    		AND D16B7 = #{D16B7}
+    	</if>     
+    	<if test="SORTID != null and SORTID != ''">
+    		AND SORTID = #{SORTID}
+    	</if>     
+     </where>
+    </select>
+
+</mapper>

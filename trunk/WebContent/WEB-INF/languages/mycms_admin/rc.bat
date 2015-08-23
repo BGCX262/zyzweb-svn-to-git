@@ -1,0 +1,2 @@
+C:\Program Files\Java\jdk1.5.0_01\bin\native2ascii.exe -reverse E:\DTZ\dcdbproject\clwweb\WebContent\WEB-INF\languages\mycms_admin\messages_zh_CN1.properties
+E:\DTZ\dcdbproject\clwweb\WebContent\WEB-INF\languages\mycms_admin\messages_zh_CN.properties

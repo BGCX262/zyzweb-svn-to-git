@@ -1,0 +1,29 @@
+[#--
+文字列表
+
+cssClass：最外层DIV的class样式；默认：'c1-body'。
+cssStyle: 最外层DIV的style样式；默认：空。
+dateClass: 日期的class样式；默认：空。
+ctgClass: 类别的class样式；默认：空。
+--]
+[#if !datePosition?? || datePosition==''][#assign datePosition='2'/][/#if]
+[#if !bottomLine?? || bottomLine==''][#assign bottomLine='0'/][/#if]
+[#if !ctgForm?? || ctgForm==''][#assign ctgForm='0'/][/#if]
+[#if !showTitleStyle?? || showTitleStyle==''][#assign showTitleStyle='1'/][/#if]
+[#if !useShortTitle?? || useShortTitle==''][#assign useShortTitle='1'/][/#if]
+[#if !target?? || target=''][#assign target='1'/][/#if]
+
+[#if tag_list?size gt 0 || !emptyMsg??]
+[#list tag_list as ctt]
+ <a href="#">广州通过国家环保模范城市复核验收</a><br/>
+ [/#list]
+[#else]
+[/#if]
+
+[#assign datePosition=''/]
+[#assign bottomLine=''/]
+[#assign ctgForm=''/]
+[#assign showTitleStyle=''/]
+[#assign useShortTitle=''/]
+[#assign target=''/]
+

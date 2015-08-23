@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zyz.datasource1.persistence.G00_1Mapper">
+
+  <insert id="insertG00" parameterType="G00" >
+  	INSERT INTO G00 (A0100,G0000,G0001,G0002,G0003,G0004,G0005,G0006,G0007,G0008,G0009,G0010,G0011,G0012,G0013,G0014,G0015,G0016,G0023) VALUES (#{A0100,jdbcType=VARCHAR},#{G0000,jdbcType=NUMERIC},#{G0001,jdbcType=VARCHAR},#{G0002,jdbcType=TIMESTAMP},#{G0003,jdbcType=VARCHAR},#{G0004,jdbcType=TIMESTAMP},#{G0005,jdbcType=VARCHAR},#{G0006,jdbcType=VARCHAR},#{G0007,jdbcType=VARCHAR},#{G0008,jdbcType=VARCHAR},#{G0009,jdbcType=TIMESTAMP},#{G0010,jdbcType=TIMESTAMP},#{G0011,jdbcType=VARCHAR},#{G0012,jdbcType=TIMESTAMP},#{G0013,jdbcType=TIMESTAMP},#{G0014,jdbcType=VARCHAR},#{G0015,jdbcType=VARCHAR},#{G0016,jdbcType=TIMESTAMP},#{G0023,jdbcType=NUMERIC})
+  </insert>
+
+
+  <delete id="deleteG00"  parameterType="map">
+  	DELETE FROM G00 WHERE  A0100=#{A0100} 
+  </delete>
+
+
+  <update id="updateG00"  parameterType="G00"> 
+	UPDATE G00
+	<set>
+		<if test="A0100 != null">A0100=#{A0100},</if>
+		<if test="G0000 != null">G0000=#{G0000},</if>
+		<if test="G0001 != null">G0001=#{G0001},</if>
+		<if test="G0002 != null">G0002=#{G0002},</if>
+		<if test="G0003 != null">G0003=#{G0003},</if>
+		<if test="G0004 != null">G0004=#{G0004},</if>
+		<if test="G0005 != null">G0005=#{G0005},</if>
+		<if test="G0006 != null">G0006=#{G0006},</if>
+		<if test="G0007 != null">G0007=#{G0007},</if>
+		<if test="G0008 != null">G0008=#{G0008},</if>
+		<if test="G0009 != null">G0009=#{G0009},</if>
+		<if test="G0010 != null">G0010=#{G0010},</if>
+		<if test="G0011 != null">G0011=#{G0011},</if>
+		<if test="G0012 != null">G0012=#{G0012},</if>
+		<if test="G0013 != null">G0013=#{G0013},</if>
+		<if test="G0014 != null">G0014=#{G0014},</if>
+		<if test="G0015 != null">G0015=#{G0015},</if>
+		<if test="G0016 != null">G0016=#{G0016},</if>
+		<if test="G0023 != null">G0023=#{G0023}</if>
+	</set>
+	WHERE  A0100=#{A0100}   
+  </update>
+ 
+    <select id="getG00" parameterType="map" resultType="G00">
+    SELECT
+     A0100,
+     G0000,
+     G0001,
+     G0002,
+     G0003,
+     G0004,
+     G0005,
+     G0006,
+     G0007,
+     G0008,
+     G0009,
+     G0010,
+     G0011,
+     G0012,
+     G0013,
+     G0014,
+     G0015,
+     G0016,
+     G0023      
+    FROM G00
+    WHERE  A0100 = #{A0100}   
+    </select>
+    
+    
+    <select id="getG00List" parameterType="map" resultType="G00">
+    <if test="endRows != null ">
+    select * from(select a.*,row_number() over (order by A0100 desc) rownum from( 
+    </if>
+    SELECT
+     A0100,
+     G0000,
+     G0001,
+     G0002,
+     G0003,
+     G0004,
+     G0005,
+     G0006,
+     G0007,
+     G0008,
+     G0009,
+     G0010,
+     G0011,
+     G0012,
+     G0013,
+     G0014,
+     G0015,
+     G0016,
+     G0023      
+    FROM G00
+     <where>
+    	<if test="A0100 != null and A0100 != ''">
+    		A0100 = #{A0100}
+    	</if>
+    	<if test="G0000 != null and G0000 != ''">
+    		AND G0000 = #{G0000}
+    	</if>     
+    	<if test="G0001 != null and G0001 != ''">
+    		AND G0001 = #{G0001}
+    	</if>     
+    	<if test="G0002 != null and G0002 != ''">
+    		AND G0002 = #{G0002}
+    	</if>     
+    	<if test="G0003 != null and G0003 != ''">
+    		AND G0003 = #{G0003}
+    	</if>     
+    	<if test="G0004 != null and G0004 != ''">
+    		AND G0004 = #{G0004}
+    	</if>     
+    	<if test="G0005 != null and G0005 != ''">
+    		AND G0005 = #{G0005}
+    	</if>     
+    	<if test="G0006 != null and G0006 != ''">
+    		AND G0006 = #{G0006}
+    	</if>     
+    	<if test="G0007 != null and G0007 != ''">
+    		AND G0007 = #{G0007}
+    	</if>     
+    	<if test="G0008 != null and G0008 != ''">
+    		AND G0008 = #{G0008}
+    	</if>     
+    	<if test="G0009 != null and G0009 != ''">
+    		AND G0009 = #{G0009}
+    	</if>     
+    	<if test="G0010 != null and G0010 != ''">
+    		AND G0010 = #{G0010}
+    	</if>     
+    	<if test="G0011 != null and G0011 != ''">
+    		AND G0011 = #{G0011}
+    	</if>     
+    	<if test="G0012 != null and G0012 != ''">
+    		AND G0012 = #{G0012}
+    	</if>     
+    	<if test="G0013 != null and G0013 != ''">
+    		AND G0013 = #{G0013}
+    	</if>     
+    	<if test="G0014 != null and G0014 != ''">
+    		AND G0014 = #{G0014}
+    	</if>     
+    	<if test="G0015 != null and G0015 != ''">
+    		AND G0015 = #{G0015}
+    	</if>     
+    	<if test="G0016 != null and G0016 != ''">
+    		AND G0016 = #{G0016}
+    	</if>     
+    	<if test="G0023 != null and G0023 != ''">
+    		AND G0023 = #{G0023}
+    	</if>     
+     </where>
+      <if test="endRows != null ">
+       	) a )b where rownum&gt;  ${startRows} and rownum &lt;= ${endRows}   
+      </if>    
+      
+     	<if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   
+     
+    </select>
+  
+    <select id="getTotalRows"  parameterType="map" resultType="int">
+    SELECT count(*) 
+    FROM G00
+     <where>
+    	<if test="A0100 != null and A0100 != ''">
+    		A0100 = #{A0100}
+    	</if>
+    	<if test="G0000 != null and G0000 != ''">
+    		AND G0000 = #{G0000}
+    	</if>     
+    	<if test="G0001 != null and G0001 != ''">
+    		AND G0001 = #{G0001}
+    	</if>     
+    	<if test="G0002 != null and G0002 != ''">
+    		AND G0002 = #{G0002}
+    	</if>     
+    	<if test="G0003 != null and G0003 != ''">
+    		AND G0003 = #{G0003}
+    	</if>     
+    	<if test="G0004 != null and G0004 != ''">
+    		AND G0004 = #{G0004}
+    	</if>     
+    	<if test="G0005 != null and G0005 != ''">
+    		AND G0005 = #{G0005}
+    	</if>     
+    	<if test="G0006 != null and G0006 != ''">
+    		AND G0006 = #{G0006}
+    	</if>     
+    	<if test="G0007 != null and G0007 != ''">
+    		AND G0007 = #{G0007}
+    	</if>     
+    	<if test="G0008 != null and G0008 != ''">
+    		AND G0008 = #{G0008}
+    	</if>     
+    	<if test="G0009 != null and G0009 != ''">
+    		AND G0009 = #{G0009}
+    	</if>     
+    	<if test="G0010 != null and G0010 != ''">
+    		AND G0010 = #{G0010}
+    	</if>     
+    	<if test="G0011 != null and G0011 != ''">
+    		AND G0011 = #{G0011}
+    	</if>     
+    	<if test="G0012 != null and G0012 != ''">
+    		AND G0012 = #{G0012}
+    	</if>     
+    	<if test="G0013 != null and G0013 != ''">
+    		AND G0013 = #{G0013}
+    	</if>     
+    	<if test="G0014 != null and G0014 != ''">
+    		AND G0014 = #{G0014}
+    	</if>     
+    	<if test="G0015 != null and G0015 != ''">
+    		AND G0015 = #{G0015}
+    	</if>     
+    	<if test="G0016 != null and G0016 != ''">
+    		AND G0016 = #{G0016}
+    	</if>     
+    	<if test="G0023 != null and G0023 != ''">
+    		AND G0023 = #{G0023}
+    	</if>     
+     </where>
+    </select>
+
+</mapper>

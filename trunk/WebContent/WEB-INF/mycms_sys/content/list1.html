@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title></title>
+<#include "/mycms_sys/head.html"/>
+<script type="text/javascript">
+$(function() {
+	$("#rejectDialog").dialog({
+		autoOpen: false,
+		modal: true,
+		width: 380,
+		height: 200,
+		position: ["center",50],
+		buttons: {
+			"OK": function() {
+				rejectSubmit();
+			}
+		}
+	});
+});
+function getTableForm() {
+	return document.getElementById('tableForm');
+}
+function optDelete() {
+	if(Pn.checkedCount('ids')<=0) {
+		alert("<@s.m 'error.checkRecord'/>");
+		return;
+	}
+	if(!confirm("<@s.m 'global.confirm.delete'/>")) {
+		return;
+	}
+	var f = getTableForm();
+	f.action="o_delete.do";
+	f.submit();
+}
+function optCheck() {
+	if(Pn.checkedCount('ids')<=0) {
+		alert("<@s.m 'error.checkRecord'/>");
+		return;
+	}
+	var f = getTableForm();
+	f.action="o_check.do";
+	f.submit();
+}
+function optReject() {
+	if(Pn.checkedCount('ids')<=0) {
+		alert("<@s.m 'error.checkRecord'/>");
+		return;
+	}
+	$("#rejectDialog").dialog("open");
+}
+function rejectSubmit() {
+	$("input[name=rejectOpinion]").val($("#rejectOpinion").val());
+	$("input[name=rejectStep]").val($("#rejectStep").val());
+	$("#rejectDialog").dialog("close");
+	var f = getTableForm();
+	f.action="o_reject.do";
+	f.submit();
+}
+function chgStatus() {
+	var queryStatus = $("input[name=queryStatus]:checked").val();
+	location.href="v_list.do?cid=${cid!}&queryStatus=" + queryStatus;
+}
+</script>
+</head>
+<body>
+<div class="body-box">
+<div class="rhead">
+	<div class="rpos"><@s.m "global.position"/>: 下载统计 - <@s.m "global.list"/></div>
+	<div class="clear"></div>
+</div>
+
+<form id="tableForm" method="post">
+
+<input type="hidden" name="pageNo" value="${pageNo!}"/>
+<input type="hidden" name="cid" value="${cid!}"/>
+<#list .data_model?keys as pkey>
+	<#if pkey?starts_with('query')><input type="hidden" name="${pkey}" value="${(.data_model[pkey])!?string}"/></#if><#t/>
+</#list>
+<input type="hidden" name="rejectStep"/>
+<input type="hidden" name="rejectOpinion"/>
+
+<@p.table value=pagination;content,i,has_next><#rt/>
+	 
+	<@p.column code="content.title">
+		<#if content.topLevel gt 0><span style="color:red">[<@s.m "content.topLevel.short"/>${content.topLevel}]</span></#if>
+		<#if content.recommend><span style="color:red">[<@s.m "content.recommend.short"/>]</span></#if>
+		<strong>[${content.channel.name}]</strong>
+		<a href="#" ><@text_cut s=content.title?html len=25 append="..."/></a>
+		<#if content.checkOpinion??>
+		<br/><span style="color:red">${content.checkOpinion}</span>
+		</#if>
+	</@p.column><#t/>
+	<@p.column code="下载次数" align="center">${content.contentCount.downloadsMonth}</@p.column><#t/>
+	
+
+<#t/>
+</@p.table>
+
+</form>
+</div>
+<div id="rejectDialog" style="display:none" title="<@s.m "content.rejectOpinion"/>">
+<p><@s.m "content.rejectOpinion"/>: <input type="text" id="rejectOpinion" style="width:260px" onkeypress="if(event.keyCode==13){rejectSubmit();return false;}"/></p>
+<p><@s.m "content.rejectStep"/>:
+	<select id="rejectStep">
+		<option value=""><@s.m "content.rejectBack"/></option>
+		<#list currStep-1..0 as i><option value="${i}">${i}</option></#list>
+	</select>
+</p>
+</div>
+<#include "/common/alert_message.html"/>
+</body>
+</html>

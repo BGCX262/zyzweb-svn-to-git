@@ -1,0 +1,108 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>sssssss</title>
+<link href="/r/cms/www/red/css/stylesheet.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+#m_top .logo{margin-top:5px; width:230px; float:left;} 
+#m_top{ width:100%; height:95px; background:url(/r/cms/www/red/images/bg_top.jpg) repeat-x;}
+#m_top .logo span{font-size:12px; color:#fff; margin-left:30px;}
+#m_info{width:700px; float:right; height:50px; line-height:50px;  font-size:12px; text-align:right; padding-right:10px;}
+#m_info a{color:#33C}
+#m_nav{ width:700px; float:left; margin-top:7px; margin-left:20px;}
+#m_nav ul{width:700px; height:35px;}
+#m_nav ul li { float:left; clear:right; width:110px; height:35px; line-height:35px; text-align:center; font-size:12px; color:#333; margin-right:3px;}
+#m_nav ul li a{width:110px; height:35px; line-height:35px; background:url(/r/cms/www/red/images/nav1.jpg) no-repeat; text-align:center; font-size:12px; color:#fff; margin-right:3px; display:block;}
+#m_nav ul li.on a{color:#FF0; }
+</style>
+</head>
+ <script type="text/javascript">
+function g(o){
+	return document.getElementById(o);
+}
+function HoverLi(m,n,counter){
+	for(var i=1;i<=counter;i++){
+		g('tb_'+m+i).className='';
+	}
+	g('tb_'+m+n).className='on';
+}
+function changeSite(siteId) {
+	
+}
+</script></head>
+ 
+<body scroll="no" style="overflow:scroll;overflow-y:hidden;">
+<div id="m_top">
+<div class="logo">
+<img src="/r/cms/www/red/images/logo.jpg" width="230" height="90" />	   
+</div>
+<div style="background:url(/r/cms/www/red/images/bg_top1.jpg) right no-repeat; height:95px;">
+<div id="m_info">当前日期:<span><script language="javascript">
+		var day="";
+		var month="";
+		var ampm="";
+		var ampmhour="";
+		var myweekday="";
+		var year="";
+		mydate=new Date();
+		myweekday=mydate.getDay();
+		mymonth=mydate.getMonth()+1;
+		myday= mydate.getDate();
+		year= mydate.getFullYear();
+		if(myweekday == 0)
+		weekday=" 星期日 ";
+		else if(myweekday == 1)
+		weekday=" 星期一 ";
+		else if(myweekday == 2)
+		weekday=" 星期二 ";
+		else if(myweekday == 3)
+		weekday=" 星期三 ";
+		else if(myweekday == 4)
+		weekday=" 星期四 ";
+		else if(myweekday == 5)
+		weekday=" 星期五 ";
+		else if(myweekday == 6)
+		weekday=" 星期六 ";
+		document.write(year+"年"+mymonth+"月"+myday+"日 "+weekday);
+	   </SCRIPT></span>,<span id="welcome">您好, <c:out value="${sessionScope.userSessionInfo.truename}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/res/mycms/img/admin/ico2.jpg" /><a href="/quit.jsp" target="_top" id="logout" onclick="return confirm('您确定退出吗？');">退出</a>
+<br/>
+<c:if test="${sessionScope.userSessionInfo.status=='0'}">当前状态为：等待审核</c:if>
+<c:if test="${sessionScope.userSessionInfo.status=='2'}">
+当前状态为：审核不通过
+<a href="/qjscuser/qjscuserEdit.do?actiontype=isFrontEdit&userid=<c:out value="${sessionScope.userSessionInfo.userid}" />" target="mainFrame" ><span id="welcome">个人信息修改</span></a>
+</c:if>
+<a href="/qjscuser/qjscuserEdit.do?actiontype=frontView&userid=<c:out value="${sessionScope.userSessionInfo.userid}" />" target="mainFrame" ><span id="welcome">查看资料</span></a>
+
+<a href="/qjscuser/qjscuserEdit.do?actiontype=changepw&userid=<c:out value="${sessionScope.userSessionInfo.userid}" />" target="mainFrame" ><span id="welcome">密码修改</span></a>
+
+</span></div><span id="welcome">
+<div id="m_nav">
+	<ul>
+	<c:if test="${sessionScope.userSessionInfo.status=='1'  and (sessionScope.userSessionInfo.usertype=='1')}">
+	
+			<li id="tb_11" onclick="HoverLi(1,1,2);"><a href="/front/companyapply.html" target="mainFrame">清洁生产申报</a></li>
+			<li id="tb_12" onclick="HoverLi(1,2,2);"><a href="/front/projapply.html" target="mainFrame">清洁生产项目申报</a></li>
+			
+			<!-- fuyj添加实地评估申报 -->
+			<li id="tb_15" onclick="HoverLi(1,5,1);"><a href="/front/companyapply_sdpg.html" target="mainFrame">清洁生产实地评估申报</a></li>
+	</c:if>	
+		<c:if test="${sessionScope.userSessionInfo.status=='1'  and (  sessionScope.userSessionInfo.usertype=='4')}">
+	
+			<li id="tb_14" onclick="HoverLi(1,1,1);"><a href="/front/servapply.html" target="mainFrame">技术服务单位申报</a></li>
+	</c:if>		
+	<c:if test="${sessionScope.userSessionInfo.status=='1'   and (sessionScope.userSessionInfo.usertype=='2' or sessionScope.userSessionInfo.usertype=='3')}">
+			<li id="tb_13" onclick="HoverLi(1,1,1);"> <a href="/front/zjapply.html" target="mainFrame">清洁生产专家申报</a></li>
+	    </c:if>	 	
+	<c:if test="${sessionScope.userSessionInfo.status=='1' and sessionScope.userSessionInfo.usertype=='' }">
+			<li id="tb_13" onclick="HoverLi(1,1,1);"> <a href="/front/ywsp.html" target="mainFrame">业务审批</a></li>
+			<li id="tb_13" onclick="HoverLi(1,1,1);"> <a href="/front/cxtj.html" target="mainFrame">查询与统计</a></li>
+	    </c:if>	 		    				
+    </ul>
+</div>
+</span></div>
+</div>
+
+</body></html>

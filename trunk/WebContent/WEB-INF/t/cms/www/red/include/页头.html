@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>海珠区党员自愿者信息网</title>
+        <!-- 首页样式 -->
+        <link rel="stylesheet" href="style/index_css.css">
+        <!-- jquery-ui css 样式 -->
+        <link rel="stylesheet" href="style/jquery-ui-main.css">
+        <!-- jquery 包 -->
+        <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
+        <!-- jquery-ui 包 -->
+        <script src="js/jquery-ui-1.8.11.js" type="text/javascript"></script>
+        <!-- 党员动态 的滚动新闻图片 js -->
+        <script src="js/focus.js" type="text/javascript"></script>
+        <!-- 党员动态 “党员新闻” 和 志愿淘宝 “动态公告” 向上滚动效果 js -->
+        <script src="js/scroll.js" type="text/javascript"></script>
+        <!-- 志愿淘宝 “已完成项目”、“服务项目”向左滚动效果 js -->
+        <script src="js/index.js" type="text/javascript"></script>
+        <script type="text/javascript" >
+			$(document).ready(function(){
+				//选项框tabs
+				var $uli = $(".layout .ul div");
+				var $oli = $(".layout .ol .ol_div");
+				$uli.addClass("normal");
+				$oli.addClass("none_div");
+				//$uli[0].className = "hover";
+				$oli[0].className = "show_div";
+				$uli.each(function(n){
+					$(this).click(function(){
+						//$uli.removeClass().addClass("normal");
+						//$(this).removeClass().addClass("hover");
+						$oli.removeClass().addClass("none_div");
+						$($oli[n]).removeClass().addClass("show_div");
+					});   
+				});
+				
+				//党员新闻向上滚动
+				$(".list_lh").myScroll({
+					speed:40, //数值越大，速度越慢
+					rowHeight:35 //li的高度
+				});
+				
+				//动态公告向上滚动
+				$(".helpMain").myScroll({
+					speed:40, //数值越大，速度越慢
+					rowHeight:60 //li的高度
+				});
+				
+				//积分排行详细dialog_div
+				$( "#dialog_integral" ).dialog({
+					autoOpen: false,
+					modal: true,
+					title: "本月个人积分排行榜TOP&nbsp;10",
+					show: "blind",
+					hide: "explode",
+					width: 700,
+					height: 380,
+					buttons : {
+					"提交" : function (){
+						
+						},
+					"关闭" : function (){
+						$("#dialog_integral").dialog ("close");
+					}}
+				});
+				//打开积分排行详细dialog_div
+				$( "#open_integral" ).click(function() {
+					$( "#dialog_integral" ).dialog( "open" );
+					return false;
+				});
+				
+				//时长排行详细dialog_div
+				$( "#dialog_time" ).dialog({
+					autoOpen: false,
+					modal: true,
+					title: "本月个人时长排行榜TOP&nbsp;10",
+					show: "blind",
+					hide: "explode",
+					width: 700,
+					height: 380,
+					buttons : {
+					"提交" : function (){
+						
+						},
+					"关闭" : function (){
+						$("#dialog_time").dialog ("close");
+					}}
+				});
+				//打开时长排行详细dialog_div
+				$( "#open_time" ).click(function() {
+					$( "#dialog_time" ).dialog( "open" );
+					return false;
+				});
+				
+				//柱形图dialog_div
+				$( "#dialog_pillar" ).dialog({
+					autoOpen: false,
+					modal: true,
+					title: "本月个人积分排行榜柱形图",
+					show: "blind",
+					hide: "explode",
+					width: 700,
+					height: 380,
+					buttons : {
+					"提交" : function (){
+						
+						},
+					"关闭" : function (){
+						$("#dialog_pillar").dialog ("close");
+					}}
+				});
+				//打开柱形图dialog_div
+				$( "#open_pillar" ).click(function() {
+					$( "#dialog_pillar" ).dialog( "open" );
+					return false;
+				});
+				
+				//饼形图dialog_div
+				$( "#dialog_pie" ).dialog({
+					autoOpen: false,
+					modal: true,
+					title: "本月个人积分排行榜饼形图",
+					show: "blind",
+					hide: "explode",
+					width: 700,
+					height: 380,
+					buttons : {
+					"提交" : function (){
+						
+						},
+					"关闭" : function (){
+						$("#dialog_pie").dialog ("close");
+					}}
+				});
+				//打开饼形图dialog_div
+				$( "#open_pie" ).click(function() {
+					$( "#dialog_pie" ).dialog( "open" );
+					return false;
+				});
+				
+				//时序图dialog_div
+				$( "#dialog_series" ).dialog({
+					autoOpen: false,
+					modal: true,
+					title: "本月个人积分排行榜时序图",
+					show: "blind",
+					hide: "explode",
+					width: 700,
+					height: 380,
+					buttons : {
+					"提交" : function (){
+						
+						},
+					"关闭" : function (){
+						$("#dialog_series").dialog ("close");
+					}}
+				});
+				//打开时序图dialog_div
+				$( "#open_series" ).click(function() {
+					$( "#dialog_series" ).dialog( "open" );
+					return false;
+				});
+				
+			});
+		</script>
+    </head>
+    

@@ -1,0 +1,12 @@
+#Supply { margin:0;   }
+#Supply h2{ text-align:left; font-size:14px; font-weight:bold; color:#030; padding:5px; margin:0;}
+#Supply .list { line-height:2em; padding:5px; text-align:left; font-weight:bold; color:#030;}
+#Supply .loginTab { width:700px  }
+#Supply .loginBox {   background:#FFF;font-size:12px;  border:solid 1px #CEE2CC;width:679px}
+#Supply .loginTop { line-height:2em; padding:5px; text-align:center; font-weight:bold; color:#030;}
+#Supply .loginText { line-height:2em; padding:5px; text-align:center;font-size:12px;}
+#Supply dl { border-top: solid 1px #CEE2CC;border-left: solid 1px #CEE2CC; width:675px; padding:0; margin:0; overflow:hidden;}
+#Supply dt { border-bottom: solid 1px #CEE2CC;border-right: solid 1px #CEE2CC; padding:5px; margin:0; background:#F4FAF2; float:left; text-align:center; height:20px; line-height:18px;}
+#Supply dd {  border-bottom: solid 1px #CEE2CC;border-right: solid 1px #CEE2CC; padding:5px; margin:0; float:left;height:20px;}
+#Supply .loginInput {font-size:14px; line-height:22px;font-family: Arial, "ËÎÌו";font-weight: bold;color: #666666; height:22px;border:solid 1px #CCCCCC;}
+.inputnew {font-size:14px; line-height:22px;font-family: Arial, "ËÎÌו";font-weight: bold;color: #666666; height:22px; border:0px; border-bottom:solid 1px #CCCCCC;}

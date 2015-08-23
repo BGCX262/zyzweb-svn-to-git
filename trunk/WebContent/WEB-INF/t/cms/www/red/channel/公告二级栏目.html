@@ -1,0 +1,62 @@
+[#include "../include/页头.html"/]
+
+<body>
+<!-- 顶部_Start -->
+[#include "../include/顶部登录搜索.html"/]
+</div>
+<!-- 顶部_End -->
+
+<!-- 导航菜单_Start --> 
+[#include "../include/顶部导航菜单.html"/]
+<!-- 导航菜单_End -->
+
+<!-- 文章内容_Start -->
+<div class="layout">
+		<div class="left">
+    <div class="hd2"><h2>${channel.name}</h2></div>
+       	<div class="box menu">
+        	<ul>
+       [@cms_channel_list parentId=channel.id]
+    [#list tag_list as c]
+                <li><a title="${c.title}" target="_self" href="${c.url}" >${c.title}</a></li>
+	[/#list]
+    [/@cms_channel_list]     
+      </ul>
+        </div>
+
+        <!-- 通知公告_Start -->
+<!--  [#include "../include/通知公告.html"/] -->
+        <!-- 通知公告_End -->
+        
+    	 
+    </div>
+    <div class="right">
+    	<!-- 当前位置_Start -->
+       <div class="hd site">您当前的位置： <a href="${base}/">首页</a> &raquo; [#list channel.nodeList as n]<a href="${n.url}" target="_blank">${n.name}</a>[#if n_has_next] &raquo; [/#if][/#list]</div>
+		<!-- 当前位置_End -->
+        <div class="box" id="article-box"> 
+     [@cms_content_page1 channelId=channel.id count=channel.pageSize sysPage='1' pageClass='pagination' orderBy='2' styleList='1-1' ctgForm='1' ctgClass='red' lineHeight='10' bottomLine='1' headMark='4' dateFormat='yyyy-MM-dd' datePosition='2' dateClass='gray' channelOption='2' tpl='2'/]
+            </div>
+        
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- 文章内容_End -->
+
+
+<!-- 底部_Start -->
+<div id="footer">
+    <p>主办单位：广州市循环经济清洁生产协会</p>
+    <p>地址：广州市天河区天河南一路24号 邮编：510620 电话：020-87535805 传真：020-87501422</p>
+    <p>备案号：粤ICP备09182563</p>
+</div>
+<!-- 底部_End -->
+<script type="text/javascript">
+<!--
+function doZoom(size){
+  document.getElementById('article-box').style.fontSize=size+'px';
+}
+//-->
+</script>
+</body>
+</html>

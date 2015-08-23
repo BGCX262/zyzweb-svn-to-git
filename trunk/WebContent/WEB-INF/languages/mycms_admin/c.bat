@@ -1,0 +1,1 @@
+E:\jdk1.6.0_05\bin\native2ascii.exe  E:\projects\mycms\WebContent\WEB-INF\languages\jeecms_admin\messages_zh_CN1.properties E:\projects\mycms\WebContent\WEB-INF\languages\jeecms_admin\messages_zh_CN.properties

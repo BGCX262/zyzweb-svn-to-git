@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zyz.persistence.C02Mapper">
+
+  <insert id="insertC02" parameterType="C02" >
+  	INSERT INTO C02 (A0100,C0201,C0202,C0203,C0204,C0205,C0206,C0207,C0208,C0209,C0211,C0212,C0213,C0214,C0215,C0216,C0217,C0219) VALUES (#{A0100,jdbcType=VARCHAR},#{C0201,jdbcType=NUMERIC},#{C0202,jdbcType=VARCHAR},#{C0203,jdbcType=TIMESTAMP},#{C0204,jdbcType=VARCHAR},#{C0205,jdbcType=TIMESTAMP},#{C0206,jdbcType=TIMESTAMP},#{C0207,jdbcType=VARCHAR},#{C0208,jdbcType=VARCHAR},#{C0209,jdbcType=VARCHAR},#{C0211,jdbcType=NUMERIC},#{C0212,jdbcType=VARCHAR},#{C0213,jdbcType=VARCHAR},#{C0214,jdbcType=TIMESTAMP},#{C0215,jdbcType=VARCHAR},#{C0216,jdbcType=VARCHAR},#{C0217,jdbcType=VARCHAR},#{C0219,jdbcType=NUMERIC})
+  </insert>
+
+
+  <delete id="deleteC02"  parameterType="map">
+  	DELETE FROM C02 WHERE  A0100=#{A0100} 
+  </delete>
+
+
+  <update id="updateC02"  parameterType="C02"> 
+	UPDATE C02
+	<set>
+		<if test="A0100 != null">A0100=#{A0100},</if>
+		<if test="C0201 != null">C0201=#{C0201},</if>
+		<if test="C0202 != null">C0202=#{C0202},</if>
+		<if test="C0203 != null">C0203=#{C0203},</if>
+		<if test="C0204 != null">C0204=#{C0204},</if>
+		<if test="C0205 != null">C0205=#{C0205},</if>
+		<if test="C0206 != null">C0206=#{C0206},</if>
+		<if test="C0207 != null">C0207=#{C0207},</if>
+		<if test="C0208 != null">C0208=#{C0208},</if>
+		<if test="C0209 != null">C0209=#{C0209},</if>
+		<if test="C0211 != null">C0211=#{C0211},</if>
+		<if test="C0212 != null">C0212=#{C0212},</if>
+		<if test="C0213 != null">C0213=#{C0213},</if>
+		<if test="C0214 != null">C0214=#{C0214},</if>
+		<if test="C0215 != null">C0215=#{C0215},</if>
+		<if test="C0216 != null">C0216=#{C0216},</if>
+		<if test="C0217 != null">C0217=#{C0217},</if>
+		<if test="C0219 != null">C0219=#{C0219}</if>
+	</set>
+	WHERE  A0100=#{A0100}   
+  </update>
+ 
+    <select id="getC02" parameterType="map" resultType="C02">
+    SELECT
+     A0100,
+     C0201,
+     C0202,
+     C0203,
+     C0204,
+     C0205,
+     C0206,
+     C0207,
+     C0208,
+     C0209,
+     C0211,
+     C0212,
+     C0213,
+     C0214,
+     C0215,
+     C0216,
+     C0217,
+     C0219      
+    FROM C02
+    WHERE  A0100 = #{A0100}   
+    </select>
+    
+    
+    <select id="getC02List" parameterType="map" resultType="C02">
+    SELECT
+     A0100,
+     C0201,
+     C0202,
+     C0203,
+     C0204,
+     C0205,
+     C0206,
+     C0207,
+     C0208,
+     C0209,
+     C0211,
+     C0212,
+     C0213,
+     C0214,
+     C0215,
+     C0216,
+     C0217,
+     C0219      
+    FROM C02
+     <where>
+    	<if test="A0100 != null and A0100 != ''">
+    		A0100 = #{A0100}
+    	</if>
+    	<if test="C0201 != null and C0201 != ''">
+    		AND C0201 = #{C0201}
+    	</if>     
+    	<if test="C0202 != null and C0202 != ''">
+    		AND C0202 = #{C0202}
+    	</if>     
+    	<if test="C0203 != null and C0203 != ''">
+    		AND C0203 = #{C0203}
+    	</if>     
+    	<if test="C0204 != null and C0204 != ''">
+    		AND C0204 = #{C0204}
+    	</if>     
+    	<if test="C0205 != null and C0205 != ''">
+    		AND C0205 = #{C0205}
+    	</if>     
+    	<if test="C0206 != null and C0206 != ''">
+    		AND C0206 = #{C0206}
+    	</if>     
+    	<if test="C0207 != null and C0207 != ''">
+    		AND C0207 = #{C0207}
+    	</if>     
+    	<if test="C0208 != null and C0208 != ''">
+    		AND C0208 = #{C0208}
+    	</if>     
+    	<if test="C0209 != null and C0209 != ''">
+    		AND C0209 = #{C0209}
+    	</if>     
+    	<if test="C0211 != null and C0211 != ''">
+    		AND C0211 = #{C0211}
+    	</if>     
+    	<if test="C0212 != null and C0212 != ''">
+    		AND C0212 = #{C0212}
+    	</if>     
+    	<if test="C0213 != null and C0213 != ''">
+    		AND C0213 = #{C0213}
+    	</if>     
+    	<if test="C0214 != null and C0214 != ''">
+    		AND C0214 = #{C0214}
+    	</if>     
+    	<if test="C0215 != null and C0215 != ''">
+    		AND C0215 = #{C0215}
+    	</if>     
+    	<if test="C0216 != null and C0216 != ''">
+    		AND C0216 = #{C0216}
+    	</if>     
+    	<if test="C0217 != null and C0217 != ''">
+    		AND C0217 = #{C0217}
+    	</if>     
+    	<if test="C0219 != null and C0219 != ''">
+    		AND C0219 = #{C0219}
+    	</if>     
+     </where>
+     	<if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>      
+     
+    </select>
+  
+    <select id="getTotalRows"  parameterType="map" resultType="int">
+    SELECT count(*) 
+    FROM C02
+     <where>
+    	<if test="A0100 != null and A0100 != ''">
+    		A0100 = #{A0100}
+    	</if>
+    	<if test="C0201 != null and C0201 != ''">
+    		AND C0201 = #{C0201}
+    	</if>     
+    	<if test="C0202 != null and C0202 != ''">
+    		AND C0202 = #{C0202}
+    	</if>     
+    	<if test="C0203 != null and C0203 != ''">
+    		AND C0203 = #{C0203}
+    	</if>     
+    	<if test="C0204 != null and C0204 != ''">
+    		AND C0204 = #{C0204}
+    	</if>     
+    	<if test="C0205 != null and C0205 != ''">
+    		AND C0205 = #{C0205}
+    	</if>     
+    	<if test="C0206 != null and C0206 != ''">
+    		AND C0206 = #{C0206}
+    	</if>     
+    	<if test="C0207 != null and C0207 != ''">
+    		AND C0207 = #{C0207}
+    	</if>     
+    	<if test="C0208 != null and C0208 != ''">
+    		AND C0208 = #{C0208}
+    	</if>     
+    	<if test="C0209 != null and C0209 != ''">
+    		AND C0209 = #{C0209}
+    	</if>     
+    	<if test="C0211 != null and C0211 != ''">
+    		AND C0211 = #{C0211}
+    	</if>     
+    	<if test="C0212 != null and C0212 != ''">
+    		AND C0212 = #{C0212}
+    	</if>     
+    	<if test="C0213 != null and C0213 != ''">
+    		AND C0213 = #{C0213}
+    	</if>     
+    	<if test="C0214 != null and C0214 != ''">
+    		AND C0214 = #{C0214}
+    	</if>     
+    	<if test="C0215 != null and C0215 != ''">
+    		AND C0215 = #{C0215}
+    	</if>     
+    	<if test="C0216 != null and C0216 != ''">
+    		AND C0216 = #{C0216}
+    	</if>     
+    	<if test="C0217 != null and C0217 != ''">
+    		AND C0217 = #{C0217}
+    	</if>     
+    	<if test="C0219 != null and C0219 != ''">
+    		AND C0219 = #{C0219}
+    	</if>     
+     </where>
+    </select>
+
+</mapper>

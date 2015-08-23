@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mycms.cms.entity.main">
+	<class name="MerchantMarking" table="t_merchantmarking">
+		<meta attribute="sync-DAO">false</meta>
+		<cache usage="read-write"/>
+		<id name="id" type="java.lang.Integer" column="id"><generator class="identity"/></id>
+		
+		<property name="merchantId" column="MERCHANTID" type="java.lang.Integer" not-null="true"/>
+		<property name="mtype" column="M_TYPE" type="string" not-null="false" length="10"/>
+		<property name="mdTopic" column="M_D_TOPIC" type="string" not-null="false" length="100"/>
+		<property name="mcontent" column="M_CONTENT" type="string" not-null="false" length="1000"/>
+		<property name="mbTopic" column="M_B_TOPIC" type="string" not-null="false" length="100"/>
+		<property name="mintroduction" column="M_INTRODUCTION" type="string" not-null="false" length="1000"/>
+		<property name="mbPic" column="M_B_PIC" type="string" not-null="false" length="500"/>
+		<property name="mdPic" column="M_D_PIC" type="string" not-null="false" length="500"/>
+		<property name="opDate" column="OPDATE" type="java.sql.Date" not-null="false" />
+		<property name="operId" column="OPERID" type="string" not-null="false" length="20"/>
+		<property name="status" column="STATUS" type="string" not-null="false" length="10"/>
+		
+		
+	</class>
+</hibernate-mapping>

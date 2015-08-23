@@ -1,0 +1,30 @@
+
+图片信息 cms_content_list count='1' typeId='3' orderBy='2'
+今日头条 [@cms_content_list count='9' channelId=='1'   orderBy='2']
+清洁生产知识 cms_content_list1 channelId=20 count=10 orderBy='2'  首页 ? 清洁生产 ? 清洁生产知识
+清洁生产 channelId=16 count='7' orderBy='4' 首页 ? 清洁生产
+循环经济和资源综合利用  cms_content_list1 channelId=35 count='7' orderBy='4' 首页 ? 循环经济
+标准体系 cms_content_list1 channelId=9 count=10 orderBy='2' 首页 ? 标准体系
+节能降耗  cms_content_list1 channelId=43 count='7' orderBy='4' 首页 ? 节能降耗
+供应信息和需求信息  技术产品cms_content_list1 channelId=65 count=3 orderBy='2'
+    固废产品  cms_content_list1 channelId=66 count=3 orderBy='2'
+技术产品cms_content_list1 channelId=67 count=3 orderBy='2'
+固废产品<cms_content_list1 channelId=68 count=3 orderBy='2'
+热点专题 cms_content_list1 channelId=36 count=7 orderBy='2' 首页 ? 循环经济 ? 动态前沿
+政策法规 cms_content_list1 channelId=45 count='10' orderBy='2' 首页 ? 节能降耗 ? 政策法规
+典型案例和技术与产品 cms_content_list1 channelId=62 count='6' orderBy='4'  首页 ? 典型案例
+prod cms_content_list1 channelId=69 count=10 orderBy='2' 首页 ? 技术与产品
+企业风采 cms_content_list channelId=61 count=4 orderBy='2'     首页 ? 企业风采
+ 
+ 
+图片信息 :内容类型为焦点的最近修改的一条文章。
+今日头条 根目录->动态信息  最近修改的9条文章。
+清洁生产知识: 栏目路径:根->清洁生产->清洁生产知识
+清洁生产:固定级别降序,发布时间降序，栏目路径:根->清洁生产
+循环经济和资源综合利用:固定级别降序,发布时间降序， 栏目路径:根->循环经济
+标准体系:栏目路径:根->标准体系
+节能降耗:固定级别降序,发布时间降序， 栏目路径:根->节能降耗
+热点专题:内容类型为头条的最近修改的9条文章 
+政策法规:栏目路径:根->节能降耗->政策法规
+企业风采:栏目路径:根->企业风采
+ 

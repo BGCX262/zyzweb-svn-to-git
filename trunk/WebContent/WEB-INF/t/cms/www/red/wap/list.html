@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+<link href="style_wap.css" rel="stylesheet" type="text/css" />
+<title>广州清洁生产网</title>
+</head>
+<body>
+<div id="body" style="width:100%;">
+	<div id="content">
+    	<!-- 网站导航_Start -->
+        <div class="title logo"><a href="/"><img src="logo.jpg" alt="广州清洁生产网"/></a></div>
+        <!-- 网站导航_End -->
+        
+        <!-- 动态信息_Start -->
+        <div class="title">
+            <a href="/wap_index.jspx">首页</a> &gt; ${cname}
+    </div>
+        <div class="list">
+     
+     [@cms_content_page1 channelId=cid count=11 ]
+       [#list tag_list as c]
+				     <a href="/wap_detail.jspx?cid=${c.id}&cname=${cname}">[@text_cut s=c.title len=25 append="..."/]</a><br/>
+				     	[/#list]
+           [#assign p=tag_pagination /]
+           [/@cms_content_page1] 
+
+[#if p.firstPage]&nbsp; <a disabled="disabled">上一页</a>
+[#else]<a href="/wap_list.jspx?cid=${cid}&cname=${cname}&pageNo=${p.prePage}">上一页</a>
+[/#if]
+[#if p.lastPage]&nbsp;<a disabled="disabled">下一页</a> 
+[#else]&nbsp;<a href="/wap_list.jspx?cid=${cid}&cname=${cname}&pageNo=${p.nextPage}">下一页</a> 
+[/#if]
+</br>
+&nbsp;&nbsp;(当前第${p.pageNo}页)
+
+           
+          <!--   <div class="page">1 <a href="#">2</a> <a href="#">3</a></div>    -->
+      </div>
+      <!-- 动态信息_End -->
+      
+  </div>
+    
+    <!-- 页脚_Start -->
+	<div id="info">
+		电话：020-87535805 
+	</div>
+	<div id="footer">
+            广州清洁生产网版权所有
+	</div>
+    <!-- 页脚_End -->
+</div>
+
+</body>
+</html>

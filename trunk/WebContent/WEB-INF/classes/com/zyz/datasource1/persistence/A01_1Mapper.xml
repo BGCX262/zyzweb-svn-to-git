@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zyz.datasource1.persistence.A01_1Mapper">
+
+  <insert id="insertA01" parameterType="A01" >
+  	INSERT INTO A01 (A0100,A0101,A0102,A0103,A0104,A0105,A0106,A0107,A0108,A0109,A0110,A0111,A0112,A0113,A0114,A0115,A0116,A0117,A0118,A0119,A0120,A0121,A0122,A0123,A0124,A0125,A0127,A0131,A0133,A0134,A0135,A0136,A0144,A0151,A0152,A0171,A0174,A0175,A0176,A0177,A0178,A0181,A0184,A0187,A0189,A01A1,A01A2,A0215,A0221,A0302,A0801,A0802,A0803,A0805,A0807,A0808,A0814,A0816,A0901,AT001,D0100,F_UPDATE) VALUES (#{A0100,jdbcType=VARCHAR},#{A0101,jdbcType=VARCHAR},#{A0102,jdbcType=VARCHAR},#{A0103,jdbcType=VARCHAR},#{A0104,jdbcType=VARCHAR},#{A0105,jdbcType=VARCHAR},#{A0106,jdbcType=VARCHAR},#{A0107,jdbcType=TIMESTAMP},#{A0108,jdbcType=TIMESTAMP},#{A0109,jdbcType=TIMESTAMP},#{A0110,jdbcType=VARCHAR},#{A0111,jdbcType=VARCHAR},#{A0112,jdbcType=VARCHAR},#{A0113,jdbcType=VARCHAR},#{A0114,jdbcType=VARCHAR},#{A0115,jdbcType=TIMESTAMP},#{A0116,jdbcType=VARCHAR},#{A0117,jdbcType=VARCHAR},#{A0118,jdbcType=VARCHAR},#{A0119,jdbcType=VARCHAR},#{A0120,jdbcType=VARCHAR},#{A0121,jdbcType=VARCHAR},#{A0122,jdbcType=VARCHAR},#{A0123,jdbcType=VARCHAR},#{A0124,jdbcType=VARCHAR},#{A0125,jdbcType=VARCHAR},#{A0127,jdbcType=VARCHAR},#{A0131,jdbcType=VARCHAR},#{A0133,jdbcType=VARCHAR},#{A0134,jdbcType=TIMESTAMP},#{A0135,jdbcType=VARCHAR},#{A0136,jdbcType=VARCHAR},#{A0144,jdbcType=TIMESTAMP},#{A0151,jdbcType=VARCHAR},#{A0152,jdbcType=VARCHAR},#{A0171,jdbcType=VARCHAR},#{A0174,jdbcType=VARCHAR},#{A0175,jdbcType=VARCHAR},#{A0176,jdbcType=VARCHAR},#{A0177,jdbcType=VARCHAR},#{A0178,jdbcType=VARCHAR},#{A0181,jdbcType=VARCHAR},#{A0184,jdbcType=VARCHAR},#{A0187,jdbcType=VARCHAR},#{A0189,jdbcType=VARCHAR},#{A01A1,jdbcType=VARCHAR},#{A01A2,jdbcType=VARCHAR},#{A0215,jdbcType=VARCHAR},#{A0221,jdbcType=VARCHAR},#{A0302,jdbcType=VARCHAR},#{A0801,jdbcType=VARCHAR},#{A0802,jdbcType=VARCHAR},#{A0803,jdbcType=VARCHAR},#{A0805,jdbcType=VARCHAR},#{A0807,jdbcType=VARCHAR},#{A0808,jdbcType=VARCHAR},#{A0814,jdbcType=VARCHAR},#{A0816,jdbcType=VARCHAR},#{A0901,jdbcType=VARCHAR},#{AT001,jdbcType=VARCHAR},#{D0100,jdbcType=VARCHAR},#{F_UPDATE,jdbcType=VARCHAR})
+  </insert>
+
+
+  <delete id="deleteA01"  parameterType="map">
+  	DELETE FROM A01 WHERE  A0100=#{A0100} 
+  </delete>
+
+
+  <update id="updateA01"  parameterType="A01"> 
+	UPDATE A01
+	<set>
+		<if test="A0100 != null">A0100=#{A0100},</if>
+		<if test="A0101 != null">A0101=#{A0101},</if>
+		<if test="A0102 != null">A0102=#{A0102},</if>
+		<if test="A0103 != null">A0103=#{A0103},</if>
+		<if test="A0104 != null">A0104=#{A0104},</if>
+		<if test="A0105 != null">A0105=#{A0105},</if>
+		<if test="A0106 != null">A0106=#{A0106},</if>
+		<if test="A0107 != null">A0107=#{A0107},</if>
+		<if test="A0108 != null">A0108=#{A0108},</if>
+		<if test="A0109 != null">A0109=#{A0109},</if>
+		<if test="A0110 != null">A0110=#{A0110},</if>
+		<if test="A0111 != null">A0111=#{A0111},</if>
+		<if test="A0112 != null">A0112=#{A0112},</if>
+		<if test="A0113 != null">A0113=#{A0113},</if>
+		<if test="A0114 != null">A0114=#{A0114},</if>
+		<if test="A0115 != null">A0115=#{A0115},</if>
+		<if test="A0116 != null">A0116=#{A0116},</if>
+		<if test="A0117 != null">A0117=#{A0117},</if>
+		<if test="A0118 != null">A0118=#{A0118},</if>
+		<if test="A0119 != null">A0119=#{A0119},</if>
+		<if test="A0120 != null">A0120=#{A0120},</if>
+		<if test="A0121 != null">A0121=#{A0121},</if>
+		<if test="A0122 != null">A0122=#{A0122},</if>
+		<if test="A0123 != null">A0123=#{A0123},</if>
+		<if test="A0124 != null">A0124=#{A0124},</if>
+		<if test="A0125 != null">A0125=#{A0125},</if>
+		<if test="A0127 != null">A0127=#{A0127},</if>
+		<if test="A0131 != null">A0131=#{A0131},</if>
+		<if test="A0133 != null">A0133=#{A0133},</if>
+		<if test="A0134 != null">A0134=#{A0134},</if>
+		<if test="A0135 != null">A0135=#{A0135},</if>
+		<if test="A0136 != null">A0136=#{A0136},</if>
+		<if test="A0144 != null">A0144=#{A0144},</if>
+		<if test="A0151 != null">A0151=#{A0151},</if>
+		<if test="A0152 != null">A0152=#{A0152},</if>
+		<if test="A0171 != null">A0171=#{A0171},</if>
+		<if test="A0174 != null">A0174=#{A0174},</if>
+		<if test="A0175 != null">A0175=#{A0175},</if>
+		<if test="A0176 != null">A0176=#{A0176},</if>
+		<if test="A0177 != null">A0177=#{A0177},</if>
+		<if test="A0178 != null">A0178=#{A0178},</if>
+		<if test="A0181 != null">A0181=#{A0181},</if>
+		<if test="A0184 != null">A0184=#{A0184},</if>
+		<if test="A0187 != null">A0187=#{A0187},</if>
+		<if test="A0189 != null">A0189=#{A0189},</if>
+		<if test="A01A1 != null">A01A1=#{A01A1},</if>
+		<if test="A01A2 != null">A01A2=#{A01A2},</if>
+		<if test="A0215 != null">A0215=#{A0215},</if>
+		<if test="A0221 != null">A0221=#{A0221},</if>
+		<if test="A0302 != null">A0302=#{A0302},</if>
+		<if test="A0801 != null">A0801=#{A0801},</if>
+		<if test="A0802 != null">A0802=#{A0802},</if>
+		<if test="A0803 != null">A0803=#{A0803},</if>
+		<if test="A0805 != null">A0805=#{A0805},</if>
+		<if test="A0807 != null">A0807=#{A0807},</if>
+		<if test="A0808 != null">A0808=#{A0808},</if>
+		<if test="A0814 != null">A0814=#{A0814},</if>
+		<if test="A0816 != null">A0816=#{A0816},</if>
+		<if test="A0901 != null">A0901=#{A0901},</if>
+		<if test="AT001 != null">AT001=#{AT001},</if>
+		<if test="D0100 != null">D0100=#{D0100},</if>
+		<if test="F_UPDATE != null">F_UPDATE=#{F_UPDATE}</if>
+	</set>
+	WHERE  A0100=#{A0100}   
+  </update>
+ 
+    <select id="getA01" parameterType="map" resultType="A01">
+    SELECT
+     A0100,
+     A0101,
+     A0102,
+     A0103,
+     A0104,
+     A0105,
+     A0106,
+     A0107,
+     A0108,
+     A0109,
+     A0110,
+     A0111,
+     A0112,
+     A0113,
+     A0114,
+     A0115,
+     A0116,
+     A0117,
+     A0118,
+     A0119,
+     A0120,
+     A0121,
+     A0122,
+     A0123,
+     A0124,
+     A0125,
+     A0127,
+     A0131,
+     A0133,
+     A0134,
+     A0135,
+     A0136,
+     A0144,
+     A0151,
+     A0152,
+     A0171,
+     A0174,
+     A0175,
+     A0176,
+     A0177,
+     A0178,
+     A0181,
+     A0184,
+     A0187,
+     A0189,
+     A01A1,
+     A01A2,
+     A0215,
+     A0221,
+     A0302,
+     A0801,
+     A0802,
+     A0803,
+     A0805,
+     A0807,
+     A0808,
+     A0814,
+     A0816,
+     A0901,
+     AT001,
+     D0100,
+     F_UPDATE      
+    FROM A01
+    WHERE  A0100 = #{A0100}   
+    </select>
+    
+    
+    <select id="getA01List" parameterType="map" resultType="A01">
+     <if test="endRows != null ">
+    select * from(select a.*,row_number() over (order by A0100 desc) rownum from( 
+    </if>
+    SELECT
+     A0100,
+     A0101,
+     A0102,
+     A0103,
+     A0104,
+     A0105,
+     A0106,
+     A0107,
+     A0108,
+     A0109,
+     A0110,
+     A0111,
+     A0112,
+     A0113,
+     A0114,
+     A0115,
+     A0116,
+     A0117,
+     A0118,
+     A0119,
+     A0120,
+     A0121,
+     A0122,
+     A0123,
+     A0124,
+     A0125,
+     A0127,
+     A0131,
+     A0133,
+     A0134,
+     A0135,
+     A0136,
+     A0144,
+     A0151,
+     A0152,
+     A0171,
+     A0174,
+     A0175,
+     A0176,
+     A0177,
+     A0178,
+     A0181,
+     A0184,
+     A0187,
+     A0189,
+     A01A1,
+     A01A2,
+     A0215,
+     A0221,
+     A0302,
+     A0801,
+     A0802,
+     A0803,
+     A0805,
+     A0807,
+     A0808,
+     A0814,
+     A0816,
+     A0901,
+     AT001,
+     D0100,
+     F_UPDATE      
+    FROM A01
+     <where>
+    	<if test="A0100 != null and A0100 != ''">
+    		A0100 = #{A0100}
+    	</if>
+    	<if test="A0101 != null and A0101 != ''">
+    		AND A0101 = #{A0101}
+    	</if>     
+    	<if test="A0102 != null and A0102 != ''">
+    		AND A0102 = #{A0102}
+    	</if>     
+    	<if test="A0103 != null and A0103 != ''">
+    		AND A0103 = #{A0103}
+    	</if>     
+    	<if test="A0104 != null and A0104 != ''">
+    		AND A0104 = #{A0104}
+    	</if>     
+    	<if test="A0105 != null and A0105 != ''">
+    		AND A0105 = #{A0105}
+    	</if>     
+    	<if test="A0106 != null and A0106 != ''">
+    		AND A0106 = #{A0106}
+    	</if>     
+    	<if test="A0107 != null and A0107 != ''">
+    		AND A0107 = #{A0107}
+    	</if>     
+    	<if test="A0108 != null and A0108 != ''">
+    		AND A0108 = #{A0108}
+    	</if>     
+    	<if test="A0109 != null and A0109 != ''">
+    		AND A0109 = #{A0109}
+    	</if>     
+    	<if test="A0110 != null and A0110 != ''">
+    		AND A0110 = #{A0110}
+    	</if>     
+    	<if test="A0111 != null and A0111 != ''">
+    		AND A0111 = #{A0111}
+    	</if>     
+    	<if test="A0112 != null and A0112 != ''">
+    		AND A0112 = #{A0112}
+    	</if>     
+    	<if test="A0113 != null and A0113 != ''">
+    		AND A0113 = #{A0113}
+    	</if>     
+    	<if test="A0114 != null and A0114 != ''">
+    		AND A0114 = #{A0114}
+    	</if>     
+    	<if test="A0115 != null and A0115 != ''">
+    		AND A0115 = #{A0115}
+    	</if>     
+    	<if test="A0116 != null and A0116 != ''">
+    		AND A0116 = #{A0116}
+    	</if>     
+    	<if test="A0117 != null and A0117 != ''">
+    		AND A0117 = #{A0117}
+    	</if>     
+    	<if test="A0118 != null and A0118 != ''">
+    		AND A0118 = #{A0118}
+    	</if>     
+    	<if test="A0119 != null and A0119 != ''">
+    		AND A0119 = #{A0119}
+    	</if>     
+    	<if test="A0120 != null and A0120 != ''">
+    		AND A0120 = #{A0120}
+    	</if>     
+    	<if test="A0121 != null and A0121 != ''">
+    		AND A0121 = #{A0121}
+    	</if>     
+    	<if test="A0122 != null and A0122 != ''">
+    		AND A0122 = #{A0122}
+    	</if>     
+    	<if test="A0123 != null and A0123 != ''">
+    		AND A0123 = #{A0123}
+    	</if>     
+    	<if test="A0124 != null and A0124 != ''">
+    		AND A0124 = #{A0124}
+    	</if>     
+    	<if test="A0125 != null and A0125 != ''">
+    		AND A0125 = #{A0125}
+    	</if>     
+    	<if test="A0127 != null and A0127 != ''">
+    		AND A0127 = #{A0127}
+    	</if>     
+    	<if test="A0131 != null and A0131 != ''">
+    		AND A0131 = #{A0131}
+    	</if>     
+    	<if test="A0133 != null and A0133 != ''">
+    		AND A0133 = #{A0133}
+    	</if>     
+    	<if test="A0134 != null and A0134 != ''">
+    		AND A0134 = #{A0134}
+    	</if>     
+    	<if test="A0135 != null and A0135 != ''">
+    		AND A0135 = #{A0135}
+    	</if>     
+    	<if test="A0136 != null and A0136 != ''">
+    		AND A0136 = #{A0136}
+    	</if>     
+    	<if test="A0144 != null and A0144 != ''">
+    		AND A0144 = #{A0144}
+    	</if>     
+    	<if test="A0151 != null and A0151 != ''">
+    		AND A0151 = #{A0151}
+    	</if>     
+    	<if test="A0152 != null and A0152 != ''">
+    		AND A0152 = #{A0152}
+    	</if>     
+    	<if test="A0171 != null and A0171 != ''">
+    		AND A0171 = #{A0171}
+    	</if>     
+    	<if test="A0174 != null and A0174 != ''">
+    		AND A0174 = #{A0174}
+    	</if>     
+    	<if test="A0175 != null and A0175 != ''">
+    		AND A0175 = #{A0175}
+    	</if>     
+    	<if test="A0176 != null and A0176 != ''">
+    		AND A0176 = #{A0176}
+    	</if>     
+    	<if test="A0177 != null and A0177 != ''">
+    		AND A0177 = #{A0177}
+    	</if>     
+    	<if test="A0178 != null and A0178 != ''">
+    		AND A0178 = #{A0178}
+    	</if>     
+    	<if test="A0181 != null and A0181 != ''">
+    		AND A0181 = #{A0181}
+    	</if>     
+    	<if test="A0184 != null and A0184 != ''">
+    		AND A0184 = #{A0184}
+    	</if>     
+    	<if test="A0187 != null and A0187 != ''">
+    		AND A0187 = #{A0187}
+    	</if>     
+    	<if test="A0189 != null and A0189 != ''">
+    		AND A0189 = #{A0189}
+    	</if>     
+    	<if test="A01A1 != null and A01A1 != ''">
+    		AND A01A1 = #{A01A1}
+    	</if>     
+    	<if test="A01A2 != null and A01A2 != ''">
+    		AND A01A2 = #{A01A2}
+    	</if>     
+    	<if test="A0215 != null and A0215 != ''">
+    		AND A0215 = #{A0215}
+    	</if>     
+    	<if test="A0221 != null and A0221 != ''">
+    		AND A0221 = #{A0221}
+    	</if>     
+    	<if test="A0302 != null and A0302 != ''">
+    		AND A0302 = #{A0302}
+    	</if>     
+    	<if test="A0801 != null and A0801 != ''">
+    		AND A0801 = #{A0801}
+    	</if>     
+    	<if test="A0802 != null and A0802 != ''">
+    		AND A0802 = #{A0802}
+    	</if>     
+    	<if test="A0803 != null and A0803 != ''">
+    		AND A0803 = #{A0803}
+    	</if>     
+    	<if test="A0805 != null and A0805 != ''">
+    		AND A0805 = #{A0805}
+    	</if>     
+    	<if test="A0807 != null and A0807 != ''">
+    		AND A0807 = #{A0807}
+    	</if>     
+    	<if test="A0808 != null and A0808 != ''">
+    		AND A0808 = #{A0808}
+    	</if>     
+    	<if test="A0814 != null and A0814 != ''">
+    		AND A0814 = #{A0814}
+    	</if>     
+    	<if test="A0816 != null and A0816 != ''">
+    		AND A0816 = #{A0816}
+    	</if>     
+    	<if test="A0901 != null and A0901 != ''">
+    		AND A0901 = #{A0901}
+    	</if>     
+    	<if test="AT001 != null and AT001 != ''">
+    		AND AT001 = #{AT001}
+    	</if>     
+    	<if test="D0100 != null and D0100 != ''">
+    		AND D0100 = #{D0100}
+    	</if>     
+    	<if test="F_UPDATE != null and F_UPDATE != ''">
+    		AND F_UPDATE = #{F_UPDATE}
+    	</if>     
+     </where>
+     	 <if test="endRows != null ">
+       	) a )b where rownum&gt;  ${startRows} and rownum &lt;= ${endRows}   
+      </if>    
+ <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>     
+    </select>
+  
+    <select id="getTotalRows"  parameterType="map" resultType="int">
+    SELECT count(*) 
+    FROM A01
+     <where>
+    	<if test="A0100 != null and A0100 != ''">
+    		A0100 = #{A0100}
+    	</if>
+    	<if test="A0101 != null and A0101 != ''">
+    		AND A0101 = #{A0101}
+    	</if>     
+    	<if test="A0102 != null and A0102 != ''">
+    		AND A0102 = #{A0102}
+    	</if>     
+    	<if test="A0103 != null and A0103 != ''">
+    		AND A0103 = #{A0103}
+    	</if>     
+    	<if test="A0104 != null and A0104 != ''">
+    		AND A0104 = #{A0104}
+    	</if>     
+    	<if test="A0105 != null and A0105 != ''">
+    		AND A0105 = #{A0105}
+    	</if>     
+    	<if test="A0106 != null and A0106 != ''">
+    		AND A0106 = #{A0106}
+    	</if>     
+    	<if test="A0107 != null and A0107 != ''">
+    		AND A0107 = #{A0107}
+    	</if>     
+    	<if test="A0108 != null and A0108 != ''">
+    		AND A0108 = #{A0108}
+    	</if>     
+    	<if test="A0109 != null and A0109 != ''">
+    		AND A0109 = #{A0109}
+    	</if>     
+    	<if test="A0110 != null and A0110 != ''">
+    		AND A0110 = #{A0110}
+    	</if>     
+    	<if test="A0111 != null and A0111 != ''">
+    		AND A0111 = #{A0111}
+    	</if>     
+    	<if test="A0112 != null and A0112 != ''">
+    		AND A0112 = #{A0112}
+    	</if>     
+    	<if test="A0113 != null and A0113 != ''">
+    		AND A0113 = #{A0113}
+    	</if>     
+    	<if test="A0114 != null and A0114 != ''">
+    		AND A0114 = #{A0114}
+    	</if>     
+    	<if test="A0115 != null and A0115 != ''">
+    		AND A0115 = #{A0115}
+    	</if>     
+    	<if test="A0116 != null and A0116 != ''">
+    		AND A0116 = #{A0116}
+    	</if>     
+    	<if test="A0117 != null and A0117 != ''">
+    		AND A0117 = #{A0117}
+    	</if>     
+    	<if test="A0118 != null and A0118 != ''">
+    		AND A0118 = #{A0118}
+    	</if>     
+    	<if test="A0119 != null and A0119 != ''">
+    		AND A0119 = #{A0119}
+    	</if>     
+    	<if test="A0120 != null and A0120 != ''">
+    		AND A0120 = #{A0120}
+    	</if>     
+    	<if test="A0121 != null and A0121 != ''">
+    		AND A0121 = #{A0121}
+    	</if>     
+    	<if test="A0122 != null and A0122 != ''">
+    		AND A0122 = #{A0122}
+    	</if>     
+    	<if test="A0123 != null and A0123 != ''">
+    		AND A0123 = #{A0123}
+    	</if>     
+    	<if test="A0124 != null and A0124 != ''">
+    		AND A0124 = #{A0124}
+    	</if>     
+    	<if test="A0125 != null and A0125 != ''">
+    		AND A0125 = #{A0125}
+    	</if>     
+    	<if test="A0127 != null and A0127 != ''">
+    		AND A0127 = #{A0127}
+    	</if>     
+    	<if test="A0131 != null and A0131 != ''">
+    		AND A0131 = #{A0131}
+    	</if>     
+    	<if test="A0133 != null and A0133 != ''">
+    		AND A0133 = #{A0133}
+    	</if>     
+    	<if test="A0134 != null and A0134 != ''">
+    		AND A0134 = #{A0134}
+    	</if>     
+    	<if test="A0135 != null and A0135 != ''">
+    		AND A0135 = #{A0135}
+    	</if>     
+    	<if test="A0136 != null and A0136 != ''">
+    		AND A0136 = #{A0136}
+    	</if>     
+    	<if test="A0144 != null and A0144 != ''">
+    		AND A0144 = #{A0144}
+    	</if>     
+    	<if test="A0151 != null and A0151 != ''">
+    		AND A0151 = #{A0151}
+    	</if>     
+    	<if test="A0152 != null and A0152 != ''">
+    		AND A0152 = #{A0152}
+    	</if>     
+    	<if test="A0171 != null and A0171 != ''">
+    		AND A0171 = #{A0171}
+    	</if>     
+    	<if test="A0174 != null and A0174 != ''">
+    		AND A0174 = #{A0174}
+    	</if>     
+    	<if test="A0175 != null and A0175 != ''">
+    		AND A0175 = #{A0175}
+    	</if>     
+    	<if test="A0176 != null and A0176 != ''">
+    		AND A0176 = #{A0176}
+    	</if>     
+    	<if test="A0177 != null and A0177 != ''">
+    		AND A0177 = #{A0177}
+    	</if>     
+    	<if test="A0178 != null and A0178 != ''">
+    		AND A0178 = #{A0178}
+    	</if>     
+    	<if test="A0181 != null and A0181 != ''">
+    		AND A0181 = #{A0181}
+    	</if>     
+    	<if test="A0184 != null and A0184 != ''">
+    		AND A0184 = #{A0184}
+    	</if>     
+    	<if test="A0187 != null and A0187 != ''">
+    		AND A0187 = #{A0187}
+    	</if>     
+    	<if test="A0189 != null and A0189 != ''">
+    		AND A0189 = #{A0189}
+    	</if>     
+    	<if test="A01A1 != null and A01A1 != ''">
+    		AND A01A1 = #{A01A1}
+    	</if>     
+    	<if test="A01A2 != null and A01A2 != ''">
+    		AND A01A2 = #{A01A2}
+    	</if>     
+    	<if test="A0215 != null and A0215 != ''">
+    		AND A0215 = #{A0215}
+    	</if>     
+    	<if test="A0221 != null and A0221 != ''">
+    		AND A0221 = #{A0221}
+    	</if>     
+    	<if test="A0302 != null and A0302 != ''">
+    		AND A0302 = #{A0302}
+    	</if>     
+    	<if test="A0801 != null and A0801 != ''">
+    		AND A0801 = #{A0801}
+    	</if>     
+    	<if test="A0802 != null and A0802 != ''">
+    		AND A0802 = #{A0802}
+    	</if>     
+    	<if test="A0803 != null and A0803 != ''">
+    		AND A0803 = #{A0803}
+    	</if>     
+    	<if test="A0805 != null and A0805 != ''">
+    		AND A0805 = #{A0805}
+    	</if>     
+    	<if test="A0807 != null and A0807 != ''">
+    		AND A0807 = #{A0807}
+    	</if>     
+    	<if test="A0808 != null and A0808 != ''">
+    		AND A0808 = #{A0808}
+    	</if>     
+    	<if test="A0814 != null and A0814 != ''">
+    		AND A0814 = #{A0814}
+    	</if>     
+    	<if test="A0816 != null and A0816 != ''">
+    		AND A0816 = #{A0816}
+    	</if>     
+    	<if test="A0901 != null and A0901 != ''">
+    		AND A0901 = #{A0901}
+    	</if>     
+    	<if test="AT001 != null and AT001 != ''">
+    		AND AT001 = #{AT001}
+    	</if>     
+    	<if test="D0100 != null and D0100 != ''">
+    		AND D0100 = #{D0100}
+    	</if>     
+    	<if test="F_UPDATE != null and F_UPDATE != ''">
+    		AND F_UPDATE = #{F_UPDATE}
+    	</if>     
+     </where>
+    </select>
+
+</mapper>

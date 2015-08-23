@@ -1,0 +1,27 @@
+<script type="text/javascript" src="${base}/js/secu/RSA.js"></script>  
+<script type="text/javascript" src="${base}/js/secu/BigInt.js"></script>  
+<script type="text/javascript" src="${base}/js/secu/Barrett.js"></script> 
+
+<script type="text/javascript">
+ 
+var key ;
+function rsaInput(id1,id2) {
+	 torsa();
+	 var result = encryptedString(key, document.getElementById(id1).value);
+	 document.getElementById(id1).value = result;
+	 if(id2){
+	 result = encryptedString(key, document.getElementById(id2).value);
+	 document.getElementById(id2).value = result;
+	 }
+	 return true;
+}
+
+function torsa()
+{
+  setMaxDigits(130);
+  var PublicExponent ="${publicExponent}";
+  var modulus ="${modulus}";
+  key = new RSAKeyPair(PublicExponent,"",modulus); 
+}
+ 
+</script> 

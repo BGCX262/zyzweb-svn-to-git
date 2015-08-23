@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>mycms-left</title>
+<link href="/res/mycms/css/admin.css" rel="stylesheet" type="text/css"/>
+<link href="/res/common/css/theme.css" rel="stylesheet" type="text/css"/>
+<link href="/res/common/css/jquery.validate.css" rel="stylesheet" type="text/css"/>
+<link href="/res/common/css/jquery.treeview.css" rel="stylesheet" type="text/css"/>
+<link href="/res/common/css/jquery.ui.css" rel="stylesheet" type="text/css"/>
+ 
+<script src="/thirdparty/fckeditor/fckeditor.js" type="text/javascript"></script>
+<script src="/thirdparty/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script src="/res/common/js/jquery.js" type="text/javascript"></script>
+<script src="/res/common/js/jquery.ext.js" type="text/javascript"></script>
+<script src="/res/common/js/pony.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="/style/demo.css" type="text/css">
+<link rel="stylesheet" href="/style/zTreeStyle/zTreeStyle.css" type="text/css">
+<script type="text/javascript" src="/js/jquery.ztree.core-3.5.js"></script>
+	
+<script src="/res/mycms/js/admin.js" type="text/javascript"></script>
+<script type="text/javascript">
+/* $(function(){
+	$("#browser").treeview({
+		url: "/zyzinfo/dzztreeDy.do?time="+Math.random()
+	});
+	Cms.lmenu("lmenu");
+}); */
+
+<!--
+$(document).ready(function(){
+	initMyZtree();
+});
+
+var zNodes="";
+var setting = {
+	view: {
+		selectedMulti: false,
+		fontCss: setFontCss
+	},
+	async: {
+		enable: true,
+		url:"zyzinfo/getNodes.do",
+		autoParam:["id"]
+	},
+	callback: {
+		beforeClick: beforeClickZtree
+	}
+};
+
+function initMyZtree(){
+    $.ajax({               
+        type: "POST",               
+        dataType: "json",               
+        url: 'zyzinfo/getNodes.do',   
+        success: function(data) {   
+            zNodes=data;
+            $.fn.zTree.init($("#browser"), setting, zNodes);
+        }   
+    });  
+	
+}
+
+//单击事件
+function beforeClickZtree(treeId, treeNode){
+	window.parent.frames['rightFrame1'].showLoad();
+	window.parent.frames['rightFrame1'].document.location.href='/zyzinfo/tj_dzzsub.do?order=desc&sort=cscore&D0107='+treeNode.id;
+}
+
+//设置字体
+function setFontCss(treeId, treeNode) {
+	if(treeNode.level==0){
+		return {'font-weight':'bold','color':'red'};
+	}else if(treeNode.level==1){
+		return {'font-weight':'bold','color':'green'};
+	}else if(treeNode.level==2){
+		return {'font-weight':'bold','color':'blue'};
+	}else{
+		return {};
+	}
+};
+</script>
+</head>
+<body class="lbody">
+ 
+<ul id="browser" class="ztree"></ul>  
+</body>
+</html>

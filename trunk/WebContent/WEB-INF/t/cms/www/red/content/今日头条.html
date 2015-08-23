@@ -1,0 +1,61 @@
+[#include "../include/页头.html"/]
+
+<body>
+<!-- 顶部_Start -->
+[#include "../include/顶部登录搜索.html"/]
+</div>
+<!-- 顶部_End -->
+
+<!-- 导航菜单_Start --> 
+[#include "../include/顶部导航菜单.html"/]
+<!-- 导航菜单_End -->
+
+<!-- 文章内容_Start -->
+<div class="layout">
+		<div class="left">
+    <div class="hd2"><h2> </h2></div>
+ 
+        <!-- 通知公告_Start -->
+ [#include "../include/通知公告.html"/]
+        <!-- 通知公告_End -->
+        
+    	 
+    </div>
+    <div class="right">
+    	<!-- 当前位置_Start -->
+       <div class="hd site">您当前的位置： <a href="${base}/">首页</a> &raquo;今日头条 </div>
+		<!-- 当前位置_End -->
+        <div class="box" id="article-box"> 
+ <ul>
+                 <!-- 类型为头条的内容 -->
+                	 [@cms_content_list count='90' typeId='4'   orderBy='2']
+		[#list tag_list as a]		
+		         	  <li><span>[<script>document.write("${a.date}".substring(0,10))</script>]</span><a href="${a.url}"   title="">[@text_cut s=a.title?html len=28 append="..."/]</a></li>
+		
+		[/#list]
+	  [/@cms_content_list]
+	  
+               	               </ul>            </div>
+        
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- 文章内容_End -->
+
+
+<!-- 底部_Start -->
+<div id="footer">
+    <p>主办单位：广州市环境保护清洁生产促进中心</p>
+    <p>地址：广州市越秀区中山五路百汇广场1610 邮编：515030  电话：020-83649090 传真：020-83649019</p>
+    <p>备案号：粤ICP备09182563</p>
+</div>
+<!-- 底部_End -->
+<script type="text/javascript">
+<!--
+function doZoom(size){
+  document.getElementById('article-box').style.fontSize=size+'px';
+}
+//-->
+</script>
+</body>
+</html>

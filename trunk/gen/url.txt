@@ -1,0 +1,7 @@
+/d01/d01List.do
+/d16/d16List.do
+/a01/a01List.do
+/c02/c02List.do
+/zyzinfo/zyzinfoList.do
+/g00/g00List.do
+/chartmgr/chartmgrList.do

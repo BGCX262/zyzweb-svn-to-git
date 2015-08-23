@@ -1,0 +1,171 @@
+*{margin:0px auto;}
+div{font-family:"微软雅黑";}
+a{text-decoration:none;}
+a img{display:block; border:none;}
+ul,dl{margin:0px; padding:0px;}
+li{list-style:none;}
+.clear{clear:both;}
+
+body{}
+
+#main{width:100%; height:100%; min-width:1200px;}
+
+#header{width:100%; height:200px; margin-bottom:20px;}
+
+#centre{width:100%;  margin-bottom:15px;}
+
+#footer{width:100%; background:url(../images/fotterbg.png) no-repeat; padding-bottom:30px;}
+
+/********************************************* logo *************************************************************/
+
+.logo{width:100%; height:150px; font-size:48px;}
+
+/********************************************* nav *************************************************************/
+
+.nav{width:auto; height:46px; background:url(../images/nav.png); padding-left:200px;}
+
+.nav li{float:left; font-size:22px; font-family:"宋体";}
+
+.navli{width:140px; height:46px; line-height:46px; text-align:center;}
+
+.nline{width:2px; height:44px; background:url(../images/line.png) no-repeat;}
+
+.nav li a{display:inline-block; width:140px; height:44px; color:#FFF;}
+
+.npitchon{display:inline-block; width:140px; height:46px; line-height:46px; text-align:center; background:url(../images/pitch-up.png) no-repeat;}
+
+.pline{width:2px; height:44px; background:url(../images/pline.png) no-repeat;}
+
+.navli:hover{width:140px; height:46px; font-weight:bold; background:url(../images/action.png) no-repeat;}
+
+/********************************************* 所在位置 location *************************************************************/
+
+.location{width:1000px; height:40px; line-height:40px; text-indent:20px; background:url(../images/place.png); color:#666; border:1px solid #CCC; margin-bottom:15px;}
+
+.location a{color:#666;}
+
+.location a:hover{color:#F90;}
+
+.bencentre{width:auto; margin-top:10px;}
+
+/********************************************* mainBox *************************************************************/
+
+.mainBox{width:1000px;}
+
+/********************************************* 公益列表框 benefitList *************************************************************/
+
+.beneL{float:left; width:710px;}
+
+.beneR{float:left; width:270px; margin-left:18px;}
+
+.benList{width:1000px; font-size:15px; color:#666;}
+
+.benList table{width:100%; border-left:1px solid #CCC; border-top:1px solid #CCC;}
+
+.benList table tr td{border-right:1px solid #CCC; border-bottom:1px solid #CCC; text-align:center;}
+
+.bentitle{float:left; width:490px; margin-left:40px; overflow: hidden; text-overflow:ellipsis; white-space:nowrap;}
+
+.bentitle a{color:#666;}
+
+.bentitle a:hover{color:#F90;}
+
+.bentime{float:left; width:150px; margin-left:30px;}
+
+.benNotice{width:270px; height:200px; border:1px solid #CCC;}
+
+/********************************************* 项目内容框 projectList *************************************************************/
+
+.proceL{float:left; width:200px; background:#0F0;}
+
+.proceR{float:left; width:780px; margin-left:18px;}
+
+/********************************************* 左边项目分类 proclassify *************************************************************/
+
+.proclassify{width:200px; height:272px; background:url(../images/category.png) no-repeat;}
+
+.category_title{width:200px; height:55px; line-height:55px; text-align:center; font-size:22px; color:#FFF; margin-bottom:18px;}
+
+.options{width:185px; height:209px; margin-left:7px;}
+
+.options li{width:155px; height:41px; line-height:41px;}
+
+.options .pitchon{color:#0C0;}
+
+.options li a{color:#000; display:inline-block; width:155px; height:41px; line-height:41px; background:#9F0l; text-indent:30px;}
+
+.options li a:hover{display:inline-block; width:155px; height:41px; line-height:41px; color:#0C0;}
+
+/********************************************* 右边项目显示 proclassify *************************************************************/
+
+.proList{width:780px; font-size:15px; color:#666; border:1px solid #CCC;}
+
+/********************************************* 项目查找 find *************************************************************/
+
+.find{padding:20px 0px 5px 0px; border-bottom:1px solid #CCC;}
+
+.findTop{width:730px; height:30px;}
+
+.findTop em{display:inline-block; width:80px; height:30px; line-height:30px; background:url(../images/tobg.png) no-repeat; color:#FFF; text-align:center; margin-right:20px;}
+
+.date_text{width:100px; height:25px; border:1px solid #CCC;}
+
+.keyword_text{width:250px; height:25px; border:1px solid #CCC; margin-left:40px;}
+
+.seek{width:50px; height:30px; background:url(../images/seeksub.png) no-repeat; margin-left:10px; vertical-align:middle; border:0px; cursor:pointer;}
+
+.mt{margin-top:20px; margin-bottom:20px;}
+
+.mt a{color:#F90; margin-left:25px;}
+
+.mt a:hover{color:#0C0;}
+
+/********************************************* 项目列表 items *************************************************************/
+
+.items{width:730px;}
+
+.itemBox{margin-top:20px; padding-bottom:4px; border-bottom:1px dashed #CCC;}
+
+.itemImg{float:left; width:131px; height:131px;}
+
+.itemImg img{width:131px; height:131px; border:0px;}
+
+.recordTxt{float:left; width:560px; margin-left:20px;}
+
+.recordTxt li{margin-bottom:10px;}
+
+.reco_1{font-weight:bold; color:#F90; margin-top:0px;}
+
+.reco_1 a{color:#F90;}
+
+.reco_2{font-size:14px;}
+
+.co_1{color:#0C0;}
+
+.co_2{color:#F00;}
+
+.donationButt{width:90px; height:31px; display:inline-block; background:url(../images/beginbutt.png) no-repeat;}
+
+.finishButt{width:90px; height:31px; display:inline-block; background:url(../images/finishbutt.png) no-repeat;}
+
+/********************************************* 捐款查询 projectSelect *************************************************************/
+
+.selectBox{width:1000px; border:1px solid #CCC;}
+
+.inquireBox{padding:15px 25px;}
+
+.phoneSele{width:auto; text-align:center;}
+
+.phoneSele input{margin-right:20px; margin-left:10px;}
+
+.donationSelectList{margin-top:30px;}
+
+.donationSelectList table{width:100%; border-left:1px solid #CCC; border-top:1px solid #CCC;}
+
+.donationSelectList table tr td{border-right:1px solid #CCC; border-bottom:1px solid #CCC; text-align:center;}
+
+/********************************************* 底部 fotter *************************************************************/
+
+.fotter_div{width:1000px; font-size:14px; text-align:center; padding-top:30px;}
+
+.fotter_div div{margin-top:20px;}

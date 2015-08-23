@@ -1,0 +1,1329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zyz.persistence.ZyzinfoMapper">
+<cache eviction="FIFO"
+        flushInterval="86400000"
+        size="5024"
+        readOnly="true"/>
+  <insert id="insertZyzinfo" parameterType="Zyzinfo" >
+  	INSERT INTO ZYZINFO (ZYZID,USERNAME,CARDID,PHONE,AREA,SEX,SERVICETYPE,CREATEDATE,SCORE,SERVICETIMES,WORKDATE,WORKTIME,COMPANY,PROFESSIONAL,PASSWORD,INSERTDATE) VALUES (#{zyzid,jdbcType=NUMERIC},#{username,jdbcType=VARCHAR},#{cardid,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{area,jdbcType=VARCHAR},#{sex,jdbcType=VARCHAR},#{servicetype,jdbcType=VARCHAR},#{createdate,jdbcType=VARCHAR},#{score,jdbcType=VARCHAR},#{servicetimes,jdbcType=VARCHAR},#{workdate,jdbcType=VARCHAR},#{worktime,jdbcType=VARCHAR},#{company,jdbcType=VARCHAR},#{professional,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{insertdate,jdbcType=TIMESTAMP})
+  </insert>
+
+  <delete id="deleteZyzinfo"  parameterType="map">
+  	DELETE FROM ZYZINFO WHERE  ZYZID=#{zyzid} 
+  </delete>
+    <delete id="deleteA01IdcardIsNull"  parameterType="map">
+  delete from a01  where a0184 is null or a0184=''
+  </delete>
+   <delete id="deleteZyzinfoIdcardNotFound"  parameterType="map">
+   delete from zyzinfo   where  cardid not in (select a0184 from a01 )
+  </delete>
+    
+  <update id="updateD01"  parameterType="map">
+  update D01 set d0107=trim(d0107)
+  </update>
+  <update id="updateA01ByUsernamePhone"  parameterType="map">
+update a01 a set a.A0184=(select b.cardid from zyzinfo b where (a.A0184='' or a.A0184 is null) and a.AT001=b.phone and  b.phone  !='' and b.phone is not null   and a.A0101=b.username)
+ where exists (
+select 1 from zyzinfo b where (a.A0184='' or a.A0184 is null) and a.AT001=b.phone and  b.phone  !='' and b.phone is not null   and a.A0101=b.username)
+  </update>
+
+<update id="updateA01ByBirthday"  parameterType="map">
+update a01 a set a.A0184=(select b.cardid from zyzinfo b  where  a.A0101=b.username and REPLACE(SUBSTR(a.A0107,1,10),'-','')=SUBSTR(b.cardid,7,8)   and( a.A0184='' or a.A0184 is null)
+) where EXISTS
+(select 1  from zyzinfo b  where  a.A0101=b.username and REPLACE(SUBSTR(a.A0107,1,10),'-','')=SUBSTR(b.cardid,7,8)   and( a.A0184='' or a.A0184 is null)
+)
+</update>
+  
+  <update id="updateZyzinfo"  parameterType="Zyzinfo"> 
+	UPDATE ZYZINFO
+	<set>
+		<if test="zyzid != null">ZYZID=#{zyzid},</if>
+		<if test="username != null">USERNAME=#{username},</if>
+		<if test="cardid != null">CARDID=#{cardid},</if>
+		<if test="phone != null">PHONE=#{phone},</if>
+		<if test="area != null">AREA=#{area},</if>
+		<if test="sex != null">SEX=#{sex},</if>
+		<if test="servicetype != null">SERVICETYPE=#{servicetype},</if>
+		<if test="createdate != null">CREATEDATE=#{createdate},</if>
+		<if test="score != null">SCORE=#{score},</if>
+		<if test="servicetimes != null">SERVICETIMES=#{servicetimes},</if>
+		<if test="workdate != null">WORKDATE=#{workdate},</if>
+		<if test="worktime != null">WORKTIME=#{worktime},</if>
+		<if test="company != null">COMPANY=#{company},</if>
+		<if test="professional != null">PROFESSIONAL=#{professional},</if>
+		<if test="password != null">PASSWORD=#{password}</if>
+	</set>
+	WHERE  ZYZID=#{zyzid}   
+  </update>
+ 
+    <select id="getZyzinfo" parameterType="map" resultType="Zyzinfo">
+    SELECT
+     ZYZID,
+     USERNAME,
+     CARDID,
+     PHONE,
+     AREA,
+     SEX,
+     SERVICETYPE,
+     CREATEDATE,
+     SCORE,
+     SERVICETIMES,
+     WORKDATE,
+     WORKTIME,
+     COMPANY,
+     PROFESSIONAL,
+     PASSWORD      
+    FROM ZYZINFO
+    WHERE  ZYZID = #{zyzid}   
+    </select>
+    
+    
+    <select id="getZyzinfoList" parameterType="map" resultType="Zyzinfo">
+    SELECT
+     ZYZID,
+     USERNAME,
+     CARDID,
+     PHONE,
+     AREA,
+     SEX,
+     SERVICETYPE,
+     CREATEDATE,
+     SCORE,
+     SERVICETIMES,
+     WORKDATE,
+     WORKTIME,
+     COMPANY,
+     PROFESSIONAL,
+     PASSWORD      
+    FROM ZYZINFO
+     <where>
+    	<if test="zyzid != null and zyzid != ''">
+    		ZYZID = #{zyzid}
+    	</if>
+    	<if test="username != null and username != ''">
+    		AND USERNAME = #{username}
+    	</if>     
+    	<if test="cardid != null and cardid != ''">
+    		AND CARDID = #{cardid}
+    	</if>     
+    	<if test="phone != null and phone != ''">
+    		AND PHONE = #{phone}
+    	</if>     
+    	<if test="area != null and area != ''">
+    		AND AREA = #{area}
+    	</if>     
+    	<if test="sex != null and sex != ''">
+    		AND SEX = #{sex}
+    	</if>     
+    	<if test="servicetype != null and servicetype != ''">
+    		AND SERVICETYPE = #{servicetype}
+    	</if>     
+    	<if test="createdate != null and createdate != ''">
+    		AND CREATEDATE = #{createdate}
+    	</if>     
+    	<if test="score != null and score != ''">
+    		AND SCORE = #{score}
+    	</if>     
+    	<if test="servicetimes != null and servicetimes != ''">
+    		AND SERVICETIMES = #{servicetimes}
+    	</if>     
+    	<if test="workdate != null and workdate != ''">
+    		AND WORKDATE = #{workdate}
+    	</if>     
+    	<if test="worktime != null and worktime != ''">
+    		AND WORKTIME = #{worktime}
+    	</if>     
+    	<if test="company != null and company != ''">
+    		AND COMPANY = #{company}
+    	</if>     
+    	<if test="professional != null and professional != ''">
+    		AND PROFESSIONAL = #{professional}
+    	</if>     
+    	<if test="password != null and password != ''">
+    		AND PASSWORD = #{password}
+    	</if>     
+     </where>
+     	<if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>      
+     
+    </select>
+  
+    <select id="getTotalRows"  parameterType="map" resultType="int">
+    SELECT count(*) 
+    FROM ZYZINFO
+     <where>
+    	<if test="zyzid != null and zyzid != ''">
+    		ZYZID = #{zyzid}
+    	</if>
+    	<if test="username != null and username != ''">
+    		AND USERNAME = #{username}
+    	</if>     
+    	<if test="cardid != null and cardid != ''">
+    		AND CARDID = #{cardid}
+    	</if>     
+    	<if test="phone != null and phone != ''">
+    		AND PHONE = #{phone}
+    	</if>     
+    	<if test="area != null and area != ''">
+    		AND AREA = #{area}
+    	</if>     
+    	<if test="sex != null and sex != ''">
+    		AND SEX = #{sex}
+    	</if>     
+    	<if test="servicetype != null and servicetype != ''">
+    		AND SERVICETYPE = #{servicetype}
+    	</if>     
+    	<if test="createdate != null and createdate != ''">
+    		AND CREATEDATE = #{createdate}
+    	</if>     
+    	<if test="score != null and score != ''">
+    		AND SCORE = #{score}
+    	</if>     
+    	<if test="servicetimes != null and servicetimes != ''">
+    		AND SERVICETIMES = #{servicetimes}
+    	</if>     
+    	<if test="workdate != null and workdate != ''">
+    		AND WORKDATE = #{workdate}
+    	</if>     
+    	<if test="worktime != null and worktime != ''">
+    		AND WORKTIME = #{worktime}
+    	</if>     
+    	<if test="company != null and company != ''">
+    		AND COMPANY = #{company}
+    	</if>     
+    	<if test="professional != null and professional != ''">
+    		AND PROFESSIONAL = #{professional}
+    	</if>     
+    	<if test="password != null and password != ''">
+    		AND PASSWORD = #{password}
+    	</if>     
+     </where>
+    </select>
+    
+    <select id="queryDzzDyTotalRows"  parameterType="map" resultType="int">
+    SELECT count(*) from (
+select D0100,count(score) cscore,count(servicetimes) cservicetimes from (select a.cardid,a.score,a.servicetimes,b2.D0100 from zyzinfo a,(select b.D0100,b.A0136,b.A0184 from A01 b,C02 b1  where b.A0100=b1.A0100) b2 where a.cardid=b2.A0184 ) c group by D0100 
+)  d, D01 e
+     <where>
+    	d.D0100=e.D0100
+    	    	<if test="zzmc != null and zzmc != ''">
+    		AND e.D0101 like  #{zzmc}
+    	</if>     
+     <if test="zzcode != null and zzcode != ''">
+    		AND e.D0107 like  #{zzcode}
+    	</if>   
+     </where>
+         
+</select>
+    
+     <select id="queryDzzDy"  parameterType="map" resultType="Zyzinfo">
+     select d.*,e.D0104,e.D0101 from (
+select D0100,sum(score) cscore,sum(servicetimes) cservicetimes from     (select a.cardid,a.score,a.servicetimes,b2.D0100 from zyzinfo a,(select b.D0100,b.A0136,b.A0184 from A01 b,C02 b1  where b.A0100=b1.A0100) b2 where a.cardid=b2.A0184 ) c group by D0100 
+)  d, D01 e
+     <where>
+    	d.D0100=e.D0100
+    	<if test="zzmc != null and zzmc != ''">
+    		AND e.D0101 like  #{zzmc}
+    	</if>     
+     <if test="zzcode != null and zzcode != ''">
+    		AND e.D0107 like  #{zzcode}
+    	</if> 
+     </where>
+     <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     </if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>    
+      
+    </select>
+    <select id="queryDzzDyNot"  parameterType="map" resultType="Zyzinfo">
+     select d.*,e.D0104,e.D0101 from (
+select D0100,G0005,sum(score) cscore,sum(servicetimes) cservicetimes from     (select a.cardid,a.score,a.servicetimes,b2.D0100,b2.G0005 from zyzinfo a,(select b.D0100,b.A0136,b.A0184,b1.G0005 from A01 b,G00 b1  where b.A0100=b1.A0100 and b1.G0011='0') b2 where a.cardid=b2.A0184 ) c group by D0100 
+)  d, D01 e
+     <where>
+    	d.D0100=e.D0100
+    	<if test="zzmc != null and zzmc != ''">
+    		AND e.D0101 like  #{zzmc}
+    	</if>     
+     <if test="zzcode != null and zzcode != ''">
+    		AND e.D0107 like  #{zzcode}
+    	</if> 
+    	<if test="dytype != null and dytype != ''">
+    		AND d.G0005 =  #{dytype}
+    	</if> 
+     </where>
+     <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     </if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>    
+      
+    </select>
+    
+         <select id="queryDzzDyAll"  parameterType="map" resultType="Zyzinfo">
+     select d.*,e.D0104,e.D0101 from (
+select D0100,sum(score) cscore,sum(servicetimes) cservicetimes from     (select a.cardid,a.score,a.servicetimes,b2.D0100 from zyzinfo a,A01 b2 where a.cardid=b2.A0184 ) c group by D0100 
+)  d, D01 e
+     <where>
+    	d.D0100=e.D0100
+    	<if test="zzmc != null and zzmc != ''">
+    		AND e.D0101 like  #{zzmc}
+    	</if>     
+     <if test="zzcode != null and zzcode != ''">
+    		AND e.D0107 like  #{zzcode}
+    	</if> 
+     </where>
+     <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     </if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>    
+      
+    </select> 
+    <select id="queryZyzDy"  parameterType="map" resultType="Zyzinfo">
+    select a.*,b2.D0100,b2.D0104,a.cardid,a.score cscore,a.servicetimes cservicetimes from zyzinfo a,A01 b,D01 b2,C02 b3
+     <where>
+ a.cardid=b.A0184  and b.D0100=b2.D0100 and b.A0100=b3.A0100
+      	<if test="username != null and username != ''">
+    	and	  username like  #{username}
+    	</if>   
+     	
+     	<if test="zzmc != null and zzmc != ''">
+          and b2.D0104 like  #{zzmc}
+     	</if>  
+     	 
+     	<if test="zzid != null and zzid != ''">
+        and   b2.D0100 =#{zzid}
+     	</if>  
+     	
+     </where>
+     
+     <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>    
+      
+    </select>
+      <select id="queryZyzDyNot"  parameterType="map" resultType="Zyzinfo">
+    select a.*,b2.D0100,b2.D0104,b3.G0005,a.cardid,a.score cscore,a.servicetimes cservicetimes from zyzinfo a,A01 b,D01 b2,G00 b3
+     <where>
+ a.cardid=b.A0184  and b.D0100=b2.D0100 and b.A0100=b3.A0100 and b3.G0011='0'
+      	<if test="username != null and username != ''">
+    	and	  username like  #{username}
+    	</if>   
+     	
+     	<if test="zzmc != null and zzmc != ''">
+          and b2.D0104 like  #{zzmc}
+     	</if>  
+     	 
+     	<if test="zzid != null and zzid != ''">
+        and   b2.D0100 =#{zzid}
+     	</if>  
+     	<if test="dytype != null and dytype != ''">
+    		AND d.G0005 =  #{dytype}
+    	</if> 
+     </where>
+     
+     <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>    
+      
+    </select>
+    <select id="queryZyzDyAll"  parameterType="map" resultType="Zyzinfo">
+    select a.*,b2.D0100,b2.D0104,a.cardid,a.score cscore,a.servicetimes cservicetimes from zyzinfo a,A01 b,D01 b2
+     <where>
+ a.cardid=b.A0184  and b.D0100=b2.D0100 
+      	<if test="username != null and username != ''">
+    	and	  username like  #{username}
+    	</if>   
+     	
+     	<if test="zzmc != null and zzmc != ''">
+          and b2.D0104 like  #{zzmc}
+     	</if>  
+     	 
+     	<if test="zzid != null and zzid != ''">
+        and   b2.D0100 =#{zzid}
+     	</if>   
+     </where>
+     
+     <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>    
+      
+    </select>
+      
+     
+    <select id="queryDzzRsDy"  parameterType="map" resultType="Zyzinfo">
+select * from(
+ SELECT c.D0104,count(*) czyz from a01 a,zyzinfo  b,D01 c ,C02 c1 where a.A0184=b.cardid and a.D0100=c.D0100 and a.A0100=c1.A0100  group by D0104
+) d
+     <where>
+     	<if test="zzmc != null and zzmc != ''">
+           d.D0104 like  #{zzmc}
+     	</if> 
+     </where>	 
+      <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>    
+      
+    </select>
+    <select id="queryDzzRsDyNot"  parameterType="map" resultType="Zyzinfo">
+select * from(
+ SELECT c.D0104,c1.G0005,count(*) czyz from a01 a,zyzinfo  b,D01 c ,G00 c1 where a.A0184=b.cardid and a.D0100=c.D0100 and a.A0100=c1.A0100 and c1.G0011='0'  group by D0104
+) d
+     <where>
+     	<if test="zzmc != null and zzmc != ''">
+           d.D0104 like  #{zzmc}
+     	</if> 
+     	 <if test="dytype != null and dytype != ''">
+    		AND d.G0005 =  #{dytype}
+    	</if> 
+     </where>	 
+      <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>    
+     
+    </select>
+    <select id="queryDzzRsDyAll"  parameterType="map" resultType="Zyzinfo">
+select * from(
+ SELECT c.D0104,count(*) czyz from a01 a,zyzinfo  b,D01 c where a.A0184=b.cardid and a.D0100=c.D0100   group by D0104
+) d
+     <where>
+     	<if test="zzmc != null and zzmc != ''">
+           d.D0104 like  #{zzmc}
+     	</if> 
+     </where>	 
+      <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>    
+      
+    </select>
+    
+        <select id="queryZyzNlDy"  parameterType="map" resultType="Zyzinfo">
+select * from(
+ SELECT substr(a.A0107,1,3) nl,count(*) czyz from a01 a,zyzinfo  b,C02 c1 where a.A0184=b.cardid  and a.A0100=c1.A0100  group by substr(a.A0107,1,3)
+) d
+      <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>    
+      
+    </select>
+      <select id="queryZyzNlDyNot"  parameterType="map" resultType="Zyzinfo">
+select * from(
+ SELECT substr(a.A0107,1,3) nl,count(*) czyz from a01 a,zyzinfo  b,G00 c1 where a.A0184=b.cardid  and a.A0100=c1.A0100  group by substr(a.A0107,1,3)
+) d
+      <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>    
+      
+    </select>
+    <select id="queryZyzNlDyAll"  parameterType="map" resultType="Zyzinfo">
+select * from(
+ SELECT substr(a.A0107,1,3) nl,count(*) czyz from a01 a,zyzinfo  b where a.A0184=b.cardid  group by substr(a.A0107,1,3)
+) d
+      <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>    
+      
+    </select>
+
+    <select id="tj_dy"  parameterType="map" resultType="Zyzinfo">
+<!-- 
+以zyzinfo a为基础，左连接人员基本信息表a01 d1，
+d1条件限制为 d1.A0184=a.cardid and d1.A0100 in (select d.a0100 from c02 d where d.a0100=d1.A0100))
+a的条件限制为本身单表where条件
+ -->
+select count(1) rs,SUM(score) cscore,SUM(servicetimes) cservicetimes,SUM(case when d1.a0100 is null then 0 else 1 end) dyrs from zyzinfo a
+LEFT JOIN  a01 d1 on (d1.A0184=a.cardid 
+<if test="A0101 != null and A0101 != ''">
+            and   d1.A0101 =#{A0101}
+</if> 
+<if test="A0184 != null and A0184 != ''">
+            and   d1.A0184 =#{A0184}
+</if> 
+<if test="A0104 != null and A0104 != ''">
+            and   d1.A0104 =#{A0104}
+</if> 
+<if test="A0117 != null and A0117 != ''">
+            and   d1.A0117 =#{A0117}
+</if> 
+<if test="A0111 != null and A0111 != ''">
+            and   d1.A0111 like #{A0111}
+</if> 
+<if test="A01071 != null and A01071 != ''">
+            and   d1.A0107  &lt; #{A01071}
+</if> 
+<if test="A01072 != null and A01072 != ''">
+            and   d1.A0107  &gt; #{A01072}
+</if> 
+<if test="A0135 != null and A0135 != ''">
+            and   d1.A0135 like #{A0135}
+</if> 
+
+<if test="A0174 != null and A0174 != ''">
+            and   d1.A0174 like #{A0174}
+</if> 
+
+<if test="A0151 != null and A0151 != ''">
+            and   d1.A0151 like #{A0151}
+</if> 
+<if test="A0801 != null and A0801 != ''">
+            and   d1.A0801 =#{A0801}
+</if> 
+<if test="A0171 != null and A0171 != ''">
+            and   d1.A0171 =#{A0171}
+</if> 
+     	
+and d1.A0100 in (
+select d.a0100 from c02 d where d.a0100=d1.A0100  and d.c0208 ='0' 
+  <if test="C0203 != null and C0203 != ''">
+            and   d.C0203 =#{C0203}
+  </if>  
+    <if test="C02031 != null and C02031 != ''">
+            and   d.C0203 &gt; #{C02031}
+  </if>  
+    <if test="C02032 != null and C02032 != ''">
+            and   d.C0203 &lt; #{C02032}
+  </if>  
+))
+<where>  
+<if test="username != null and username != ''">
+    		  USERNAME = #{username}
+    	</if>     
+    	<if test="cardid != null and cardid != ''">
+    		AND CARDID = #{cardid}
+    	</if>     
+    	<if test="phone != null and phone != ''">
+    		AND PHONE = #{phone}
+    	</if>     
+    	<if test="area != null and area != ''">
+    		AND AREA = #{area}
+    	</if>     
+    	<if test="sex != null and sex != ''">
+    		AND SEX = #{sex}
+    	</if>     
+    	<if test="servicetype != null and servicetype != ''">
+    		AND SERVICETYPE like #{servicetype}
+    	</if>     
+    	<if test="createdate != null and createdate != ''">
+    		AND CREATEDATE = #{createdate}
+    	</if>     
+    	<if test="score1 != null and score1 != ''">
+    		AND SCORE  &gt; #{score1}
+    	</if>     
+    	<if test="score2 != null and score2 != ''">
+    		AND SCORE  &lt; #{score2}
+    	</if>     
+
+    	<if test="servicetimes1 != null and servicetimes1 != ''">
+    		AND SERVICETIMES &gt; #{servicetimes1}
+    	</if>    
+    	<if test="servicetimes2 != null and servicetimes2 != ''">
+    		AND SERVICETIMES &lt; #{servicetimes2}
+    	</if>  
+    	 
+    	<if test="workdate != null and workdate != ''">
+    		AND WORKDATE = #{workdate}
+    	</if>     
+    	<if test="worktime != null and worktime != ''">
+    		AND WORKTIME = #{worktime}
+    	</if>     
+    	<if test="company != null and company != ''">
+    		AND COMPANY = #{company}
+    	</if>     
+    	<if test="professional != null and professional != ''">
+    		AND PROFESSIONAL = #{professional}
+    	</if>     
+    	<if test="password != null and password != ''">
+    		AND PASSWORD = #{password}
+    	</if> 
+</where>
+
+    </select>  
+    
+    
+    
+     <select id="px_dy"  parameterType="map" resultType="Zyzinfo">
+
+select * from zyzinfo a,C02 c,a01 b
+left join D01 d on(b.D0100=d.D0100)
+ where a.cardid=b.A0184 and b.A0100=c.A0100  and c.c0208 ='0'  
+ 
+<if test="A0101 != null and A0101 != ''">
+            and   b.A0101 =#{A0101}
+</if> 
+<if test="A0184 != null and A0184 != ''">
+            and   b.A0184 =#{A0184}
+</if> 
+<if test="A0104 != null and A0104 != ''">
+            and   b.A0104 =#{A0104}
+</if> 
+<if test="A0117 != null and A0117 != ''">
+            and   b.A0117 =#{A0117}
+</if> 
+<if test="A0111 != null and A0111 != ''">
+            and   b.A0111 like #{A0111}
+</if> 
+<if test="A01071 != null and A01071 != ''">
+            and   b.A0107  &lt; #{A01071}
+</if> 
+<if test="A01072 != null and A01072 != ''">
+            and   b.A0107  &gt; #{A01072}
+</if> 
+<if test="A0135 != null and A0135 != ''">
+            and   b.A0135 like #{A0135}
+</if> 
+
+<if test="A0174 != null and A0174 != ''">
+            and   b.A0174 like #{A0174}
+</if> 
+
+<if test="A0151 != null and A0151 != ''">
+            and   b.A0151 like #{A0151}
+</if> 
+<if test="A0801 != null and A0801 != ''">
+            and   b.A0801 =#{A0801}
+</if> 
+<if test="A0171 != null and A0171 != ''">
+            and   b.A0171 =#{A0171}
+</if> 
+<if test="username != null and username != ''">
+    		AND USERNAME = #{username}
+    	</if>     
+    	<if test="cardid != null and cardid != ''">
+    		AND CARDID = #{cardid}
+    	</if>     
+    	<if test="phone != null and phone != ''">
+    		AND PHONE = #{phone}
+    	</if>     
+    	<if test="area != null and area != ''">
+    		AND AREA = #{area}
+    	</if>     
+    	<if test="sex != null and sex != ''">
+    		AND SEX = #{sex}
+    	</if>     
+    	<if test="servicetype != null and servicetype != ''">
+    		AND SERVICETYPE like #{servicetype}
+    	</if>     
+    	<if test="createdate != null and createdate != ''">
+    		AND CREATEDATE = #{createdate}
+    	</if>     
+    	<if test="score1 != null and score1 != ''">
+    		AND SCORE  &gt; #{score1}
+    	</if>     
+    	<if test="score2 != null and score2 != ''">
+    		AND SCORE  &lt; #{score2}
+    	</if>     
+
+    	<if test="servicetimes1 != null and servicetimes1 != ''">
+    		AND SERVICETIMES &gt; #{servicetimes1}
+    	</if>    
+    	<if test="servicetimes2 != null and servicetimes2 != ''">
+    		AND SERVICETIMES &lt; #{servicetimes2}
+    	</if>  
+    	 
+    	<if test="workdate != null and workdate != ''">
+    		AND WORKDATE = #{workdate}
+    	</if>     
+    	<if test="worktime != null and worktime != ''">
+    		AND WORKTIME = #{worktime}
+    	</if>     
+    	<if test="company != null and company != ''">
+    		AND COMPANY = #{company}
+    	</if>     
+    	<if test="professional != null and professional != ''">
+    		AND PROFESSIONAL = #{professional}
+    	</if>     
+    	<if test="password != null and password != ''">
+    		AND PASSWORD = #{password}
+    	</if> 
+      
+      <if test="C0203 != null and C0203 != ''">
+            and   d.C0203 =#{C0203}
+  </if>  
+    <if test="C02031 != null and C02031 != ''">
+            and   d.C0203 &gt; #{C02031}
+  </if>  
+    <if test="C02032 != null and C02032 != ''">
+            and   d.C0203 &lt; #{C02032}
+  </if>  	 
+ 
+      <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+     <if test="limitRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>      
+  
+    </select>  
+   
+    
+    
+     <select id="px_sqz"  parameterType="map" resultType="Zyzinfo">
+
+select * from zyzinfo a,G00 c ,a01 b 
+left join D01 d on(b.D0100=d.D0100)
+where a.cardid=b.A0184 and b.A0100=c.A0100 and c.G0011='0'
+ 
+<if test="A0101 != null and A0101 != ''">
+            and   b.A0101 =#{A0101}
+</if> 
+<if test="A0184 != null and A0184 != ''">
+            and   b.A0184 =#{A0184}
+</if> 
+<if test="A0104 != null and A0104 != ''">
+            and   b.A0104 =#{A0104}
+</if> 
+<if test="A0117 != null and A0117 != ''">
+            and   b.A0117 =#{A0117}
+</if> 
+<if test="A0111 != null and A0111 != ''">
+            and   b.A0111 like #{A0111}
+</if> 
+<if test="A01071 != null and A01071 != ''">
+            and   b.A0107  &lt; #{A01071}
+</if> 
+<if test="A01072 != null and A01072 != ''">
+            and   b.A0107  &gt; #{A01072}
+</if> 
+<if test="A0135 != null and A0135 != ''">
+            and   b.A0135 like #{A0135}
+</if> 
+
+<if test="A0174 != null and A0174 != ''">
+            and   b.A0174 like #{A0174}
+</if> 
+
+<if test="A0151 != null and A0151 != ''">
+            and   b.A0151 like #{A0151}
+</if> 
+<if test="A0801 != null and A0801 != ''">
+            and   b.A0801 =#{A0801}
+</if> 
+<if test="A0171 != null and A0171 != ''">
+            and   b.A0171 =#{A0171}
+</if> 
+    	 
+<if test="username != null and username != ''">
+    		AND USERNAME = #{username}
+    	</if>     
+    	<if test="cardid != null and cardid != ''">
+    		AND CARDID = #{cardid}
+    	</if>     
+    	<if test="phone != null and phone != ''">
+    		AND PHONE = #{phone}
+    	</if>     
+    	<if test="area != null and area != ''">
+    		AND AREA = #{area}
+    	</if>     
+    	<if test="sex != null and sex != ''">
+    		AND SEX = #{sex}
+    	</if>     
+    	<if test="servicetype != null and servicetype != ''">
+    		AND SERVICETYPE like #{servicetype}
+    	</if>     
+    	<if test="createdate != null and createdate != ''">
+    		AND CREATEDATE = #{createdate}
+    	</if>     
+    	<if test="score1 != null and score1 != ''">
+    		AND SCORE  &gt; #{score1}
+    	</if>     
+    	<if test="score2 != null and score2 != ''">
+    		AND SCORE  &lt; #{score2}
+    	</if>     
+
+    	<if test="servicetimes1 != null and servicetimes1 != ''">
+    		AND SERVICETIMES &gt; #{servicetimes1}
+    	</if>    
+    	<if test="servicetimes2 != null and servicetimes2 != ''">
+    		AND SERVICETIMES &lt; #{servicetimes2}
+    	</if>  
+    	 
+    	<if test="workdate != null and workdate != ''">
+    		AND WORKDATE = #{workdate}
+    	</if>     
+    	<if test="worktime != null and worktime != ''">
+    		AND WORKTIME = #{worktime}
+    	</if>     
+    	<if test="company != null and company != ''">
+    		AND COMPANY = #{company}
+    	</if>     
+    	<if test="professional != null and professional != ''">
+    		AND PROFESSIONAL = #{professional}
+    	</if>     
+    	<if test="password != null and password != ''">
+    		AND PASSWORD = #{password}
+    	</if> 
+ 
+ 
+<if test="G00101 != null and G00101 != ''">
+            and   c.G0010  &lt; #{G00101}
+</if> 
+<if test="G00102 != null and G00102 != ''">
+            and   c.G0010  &gt; #{G00102}
+</if> 
+<if test="G0010 != null and G0010 != ''">
+            and   c.G0010 =#{G0010}
+</if>
+
+<if test="G00131 != null and G00131 != ''">
+            and   c.G0013  &lt; #{G00131}
+</if> 
+<if test="G00132 != null and G00132 != ''">
+            and   c.G0013  &gt; #{G00132}
+</if> 
+<if test="G0013 != null and G0013 != ''">
+            and   c.G0013 =#{G0013}
+</if>
+
+
+<if test="G00041 != null and G00041 != ''">
+            and   c.G0004  &lt; #{G00041}
+</if> 
+<if test="G00042 != null and G00042 != ''">
+            and   c.G0004  &gt; #{G00042}
+</if> 
+<if test="G0004 != null and G0004 != ''">
+            and   c.G0004 =#{G0004}
+</if>
+
+<if test="G00091 != null and G0009 != ''">
+            and   c.G0009  &lt; #{G00091}
+</if> 
+<if test="G00092 != null and G00092 != ''">
+            and   c.G0009  &gt; #{G00092}
+</if> 
+<if test="G0009 != null and G0009 != ''">
+            and   c.G0009 =#{G0009}
+</if>
+   <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+     <if test="limitRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>   
+    </select>  
+      
+     <select id="fl_dy"  parameterType="map" resultType="Zyzinfo"  >
+ select b.${flid} flname,COUNT(1) rs ,  SUM(a.servicetimes) cservicetimes, SUM(a.score) cscore  from zyzinfo a,a01 b,C02 c where  
+a.cardid=b.A0184 and b.A0100=c.A0100 and c.c0208 ='0' 
+
+<if test="A0101 != null and A0101 != ''">
+            and   b.A0101 =#{A0101}
+</if> 
+<if test="A0184 != null and A0184 != ''">
+            and   b.A0184 =#{A0184}
+</if> 
+<if test="A0104 != null and A0104 != ''">
+            and   b.A0104 =#{A0104}
+</if> 
+<if test="A0117 != null and A0117 != ''">
+            and   b.A0117 =#{A0117}
+</if> 
+<if test="A0111 != null and A0111 != ''">
+            and   b.A0111 like #{A0111}
+</if> 
+<if test="A01071 != null and A01071 != ''">
+            and   b.A0107  &lt; #{A01071}
+</if> 
+<if test="A01072 != null and A01072 != ''">
+            and   b.A0107  &gt; #{A01072}
+</if> 
+<if test="A0135 != null and A0135 != ''">
+            and   b.A0135 like #{A0135}
+</if> 
+
+<if test="A0174 != null and A0174 != ''">
+            and   b.A0174 like #{A0174}
+</if> 
+
+<if test="A0151 != null and A0151 != ''">
+            and   b.A0151 like #{A0151}
+</if> 
+<if test="A0801 != null and A0801 != ''">
+            and   b.A0801 =#{A0801}
+</if> 
+<if test="A0171 != null and A0171 != ''">
+            and   b.A0171 =#{A0171}
+</if> 
+<if test="username != null and username != ''">
+    		AND USERNAME = #{username}
+    	</if>     
+    	<if test="cardid != null and cardid != ''">
+    		AND CARDID = #{cardid}
+    	</if>     
+    	<if test="phone != null and phone != ''">
+    		AND PHONE = #{phone}
+    	</if>     
+    	<if test="area != null and area != ''">
+    		AND AREA = #{area}
+    	</if>     
+    	<if test="sex != null and sex != ''">
+    		AND SEX = #{sex}
+    	</if>     
+    	<if test="servicetype != null and servicetype != ''">
+    		AND SERVICETYPE like #{servicetype}
+    	</if>     
+    	<if test="createdate != null and createdate != ''">
+    		AND CREATEDATE = #{createdate}
+    	</if>     
+    	<if test="score1 != null and score1 != ''">
+    		AND SCORE  &gt; #{score1}
+    	</if>     
+    	<if test="score2 != null and score2 != ''">
+    		AND SCORE  &lt; #{score2}
+    	</if>     
+
+    	<if test="servicetimes1 != null and servicetimes1 != ''">
+    		AND SERVICETIMES &gt; #{servicetimes1}
+    	</if>    
+    	<if test="servicetimes2 != null and servicetimes2 != ''">
+    		AND SERVICETIMES &lt; #{servicetimes2}
+    	</if>  
+    	 
+    	<if test="workdate != null and workdate != ''">
+    		AND WORKDATE = #{workdate}
+    	</if>     
+    	<if test="worktime != null and worktime != ''">
+    		AND WORKTIME = #{worktime}
+    	</if>     
+    	<if test="company != null and company != ''">
+    		AND COMPANY = #{company}
+    	</if>     
+    	<if test="professional != null and professional != ''">
+    		AND PROFESSIONAL = #{professional}
+    	</if>     
+    	<if test="password != null and password != ''">
+    		AND PASSWORD = #{password}
+    	</if>  
+    	    <if test="C0203 != null and C0203 != ''">
+            and   c.C0203 =#{C0203}
+  </if>  
+    <if test="C02031 != null and C02031 != ''">
+            and   c.C0203 &gt; #{C02031}
+  </if>  
+    <if test="C02032 != null and C02032 != ''">
+            and   c.C0203 &lt; #{C02032}
+  </if>  	 
+group by b.${flid}
+  <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+     <if test="limitRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>  
+    </select>  
+   
+   
+    <select id="fl_sqz"  parameterType="map" resultType="Zyzinfo"  >
+ select b.${flid} flname,COUNT(1) rs , SUM(a.servicetimes) cservicetimes  , SUM(a.score) cscore from zyzinfo a,a01 b,G00 c where  
+a.cardid=b.A0184 and b.A0100=c.A0100 and c.G0011='0'
+
+<if test="A0101 != null and A0101 != ''">
+            and   b.A0101 =#{A0101}
+</if> 
+<if test="A0184 != null and A0184 != ''">
+            and   b.A0184 =#{A0184}
+</if> 
+<if test="A0104 != null and A0104 != ''">
+            and   b.A0104 =#{A0104}
+</if> 
+<if test="A0117 != null and A0117 != ''">
+            and   b.A0117 =#{A0117}
+</if> 
+<if test="A0111 != null and A0111 != ''">
+            and   b.A0111 like #{A0111}
+</if> 
+<if test="A01071 != null and A01071 != ''">
+            and   b.A0107  &lt; #{A01071}
+</if> 
+<if test="A01072 != null and A01072 != ''">
+            and   b.A0107  &gt; #{A01072}
+</if> 
+<if test="A0135 != null and A0135 != ''">
+            and   b.A0135 like #{A0135}
+</if> 
+
+<if test="A0174 != null and A0174 != ''">
+            and   b.A0174 like #{A0174}
+</if> 
+
+<if test="A0151 != null and A0151 != ''">
+            and   b.A0151 like #{A0151}
+</if> 
+<if test="A0801 != null and A0801 != ''">
+            and   b.A0801 =#{A0801}
+</if> 
+<if test="A0171 != null and A0171 != ''">
+            and   b.A0171 =#{A0171}
+</if> 
+<if test="username != null and username != ''">
+    		AND USERNAME = #{username}
+    	</if>     
+    	<if test="cardid != null and cardid != ''">
+    		AND CARDID = #{cardid}
+    	</if>     
+    	<if test="phone != null and phone != ''">
+    		AND PHONE = #{phone}
+    	</if>     
+    	<if test="area != null and area != ''">
+    		AND AREA = #{area}
+    	</if>     
+    	<if test="sex != null and sex != ''">
+    		AND SEX = #{sex}
+    	</if>     
+    	<if test="servicetype != null and servicetype != ''">
+    		AND SERVICETYPE like #{servicetype}
+    	</if>     
+    	<if test="createdate != null and createdate != ''">
+    		AND CREATEDATE = #{createdate}
+    	</if>     
+    	<if test="score1 != null and score1 != ''">
+    		AND SCORE  &gt; #{score1}
+    	</if>     
+    	<if test="score2 != null and score2 != ''">
+    		AND SCORE  &lt; #{score2}
+    	</if>     
+
+    	<if test="servicetimes1 != null and servicetimes1 != ''">
+    		AND SERVICETIMES &gt; #{servicetimes1}
+    	</if>    
+    	<if test="servicetimes2 != null and servicetimes2 != ''">
+    		AND SERVICETIMES &lt; #{servicetimes2}
+    	</if>  
+    	 
+    	<if test="workdate != null and workdate != ''">
+    		AND WORKDATE = #{workdate}
+    	</if>     
+    	<if test="worktime != null and worktime != ''">
+    		AND WORKTIME = #{worktime}
+    	</if>     
+    	<if test="company != null and company != ''">
+    		AND COMPANY = #{company}
+    	</if>     
+    	<if test="professional != null and professional != ''">
+    		AND PROFESSIONAL = #{professional}
+    	</if>     
+    	<if test="password != null and password != ''">
+    		AND PASSWORD = #{password}
+    	</if> 
+    	
+    	 <if test="G0005 != null and G0005 != ''">
+    		AND c.G0005 = #{G0005}
+    	</if>  
+    	
+<if test="G00101 != null and G00101 != ''">
+            and   c.G0010  &lt; #{G00101}
+</if> 
+<if test="G00102 != null and G00102 != ''">
+            and   c.G0010  &gt; #{G00102}
+</if> 
+<if test="G0010 != null and G0010 != ''">
+            and   c.G0010 =#{G0010}
+</if>
+
+<if test="G00131 != null and G00131 != ''">
+            and   c.G0013  &lt; #{G00131}
+</if> 
+<if test="G00132 != null and G00132 != ''">
+            and   c.G0013  &gt; #{G00132}
+</if> 
+<if test="G0013 != null and G0013 != ''">
+            and   c.G0013 =#{G0013}
+</if>
+
+
+<if test="G00041 != null and G00041 != ''">
+            and   c.G0004  &lt; #{G00041}
+</if> 
+<if test="G00042 != null and G00042 != ''">
+            and   c.G0004  &gt; #{G00042}
+</if> 
+<if test="G0004 != null and G0004 != ''">
+            and   c.G0004 =#{G0004}
+</if>
+
+<if test="G00091 != null and G0009 != ''">
+            and   c.G0009  &lt; #{G00091}
+</if> 
+<if test="G00092 != null and G00092 != ''">
+            and   c.G0009  &gt; #{G00092}
+</if> 
+<if test="G0009 != null and G0009 != ''">
+            and   c.G0009 =#{G0009}
+</if>
+
+group by b.${flid}
+<if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+     <if test="limitRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if> 
+    </select>  
+    
+
+<select id="tj_dzz"  parameterType="map" resultType="Zyzinfo">
+ select 
+count(1) dyrs,SUM(case when a.cardid is null then 0 else a.score end) cscore,SUM(case when a.cardid is null then 0 else a.servicetimes end) cservicetimes, SUM(case when a.cardid is null then 0 else 1 end) zyrs 
+from a01 d
+LEFT JOIN  zyzinfo a on (a.cardid=d.A0184   
+         <if test="username != null and username != ''">
+    		and a.USERNAME = #{username}
+    	</if>     
+    	<if test="cardid != null and cardid != ''">
+    		AND a.CARDID = #{cardid}
+    	</if>     
+    	<if test="phone != null and phone != ''">
+    		AND a.PHONE = #{phone}
+    	</if>     
+    	<if test="area != null and area != ''">
+    		AND a.AREA = #{area}
+    	</if>     
+    	<if test="sex != null and sex != ''">
+    		AND a.SEX = #{sex}
+    	</if>     
+    	<if test="servicetype != null and servicetype != ''">
+    		AND a.SERVICETYPE like #{servicetype}
+    	</if>     
+    	<if test="createdate != null and createdate != ''">
+    		AND a.CREATEDATE = #{createdate}
+    	</if>     
+    	<if test="score1 != null and score1 != ''">
+    		AND a.SCORE  &gt; #{score1}
+    	</if>     
+    	<if test="score2 != null and score2 != ''">
+    		AND a.SCORE  &lt; #{score2}
+    	</if>     
+
+    	<if test="servicetimes1 != null and servicetimes1 != ''">
+    		AND a.SERVICETIMES &gt; #{servicetimes1}
+    	</if>    
+    	<if test="servicetimes2 != null and servicetimes2 != ''">
+    		AND a.SERVICETIMES &lt; #{servicetimes2}
+    	</if>  
+    	 
+    	<if test="workdate != null and workdate != ''">
+    		AND a.WORKDATE = #{workdate}
+    	</if>     
+    	<if test="worktime != null and worktime != ''">
+    		AND a.WORKTIME = #{worktime}
+    	</if>     
+    	<if test="company != null and company != ''">
+    		AND a.COMPANY = #{company}
+    	</if>     
+    	<if test="professional != null and professional != ''">
+    		AND a.PROFESSIONAL = #{professional}
+    	</if>     
+)
+where 
+EXISTS (select 1 from c02 d1,d01 d2  where d.A0100=d1.A0100  and d1.c0208 ='0' and d.D0100=d2.D0100  
+ 
+<if test="A0101 != null and A0101 != ''">
+            and   d.A0101 =#{A0101}
+</if> 
+<if test="A0184 != null and A0184 != ''">
+            and   d.A0184 =#{A0184}
+</if> 
+<if test="A0104 != null and A0104 != ''">
+            and   d.A0104 =#{A0104}
+</if> 
+<if test="A0117 != null and A0117 != ''">
+            and   d.A0117 =#{A0117}
+</if> 
+<if test="A0111 != null and A0111 != ''">
+            and   d.A0111 like #{A0111}
+</if> 
+<if test="A01071 != null and A01071 != ''">
+            and   d.A0107  &lt; #{A01071}
+</if> 
+<if test="A01072 != null and A01072 != ''">
+            and   d.A0107  &gt; #{A01072}
+</if> 
+<if test="A0135 != null and A0135 != ''">
+            and   d.A0135 like #{A0135}
+</if> 
+
+<if test="A0174 != null and A0174 != ''">
+            and   d.A0174 like #{A0174}
+</if> 
+
+<if test="A0151 != null and A0151 != ''">
+            and   d.A0151 like #{A0151}
+</if> 
+<if test="A0801 != null and A0801 != ''">
+            and   d.A0801 =#{A0801}
+</if> 
+<if test="A0171 != null and A0171 != ''">
+            and   d.A0171 =#{A0171}
+</if> 
+
+  <if test="C0203 != null and C0203 != ''">
+            and   d1.C0203 =#{C0203}
+  </if>  
+    <if test="C02031 != null and C02031 != ''">
+            and   d1.C0203 &gt; #{C02031}
+  </if>  
+    <if test="C02032 != null and C02032 != ''">
+            and   d1.C0203 &lt; #{C02032}
+  </if>  
+ 
+ 
+  <if test="D0107 != null and D0107 != ''">
+            and   d2.D0107 like #{D0107} 
+  </if>   
+)
+    </select>  
+
+<select id="tj_dzzsub"  parameterType="map" resultType="Zyzinfo">
+<!-- 
+先找出根据a01 d和c02 d1找出党员（条件是d.A0100=d1.A0100 and d.d0100 in (select d0100 from d01 d2 where d2.D0107 like  #{D0107}，
+然后在此基础上左连接党组织，和志愿者
+然后根据党组织编码，去掉末三位，作为分组依据
+ -->
+select D0101,substr(d2.d0107,1,#{D0107Len_3}) subdzz, d2.d0107,
+count(1) dyrs,
+SUM(case when a.cardid is null then 0 else a.score end) cscore,
+round(SUM(case when a.cardid is null then 0 else a.score end) /count(1),2) cscoreavg,
+SUM(case when a.cardid is null then 0 else a.servicetimes end) cservicetimes,
+round(SUM(case when a.cardid is null then 0 else a.servicetimes end) /count(1),2) cservicetimesavg, 
+SUM(case when a.cardid is null then 0 else 1 end) zyrs ,
+round(SUM(case when a.cardid is null then 0 else 1 end)/count(1) ,2) percent
+from c02 d1  ,a01 d 
+LEFT JOIN d01 d2 on (d.d0100=d2.d0100 )
+LEFT JOIN zyzinfo a on (a.cardid=d.A0184 
+<if test="username != null and username != ''">
+    		AND a.USERNAME = #{username}
+    	</if>     
+    	<if test="cardid != null and cardid != ''">
+    		AND a.CARDID = #{cardid}
+    	</if>     
+    	<if test="phone != null and phone != ''">
+    		AND a.PHONE = #{phone}
+    	</if>     
+    	<if test="area != null and area != ''">
+    		AND a.AREA = #{area}
+    	</if>     
+    	<if test="sex != null and sex != ''">
+    		AND a.SEX = #{sex}
+    	</if>     
+    	<if test="servicetype != null and servicetype != ''">
+    		AND a.SERVICETYPE like #{servicetype}
+    	</if>     
+    	<if test="createdate != null and createdate != ''">
+    		AND a.CREATEDATE = #{createdate}
+    	</if>     
+    	<if test="score1 != null and score1 != ''">
+    		AND a.SCORE  &gt; #{score1}
+    	</if>     
+    	<if test="score2 != null and score2 != ''">
+    		AND a.SCORE  &lt; #{score2}
+    	</if>     
+
+    	<if test="servicetimes1 != null and servicetimes1 != ''">
+    		AND a.SERVICETIMES &gt; #{servicetimes1}
+    	</if>    
+    	<if test="servicetimes2 != null and servicetimes2 != ''">
+    		AND a.SERVICETIMES &lt; #{servicetimes2}
+    	</if>  
+    	 
+    	<if test="workdate != null and workdate != ''">
+    		AND a.WORKDATE = #{workdate}
+    	</if>     
+    	<if test="worktime != null and worktime != ''">
+    		AND a.WORKTIME = #{worktime}
+    	</if>     
+    	<if test="company != null and company != ''">
+    		AND a.COMPANY = #{company}
+    	</if>     
+    	<if test="professional != null and professional != ''">
+    		AND a.PROFESSIONAL = #{professional}
+    	</if>     
+  )
+ where   d.A0100=d1.A0100 and d1.c0208 ='0'  
+  
+<if test="A0101 != null and A0101 != ''">
+            and   d.A0101 =#{A0101}
+</if> 
+<if test="A0184 != null and A0184 != ''">
+            and   d.A0184 =#{A0184}
+</if> 
+<if test="A0104 != null and A0104 != ''">
+            and   d.A0104 =#{A0104}
+</if> 
+<if test="A0117 != null and A0117 != ''">
+            and   d.A0117 =#{A0117}
+</if> 
+<if test="A0111 != null and A0111 != ''">
+            and   d.A0111 like #{A0111}
+</if> 
+<if test="A01071 != null and A01071 != ''">
+            and   d.A0107  &lt; #{A01071}
+</if> 
+<if test="A01072 != null and A01072 != ''">
+            and   d.A0107  &gt; #{A01072}
+</if> 
+<if test="A0135 != null and A0135 != ''">
+            and   d.A0135 like #{A0135}
+</if> 
+
+<if test="A0174 != null and A0174 != ''">
+            and   d.A0174 like #{A0174}
+</if> 
+
+<if test="A0151 != null and A0151 != ''">
+            and   d.A0151 like #{A0151}
+</if> 
+<if test="A0801 != null and A0801 != ''">
+            and   d.A0801 =#{A0801}
+</if> 
+<if test="A0171 != null and A0171 != ''">
+            and   d.A0171 =#{A0171}
+</if>  and
+d.d0100 in (select d0100 from d01 d2 where d2.D0107 like  #{D0107}
+) group by  subdzz
+  
+       <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   <if test="limitRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if> 
+    </select>  
+</mapper>

@@ -1,0 +1,65 @@
+[#include "../include/页头.html"/]
+
+<body>
+<!-- 顶部_Start -->
+[#include "../include/顶部登录搜索.html"/]
+</div>
+<!-- 顶部_End -->
+
+<!-- 导航菜单_Start --> 
+[#include "../include/顶部导航菜单.html"/]
+<!-- 导航菜单_End -->
+
+<!-- 文章内容_Start -->
+<div class="layout">
+		<div class="left">
+    <div class="hd2"><h2>供应信息</h2></div>
+       	<div class="box menu">
+        	<ul>
+                <li><a title="" target="_self" href="/supply_list.jspx?typeid=1技术产品" >技术产品 </a></li>
+                <li><a title="" target="_self" href="/supply_list.jspx?typeid=1固废产品" >固废产品  </a></li>
+      </ul>
+        </div>
+
+     <div class="hd2"><h2>求购信息</h2></div>
+       	<div class="box menu">
+        	<ul>
+                <li><a title="" target="_self" href="/supply_list.jspx?typeid=2技术产品" >技术产品 </a></li>
+                <li><a title="" target="_self" href="/supply_list.jspx?typeid=2固废产品" >固废产品  </a></li>
+      </ul>
+        </div>
+        
+    	 
+    </div>
+    <div class="right">
+    	<!-- 当前位置_Start -->
+       <div class="hd site">您当前的位置： <a href="${base}/">首页</a> </div>
+		<!-- 当前位置_End -->
+        <div class="box" id="article-box"> 
+        <DIV class=c1-body>
+                    
+
+
+				</DIV>
+            </div>
+        
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- 文章内容_End -->
+
+
+<!-- 底部_Start -->
+[#include "../include/底部网站信息.html"/]
+<!-- 底部_End -->
+<script type="text/javascript">
+<!--
+function doZoom(size){
+  document.getElementById('article-box').style.fontSize=size+'px';
+}
+//-->
+</script>
+</body>
+<script type="text/javascript">
+</script>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title></title>
+<#include "/mycms_sys/head.html"/>
+<script type="text/javascript">
+$(function() {
+	$("#jvForm").validate();
+});
+
+</script>
+</head>
+<body>
+<#include "/common/image_upload.html"/>
+<div class="body-box">
+<div class="rhead">
+	<div class="rpos"><@s.m "global.position"/>:  商户管理  - <@s.m "global.edit"/></div>
+	<form class="ropt">
+		<input type="button" value="<@s.m "global.backToList"/>" onclick="history.back();"/>
+	</form>
+	<div class="clear"></div>
+</div>
+<@p.form id="jvForm" action="o_update.do" labelWidth="12">
+<@p.text width="50" colspan="1" label="商家名称" name="name" value=cmsMajorComp.name maxlength="100"/>
+<@p.select width="50" colspan="1" label="商户类型" name="typeid"  value=cmsMajorComp.typeid list=typelist listKey="code" listValue="name" /><@p.tr/>
+<@p.radio width="50" colspan="1" label="是否推荐" name="recommand" value=cmsMajorComp.recommand   list={"1":"global.true","0":"global.false"} required="true" />
+<@p.text width="50" colspan="1" label="所属省份" name="province" value=cmsMajorComp.province  maxlength="100"/><@p.tr/>
+
+<@p.text width="50" colspan="1" label="所属城市" name="city" value=cmsMajorComp.city   maxlength="100"/>
+<@p.text width="50" colspan="1" label="所属区域/县" name="country"  value=cmsMajorComp.country  maxlength="100"/><@p.tr/>
+
+<@p.text width="50" colspan="1" label="行政编号" name="pcode"  value=cmsMajorComp.pcode  maxlength="100"/>
+<@p.text width="50" colspan="1" label="联系地址" name="address" value=cmsMajorComp.address   maxlength="100"/><@p.tr/>
+
+<@p.text width="50" colspan="1" label="联系电话" name="telephone"  value=cmsMajorComp.telephone  maxlength="100"/>
+<@p.text width="50" colspan="1" label="传真" name="fax"  value=cmsMajorComp.fax  maxlength="100"/><@p.tr/>
+
+<@p.text width="50" colspan="1" label="负责人" name="chief"  value=cmsMajorComp.chief  maxlength="100"/>
+<@p.text width="50" colspan="1" label="负责人联系电话" name="chiefTelephone"  value=cmsMajorComp.chiefTelephone   maxlength="100"/><@p.tr/>
+
+<@p.radio width="50" colspan="1" label="是否移动商户联盟" name="isalliance"  value=cmsMajorComp.isalliance   list={"1":"global.true","0":"global.false"} required="true" />
+<@p.text width="50" colspan="1" label="联盟商户编号" name="allianceid"  value=cmsMajorComp.allianceid  maxlength="100"/><@p.tr/>
+
+<@p.td width="50" colspan="1" label="商家图片">
+<@p.text id="uploadImgPath1" name="image" value=cmsMajorComp.image style="width:220px"/><br>
+<span id="ufc1"><input type="file" id="uploadFile1"  size="20" style="width:215px"/></span><input type="button" value="<@s.m "imageupload.upload"/>" onclick="upload(1);"/></@p.td>
+<@p.td width="50" colspan="1" label="电子导游图片" >
+<@p.text id="uploadImgPath2" name="guidepic"  value=cmsMajorComp.guidepic style="width:220px"/><br>
+<span id="ufc2"><input type="file" id="uploadFile2"  size="20" style="width:215px"/></span><input type="button" value="<@s.m "imageupload.upload"/>" onclick="upload(2);"/></@p.td><@p.tr/>
+
+<@p.text width="50" colspan="1" label="级别" name="compLevel" value=cmsMajorComp.compLevel   maxlength="100"/>
+<@p.text width="50" colspan="1" label="标签" name="tag" value=cmsMajorComp.tag   maxlength="100"/><@p.tr/>
+
+<@p.text width="50" colspan="1" label="经度" name="lng" value=cmsMajorComp.lng   maxlength="100"/>
+<@p.text width="50" colspan="1" label="纬度" name="lat" value=cmsMajorComp.lat   maxlength="100"/><@p.tr/>
+
+<@p.radio width="50" colspan="1" label="是否偏移" name="isoffset"  value=cmsMajorComp.isoffset   list={"1":"global.true","0":"global.false"} required="true" />
+<@p.text width="50" colspan="1" label="子商家编号" name="sonId"  value=cmsMajorComp.sonId  maxlength="100"/><@p.tr/>
+
+<@p.textarea colspan="2" label="简介" name="content"  value=cmsMajorComp.content   maxlength="255" cols="70" rows="5"/><@p.tr/>
+
+<@p.text width="50" colspan="1" label="票类名称" name="proname" value=cmsMajorComp.proname   maxlength="100"/>
+<@p.text width="50" colspan="1" label="平日价" name="normalPrice"  value=cmsMajorComp.normalPrice  maxlength="100"/><@p.tr/>
+
+<@p.text width="50" colspan="1" label="节日价" name="holddayPrice" value=cmsMajorComp.holddayPrice   maxlength="100"/>
+<@p.text width="50" colspan="1" label="活动类型" name="mtype" value=cmsMajorComp.mtype   maxlength="100"/><@p.tr/>
+
+<@p.radio width="50" colspan="1" label="装有机具" name="mdevice"  value=cmsMajorComp.mdevice   list={"1":"global.true","0":"global.false"} required="true" />
+<@p.radio width="50" colspan="1" label="诚信商户" name="mtrust"  value=cmsMajorComp.mtrust   list={"1":"global.true","0":"global.false"} required="true" /><@p.tr/>
+<@p.radio width="50" colspan="2" label="是否有活动" name="isact"  value=cmsMajorComp.isact   list={"1":"global.true","0":"global.false"} required="true" /><@p.tr/>
+
+<@p.textarea colspan="2" label="优惠内容" name="mcontent"  value=cmsMajorComp.mcontent   maxlength="255" cols="70" rows="5"/><@p.tr/>
+<@p.textarea colspan="2" label="活动介绍内容" name="actContent"  value=cmsMajorComp.actContent   maxlength="255" cols="70" rows="5"/><@p.tr/>
+<@p.td colspan="2"><@p.hidden name="id" value=cmsMajorComp.id/>
+	<@p.submit code="global.submit"/> &nbsp; <@p.reset code="global.reset"/>
+</@p.td>
+</@p.form>
+</div>
+</body>
+</html>

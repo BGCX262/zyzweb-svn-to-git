@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mycms.cms.entity.main">
+	<class name="CmsMajorComp" table="T_MAJOR_COMP">
+		<meta attribute="sync-DAO">false</meta>
+		<cache usage="read-write"/>
+		<id name="id" type="java.lang.Integer" column="id"><generator class="identity"/></id>
+		
+		<property name="name" column="name" type="string" not-null="true" length="255"/>
+		<property name="typeid" column="typeid" type="string" not-null="false" length="255"/>
+		<property name="recommand" column="recommand" type="java.lang.Integer" not-null="false" length="11"/>
+		<property name="province" column="province" type="string" not-null="false" length="255"/>
+		<property name="city" column="city" type="string" not-null="false" length="255"/>
+		<property name="country" column="country" type="string" not-null="false" length="255"/>
+		<property name="pcode" column="pcode" type="string" not-null="false" length="255"/>
+		<property name="address" column="address" type="string" not-null="false" length="255"/>
+		<property name="telephone" column="telephone" type="string" not-null="false" length="255"/>
+		<property name="fax" column="fax" type="string" not-null="false" length="255"/>
+		<property name="chief" column="chief" type="string" not-null="false" length="255"/>
+		<property name="chiefTelephone" column="CHIEF_TELEPHONE" type="string" not-null="false" length="255"/>
+		<property name="isalliance" column="isalliance" type="java.lang.Integer" not-null="false" length="1"/>
+		<property name="allianceid" column="allianceid" type="java.lang.Integer" not-null="false" length="20"/>
+		<property name="auditBy" column="AUDIT_BY" type="string" not-null="false" length="20"/>
+		<property name="auditTime" column="AUDIT_TIME" type="java.sql.Date" not-null="false" length="10"/>
+		<property name="createBy" column="OPERATE_BY" type="string" not-null="false" length="20"/>
+		<property name="createTime" column="CREATE_TIME" type="java.sql.Date" not-null="false" length="12"/>
+		<property name="image" column="image" type="string" not-null="false" length="500"/>
+		<property name="guidepic" column="guidepic" type="string" not-null="false"  length="255"/>
+		<property name="compLevel" column="COMP_LEVEL" type="java.lang.Integer" not-null="false" length="11"/>
+		<property name="tag" column="tag" type="string" not-null="false" length="255"/>
+		<property name="lng" column="lng" type="string" not-null="false" length="255"/>
+		<property name="lat" column="lat" type="string" not-null="false"  length="255"/>		
+	
+		<property name="isoffset" column="isoffset" type="java.lang.Integer" not-null="false" length="11"/>
+		<property name="sonId" column="SON_ID" type="string" not-null="false" length="20"/>
+		<property name="content" column="content" type="string" not-null="false" length="2000"/>
+		<property name="proname" column="proname" type="string" not-null="false" length="255"/>
+		<property name="normalPrice" column="NORMAL_PRICE" type="string" not-null="false" length="255"/>
+		<property name="holddayPrice" column="HOLIDAY_PRICE" type="string" not-null="false" length="255"/>
+		<property name="mtype" column="M_TYPE" type="string" not-null="false" length="10"/>
+		<property name="mtrust" column="M_TRUST" type="java.lang.Integer" not-null="false" length="1"/>
+		<property name="mdevice" column="M_Device" type="java.lang.Integer" not-null="false"  length="1"/>	
+		
+		<property name="mcontent" column="M_Content" type="string" not-null="false" length="1000"/>
+		<property name="isact" column="isact" type="java.lang.Integer" not-null="false" length="1"/>
+		<property name="actContent" column="ACT_CONTENT" type="string" not-null="false"  length="1000"/>
+		
+		
+	</class>
+</hibernate-mapping>

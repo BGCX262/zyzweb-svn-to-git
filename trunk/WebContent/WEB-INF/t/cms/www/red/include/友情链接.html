@@ -1,0 +1,73 @@
+<div id="link">
+	<div class="hd">
+        <h2>友情链接</h2>
+        <span>
+        <select onchange="jumpURL(this)" name="select">   
+            <option value="#">政府网</option>   
+            <option value="http://www.gd.gov.cn/">广东省人民政府</option>   
+            <option value="http://www.gzii.gov.cn/">广州经贸网</option>   
+            <option value="http://www.gzsi.gov.cn/">广州市科技和信息化网</option>   
+            <option value="http://www.gzepb.gov.cn/">广州环境保护</option>   
+            <option value="http://www.gdepb.gov.cn/">广东环境保护</option>   
+            <option value="http://www.gdstc.gov.cn/">广东省科学技术厅</option>   
+            <option value="http://www.gz.gov.cn/">广州市人民政府公众信息网</option>   
+        </select>
+        <select onchange="jumpURL(this)" name="select">   
+            <option value="#">清洁生产网</option>   
+            <option value="http://www.ccpp.org.cn">中国清洁生产网</option>   
+            <option value="http://cdm.ccchina.gov.cn/">中国清洁生产发展机制网</option>   
+            <option value="http://www.zjcpc.com/">中国清洁生产咨询网</option>   
+            <option value="http://www.gdcp.org.cn/">广东省清洁生产网</option>   
+        </select>
+        <select onchange="jumpURL(this)" name="select">   
+            <option value="#">媒体网</option>   
+            <option value="http://env.people.com.cn/GB/index.html">人民网</option>   
+            <option value="http://www.xinhuanet.com/environment/">新华网</option>   
+            <option value="http://www.cenews.com.cn">中国环境报</option>                                  
+        </select>
+        <select onchange="jumpURL(this)" name="select">   
+            <option value="#">综合网</option>   
+            <option value="http://www.chinaxh.com.cn">中国循环经济网</option>   
+            <option value="http://www.gdepi.com.cn/">广东环保产业网</option>   
+        </select>
+        </span>
+	</div>
+    <div class="box">
+        <div id="linklist">   
+            <table cellspacing="0" cellpadding="0">     
+              <tr>   
+                  <td id="linklist1">
+                      <table cellspacing="0" cellpadding="0">
+                          <tr>      
+                              <td><a title="广东省经济贸易委员会" target="_blank" href="http://www.gdet.gov.cn/"><img src="http://www.gzcpc.org/gzcp/upload/admin/activeImg/20090717155211_625.jpg"></a></td>
+                              <td><a title="中国清洁生产网" target="_blank" href="http://www.ccpp.org.cn"><img src="http://www.gzcpc.org/gzcp/upload/admin/activeImg/20090717155516_093.jpg"></a></td>
+                              <td><a title="中国清洁生产咨询网" target="_blank" href="http://www.zjcpc.com"><img src="http://www.gzcpc.org/gzcp/upload/admin/activeImg/20090717155523_390.jpg"></a></td>
+                              <td><a title="广东省经济贸易委员会" target="_blank" href="http://www.gdet.gov.cn/"><img src="http://www.gzcpc.org/gzcp/upload/admin/activeImg/20090717155211_625.jpg"></a></td>
+                              <td><a title="中国清洁生产网" target="_blank" href="http://www.ccpp.org.cn"><img src="http://www.gzcpc.org/gzcp/upload/admin/activeImg/20090717155516_093.jpg"></a></td>
+                              <td><a title="中国清洁生产咨询网" target="_blank" href="http://www.zjcpc.com"><img src="http://www.gzcpc.org/gzcp/upload/admin/activeImg/20090717155523_390.jpg"></a></td>
+                          </tr>   
+                      </table>                                       
+                  </td>   
+                  <td id="linklist2"></td>                                                         
+              </tr>
+            </table>
+    </div> 
+    <script language="javascript">   
+            var speed=30;
+            var linklist=document.getElementById('linklist');
+            var linklist1=document.getElementById('linklist1');
+            var linklist2=document.getElementById('linklist2');
+            linklist2.innerHTML=linklist1.innerHTML
+            function Marquee3(){
+            if(linklist2.offsetWeight-bulletin.scrollLeft<=0)
+            linklist.scrollLeft-=linklist1.offsetWeight
+            else{
+            linklist.scrollLeft++
+            }
+            }
+            var MyMar3=setInterval(Marquee3,speed)
+            linklist.onmouseover=function() {clearInterval(MyMar3)}
+            linklist.onmouseout=function() {MyMar3=setInterval(Marquee3,speed)}
+       </script>
+    </div>
+</div>

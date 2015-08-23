@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zyz.persistence.ZyztbrecordMapper">
+
+  <insert id="insertZyztbrecord" parameterType="Zyztbrecord" >
+  	INSERT INTO ZYZTBRECORD (INID,ITEMID,USERNAME,TYPE,AMOUNT,WISH,UNPUBLIC,CREATEDATE,PHONENO,PWD,IDCARD,EMAIL,WORKPLACE) VALUES (#{inid,jdbcType=NUMERIC},#{itemid,jdbcType=NUMERIC},#{username,jdbcType=VARCHAR},#{type,jdbcType=NUMERIC},#{amount,jdbcType=VARCHAR},#{wish,jdbcType=VARCHAR},#{unpublic,jdbcType=NUMERIC},#{createdate,jdbcType=TIMESTAMP},#{phoneNo,jdbcType=NUMERIC},#{pwd,jdbcType=VARCHAR},#{idcard,jdbcType=NUMERIC},#{eMail,jdbcType=VARCHAR},#{workplace,jdbcType=VARCHAR})
+  </insert>
+
+
+  <delete id="deleteZyztbrecord"  parameterType="map">
+  	DELETE FROM ZYZTBRECORD 
+  	<where>
+    	<if test="inid != null and inid != ''">
+    		INID = #{inid}
+    	</if>
+    	<if test="itemid != null and itemid != ''">
+    		AND ITEMID = #{itemid}
+    	</if>    
+    	</where>
+  </delete>
+
+
+  <update id="updateZyztbrecord"  parameterType="Zyztbrecord"> 
+	UPDATE ZYZTBRECORD
+	<set>
+		<if test="inid != null">INID=#{inid},</if>
+		<if test="itemid != null">ITEMID=#{itemid},</if>
+		<if test="username != null">USERNAME=#{username},</if>
+		<if test="type != null">TYPE=#{type},</if>
+		<if test="amount != null">AMOUNT=#{amount},</if>
+		<if test="wish != null">WISH=#{wish},</if>
+		<if test="unpublic != null">UNPUBLIC=#{unpublic},</if>
+		<if test="createdate != null">CREATEDATE=#{createdate},</if>
+		<if test="phoneNo != null">PHONENO=#{phoneNo},</if>
+		<if test="pwd != null">PWD=#{pwd},</if>
+		<if test="idcard != null">IDCARD=#{idcard},</if>
+		<if test="eMail != null">EMAIL=#{eMail},</if>
+		<if test="workplace != null">WORKPLACE=#{workplace}</if>
+	</set>
+	WHERE  INID=#{inid}   
+  </update>
+ 
+    <select id="getZyztbrecord" parameterType="map" resultType="Zyztbrecord">
+    SELECT
+     INID,
+     ITEMID,
+     USERNAME,
+     TYPE,
+     AMOUNT,
+     WISH,
+     UNPUBLIC,
+     CREATEDATE,
+     PHONENO,
+     PWD,
+     IDCARD,
+     EMAIL,
+     WORKPLACE      
+    FROM ZYZTBRECORD
+    WHERE  INID = #{inid}   
+    </select>
+    
+    
+    <select id="getZyztbrecordList" parameterType="map" resultType="Zyztbrecord">
+    SELECT INID, t.itemid, USERNAME, t.TYPE, t.AMOUNT, WISH, UNPUBLIC,
+		CREATEDATE, PHONENO, PWD, IDCARD, EMAIL,WORKPLACE, 
+		t2.title as itemTitle,t2.type as itemType,t2.status as itemStatus FROM
+		ZYZTBRECORD t inner join zyztbitem t2 on t.itemid = t2.itemid
+     <where>
+    	<if test="inid != null and inid != ''">
+    		INID = #{inid}
+    	</if>
+    	<if test="itemid != null and itemid != ''">
+    		AND t.ITEMID = #{itemid}
+    	</if>     
+    	<if test="username != null and username != ''">
+    		AND USERNAME = #{username}
+    	</if>     
+    	<if test="type != null and type != ''">
+    		AND TYPE = #{type}
+    	</if>     
+    	<if test="amount != null and amount != ''">
+    		AND AMOUNT = #{amount}
+    	</if>     
+    	<if test="wish != null and wish != ''">
+    		AND WISH = #{wish}
+    	</if>     
+    	<if test="unpublic != null and unpublic != ''">
+    		AND UNPUBLIC = #{unpublic}
+    	</if>     
+    	<if test="createdate != null and createdate != ''">
+    		AND CREATEDATE = #{createdate}
+    	</if>     
+    	<if test="phoneNo != null and phoneNo != ''">
+    		AND PHONENO = #{phoneNo}
+    	</if>     
+    	<if test="pwd != null and pwd != ''">
+    		AND PWD = #{pwd}
+    	</if>     
+    	<if test="idcard != null and idcard != ''">
+    		AND IDCARD = #{idcard}
+    	</if>     
+    	<if test="eMail != null and eMail != ''">
+    		AND EMAIL = #{eMail}
+    	</if>     
+    	<if test="workplace != null and workplace != ''">
+    		AND WORKPLACE = #{workplace}
+    	</if>     
+    	<if test="itemType != null and itemType != ''">
+    		AND t2.type = #{itemType}
+    	</if> 
+    	<if test="itemTitle != null and itemTitle != ''">
+    		AND t2.title like CONCAT('%',#{itemTitle},'%')
+    	</if>
+     </where>
+     	<if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>      
+     
+    </select>
+  
+    <select id="getTotalRows"  parameterType="map" resultType="int">
+    SELECT count(*) 
+    FROM ZYZTBRECORD
+     <where>
+    	<if test="inid != null and inid != ''">
+    		INID = #{inid}
+    	</if>
+    	<if test="itemid != null and itemid != ''">
+    		AND ITEMID = #{itemid}
+    	</if>     
+    	<if test="username != null and username != ''">
+    		AND USERNAME = #{username}
+    	</if>     
+    	<if test="type != null and type != ''">
+    		AND TYPE = #{type}
+    	</if>     
+    	<if test="amount != null and amount != ''">
+    		AND AMOUNT = #{amount}
+    	</if>     
+    	<if test="wish != null and wish != ''">
+    		AND WISH = #{wish}
+    	</if>     
+    	<if test="unpublic != null and unpublic != ''">
+    		AND UNPUBLIC = #{unpublic}
+    	</if>     
+    	<if test="createdate != null and createdate != ''">
+    		AND CREATEDATE = #{createdate}
+    	</if>     
+    	<if test="phoneNo != null and phoneNo != ''">
+    		AND PHONENO = #{phoneNo}
+    	</if>     
+    	<if test="pwd != null and pwd != ''">
+    		AND PWD = #{pwd}
+    	</if>     
+    	<if test="idcard != null and idcard != ''">
+    		AND IDCARD = #{idcard}
+    	</if>     
+    	<if test="eMail != null and eMail != ''">
+    		AND EMAIL = #{eMail}
+    	</if>     
+    	<if test="workplace != null and workplace != ''">
+    		AND WORKPLACE = #{workplace}
+    	</if>     
+     </where>
+    </select>
+<update id="addamounttoitem" parameterType="Zyztbrecord">
+		UPDATE ZYZTBITEM SET AMOUNT = AMOUNT+#{amount,jdbctype=NUMERIC} WHERE ITEMID
+		= #{itemid,jdbctype=NUMERIC};
+	</update>
+</mapper>

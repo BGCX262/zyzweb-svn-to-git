@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>mycms-left</title>
+<#include "/mycms_sys/head.html"/>
+<script type="text/javascript">
+$(function(){
+	Cms.lmenu('lmenu');
+});
+</script>
+</head>
+<body class="lbody">
+<ul id="lmenu">
+<@cms_perm url="/tmerchantservice/tmerchantserviceList.do">
+<li><a href="${base}/qjscuser/qjscuserList.do?usertype=1&usertype1=4&status=0&sort=regtime&order=desc" target="rightFrame">企业用户管理</a></li>
+</@cms_perm>
+<@cms_perm url="/tmerchantinfos/tmerchantinfosList.do">
+<li><a href="${base}/qjscuser/qjscuserList.do?usertype=2&usertype1=3&status=0&sort=regtime&order=desc" target="rightFrame">一般用户管理</a></li>
+</@cms_perm>
+<@cms_perm url="/manager/frame/merchanttype_main.do">
+<li><a href="${base}/qjscrecord/qjscrecordList.do?status=0&order=desc&sort=modtime" target="rightFrame">备案管理</a></li>
+</@cms_perm>
+<@cms_perm url="/tmerchantmarking/tmerchantmarkingList.do">
+<li><a href="${base}/qjscworkprogress/qjscworkprogressList.do?status=0&status1=-1&order=desc&sort=modtime" target="rightFrame">审核工作进度管理</a></li>
+</@cms_perm>
+<@cms_perm url="/tmemberinfo/tmemberinfoList.do">
+<li><a href="${base}/qjscacceptapply/qjscacceptapplyList.do?status=0&order=desc&sort=modtime" target="rightFrame">清洁生产审核验收管理</a></li>
+</@cms_perm>
+<@cms_perm url="/tmemberinfo/tmemberinfoList.do">
+<li><a href="${base}/qjscfieldaccept/qjscfieldacceptList.do?status=0&order=desc&sort=modtime" target="rightFrame">现场验收管理</a></li>
+</@cms_perm>
+<@cms_perm url="/tmemberinfo/tmemberinfoList.do">
+<li><a href="${base}/qjscapplyflowinfo/qjscapplyflowinfoList.do?status=0&order=desc&sort=modtime" target="rightFrame">验收材料管理</a></li>
+</@cms_perm>
+<@cms_perm url="/tmembercarinfo/tmembercarinfoList.do">
+<li><a href="/qjscchangecertapply/qjscchangecertapplyList.do?status=0&order=desc&sort=modtime" target="rightFrame">企业换证管理</a></li>
+</@cms_perm>
+<@cms_perm url="/tmembercard/tmembercardList.do">
+<li><a href="/qjscsupply/qjscsupplyList.do?status=0&order=desc&sort=modtime" target="rightFrame">供求信息管理</a></li>
+</@cms_perm>
+<@cms_perm url="/tmerchantequip/tmerchantequipList.do">
+<li><a href="/qjscservregister/qjscservregisterList.do?status=0&order=desc&sort=modtime" target="rightFrame">清洁生产技术服务单位登记表</a></li>
+</@cms_perm>
+<@cms_perm url="/tmerchantacct/tmerchantacctList.do">
+<li><a href="/qjscservsurvey/qjscservsurveyList.do?status=0&order=desc&sort=modtime" target="rightFrame">服务单位满意度调查表</a></li>
+</@cms_perm>
+<@cms_perm url="/tmerchantcontract/tmerchantcontractList.do">
+<li><a href="/qjscservperformance/qjscservperformanceList.do?status=0&order=desc&sort=modtime" target="rightFrame">服务单位年度工作业绩表</a></li>
+</@cms_perm>
+<@cms_perm url="/toperator/toperatorList.do">
+<li><a href="/qjscservchangereg/qjscservchangeregList.do?status=0&order=desc&sort=modtime" target="rightFrame">技术服务单位信息变更登记表</a></li>
+</@cms_perm>
+<@cms_perm url="/tdictionay/tdictionayList.do">
+<li><a href="/qjscprojadd/qjscprojaddList.do?status=0&order=desc&sort=modtime" target="rightFrame">清洁生产入库项目</a></li>
+</@cms_perm>
+<@cms_perm url="/tdictionay/tdictionayList.do">
+<li><a href="/qjscprojmoneyapply/qjscprojmoneyapplyList.do?status=0&order=desc&sort=modtime" target="rightFrame">节能专项资金申请</a></li>
+</@cms_perm>
+<@cms_perm url="${base}/tmerchantcontract/tmerchantcontractList.do?order=desc&sort=opDate">
+<li><a href="/qjscprojregister/qjscprojregisterList.do?status=0&order=desc&sort=modtime" target="rightFrame">节能项目登记</a></li>
+</@cms_perm>
+<@cms_perm url="/tdictionay/tdictionayList.do">
+<li><a href="/qjscprojapplysummary/qjscprojapplysummaryList.do?status=0&order=desc&sort=modtime" target="rightFrame">节能专项资金申报项目汇总</a></li>
+</@cms_perm>
+<li><a href="/qjscexpert/qjscexpertList.do?status=0&order=desc&sort=modtime" target="rightFrame">专家信息</a></li>
+<li style="background-image: url('../../res/mycms/img/admin/circle_sdpg.gif')"><a href="/qjscsdpgrecord/qjscsdpgrecordList.do?status=0&order=desc&sort=audittime" target="rightFrame">实地评估申请管理</a></li>
+<li style="background-image: url('../../res/mycms/img/admin/circle_sdpg.gif')"><a href="/qjscsdpgcheck/qjscsdpgcheckList.do?status=0&order=desc&sort=audittime" target="rightFrame">实地评估验收申请管理</a></li>
+<li style="background-image: url('../../res/mycms/img/admin/circle_sdpg.gif')"><a href="/qjscsdpgapplyflowinfo/qjscapplyflowinfoList.do?status=0&order=desc&sort=audittime" target="rightFrame">实地评估验收材料审核</a></li>
+
+</ul>
+</body>
+</html>

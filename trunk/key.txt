@@ -1,0 +1,108 @@
+---mysql 的子查询非常的慢，联合查询相对快很多
+--比如子查询 select * (select * from a where ...) b, c where b.id=c.id
+--联合查询 select *  from a, d ,c where a.id1=d.id1 and d.id=c.id
+--3表查询，如果只有表1和表2，表1和表3有条件关联，则需要考虑exists方式处理，即表1和表3关联，然后在where条件中的exists条件加上表1和表2的条件限制）
+/**
+
+select  a.*,b.d0107 from a01 a,d01 b where a.D0100=b.D0100;
+select a.*,b.D0107 from a01 a left join d01 b on (a.D0100=b.D0100);
+数据量大的情况下，左连接比联合查询快很多，第一个sql很久，第二个3秒
+
+in 后面的要查的表数据量很大，需要以联合查询的方式来做，如A表6W，B表6W ，不能做in查询，需要from A，B where A.id=B.id
+
+原来3表也可以左连接，from A,B left join C on B.id=C.id where A.x=B.x
+
+**/
+
+
+ALTER TABLE `a01`
+ADD PRIMARY KEY (`A0100`),
+ADD INDEX `a01_idcark` (`A0184`),
+ADD INDEX `a01_name_phone` (`A0101`, `AT001`);
+
+ALTER TABLE `c02`
+ADD PRIMARY KEY (`A0100`);
+
+ALTER TABLE `d01`
+ADD PRIMARY KEY (`D0100`),
+ADD INDEX `d01_code` (`D0107`);
+
+ALTER TABLE `d16`
+ADD PRIMARY KEY (`D1600`);
+
+ALTER TABLE `g00`
+ADD INDEX `g00_fzlx` (`G0005`);
+
+ALTER TABLE `zyzinfo`
+ADD INDEX `zyzinfo_cardid` (`cardid`),
+ADD INDEX `zyzinfo_username` (`username`);
+
+ALTER TABLE `d01`
+ADD INDEX `d01_name` (`D0101`);
+
+ALTER TABLE `a01`
+ADD INDEX `a01_d0100` (`D0100`);
+
+
+--------------------------------
+--20140825
+ALTER TABLE `c02`
+ADD COLUMN `A0184`  varchar(255) NULL AFTER `C0257`,
+ADD INDEX `c01_cardid` (`A0184`);
+
+update c02 set c02.A0184=(select a01.A0184  from a01 where a01.A0100=c02.A0100)
+where exists (select 1 from a01 where a01.A0100=c02.A0100)
+
+
+
+ALTER TABLE `g00`
+ADD COLUMN `A0184`  varchar(255) NULL ,
+ADD INDEX `c01_cardid` (`A0184`);
+
+update g00 set g00.A0184=(select a01.A0184  from a01 where a01.A0100=g00.A0100)
+where exists (select 1 from a01 where a01.A0100=g00.A0100)
+
+
+-----------------
+---20140901
+ALTER TABLE `a01`
+ADD COLUMN `nl`  varchar(10) NULL  ;
+
+update a01 set nl=substr(A0107,1,3);
+
+---------------
+--20140901
+update a01 set A0111=(select name from t where id= A0111) ;
+
+insert into t_dictionarytype(type,name) values('SSHY','所属行业');
+
+insert into t_dictionarytype(type,name) values('ZYFL','个人身份');
+
+------------------
+--20140908
+ALTER TABLE `c02`
+ADD INDEX `c02_c0208` (`C0208`);
+
+---20140909
+drop table if exists chartmgr;
+
+/*==============================================================*/
+/* Table: chartmgr                                              */
+/*==============================================================*/
+create table chartmgr
+(
+   id                   int not null auto_increment,
+   name                 varchar(254),
+   url                  varchar(254),
+   bz                   varchar(254),
+   primary key (id)
+);
+
+----20140913
+ALTER TABLE `chartmgr`
+ADD COLUMN `type`  varchar(254) NULL AFTER `bz`,
+ADD COLUMN `filed`  varchar(254) NULL AFTER `type`;
+
+--20140914
+ALTER TABLE `zyzinfo`
+ADD COLUMN `insertdate`  date NULL AFTER `password`;

@@ -1,0 +1,58 @@
+[#include "../include/页头.html"/]
+
+<body>
+<!-- 顶部_Start -->
+[#include "../include/顶部登录搜索.html"/]
+</div>
+<!-- 顶部_End -->
+
+<!-- 导航菜单_Start --> 
+[#include "../include/顶部导航菜单.html"/]
+<!-- 导航菜单_End -->
+
+<!-- 文章内容_Start -->
+<div class="layout">
+		<div class="left">
+    <div class="hd2"><h2>${channel.parent.name}</h2></div>
+       	<div class="box menu">
+        	<ul>
+       [@cms_channel_list parentId=channel.parent.id]
+    [#list tag_list as c]
+                <li><a title="" target="_self" href="${c.url}" >${c.title}</a></li>
+	[/#list]
+    [/@cms_channel_list]     
+      </ul>
+        </div>
+
+        <!-- 通知公告_Start -->
+ [#include "../include/通知公告.html"/]
+        <!-- 通知公告_End -->
+        
+    	 
+    </div>
+    <div class="right">
+    	<!-- 当前位置_Start -->
+       <div class="hd site">您当前的位置： <a href="${base}/">首页</a> &raquo; [#list channel.nodeList as n]<a href="${n.url}" target="_blank">${n.name}</a>[#if n_has_next] &raquo; [/#if][/#list]</div>
+		<!-- 当前位置_End -->
+        <div class="box" id="article-box"> 
+     [@cms_content_page channelId=channel.id count=channel.pageSize sysPage='1' orderBy='2' pageClass='pagination' styleList='1-1' ctgForm='1' ctgClass='red' lineHeight='10' bottomLine='1' headMark='4' dateFormat='yyyy-MM-dd' datePosition='2' dateClass='gray' channelOption='2' tpl='2'/]
+            </div>
+        
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- 文章内容_End -->
+
+
+<!-- 底部_Start -->
+[#include "../include/底部网站信息.html"/]
+<!-- 底部_End -->
+<script type="text/javascript">
+<!--
+function doZoom(size){
+  document.getElementById('article-box').style.fontSize=size+'px';
+}
+//-->
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style/index_css.css">
+<!-- jquery 包 -->
+<script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
+<!-- 党员动态 的滚动新闻图片 js -->
+<script src="js/focus.js" type="text/javascript"></script>
+<!-- 党员动态 "党员新闻" 和 志愿淘宝 "动态公告" 向上滚动效果 js -->
+<script src="js/scroll.js" type="text/javascript"></script>
+<script type="text/javascript" >
+	$(document).ready(function(){
+		//党员新闻向上滚动
+		$(".list_lh").myScroll({
+			speed:40, //数值越大，速度越慢
+			rowHeight:35 //li的高度
+		});
+	});
+</script>
+</head>
+<!------------------------ 首页的子页党员动态页面 -------------------------------->
+<body>
+    <div class="templatebg">
+        <div class="column_left">
+            <!----- banner 滚动图片 ----->
+            <div class="sub_box">
+                <div id="p-select" class="sub_nav">
+                    <div class="sub_no" id="bd1lfsj">
+                        <ul>
+                            <li class="show">1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="bd1lfimg">
+                                                                <div>
+                                            [@cms_content_list channelId=3 count=5 orderBy='1']
+                                               [#list tag_list as c]
+                                                <dl class="show">
+                                                    <dt><a href="javascript:void(0);"><img src="${c.titleImg}" alt="${c.title}"></a></dt>
+                                                    <dd>
+                                                        <h2><a href="${c.url}" target="_blank">${c.title}</a></h2>
+                                                        <tt><a href="${c.url}" target="_blank">${c.description!?html}</a></tt>
+                                                    </dd>
+                                                </dl>
+                                               [/#list]
+                                             [/@cms_content_list]  
+                                                 
+                                            </div>
+                </div>
+            </div>
+            <!----- mien 党员风采 ----->
+            <div class="mien">
+                <div class="mien_title">
+                    <b>党员风采</b>
+                    <a href="/dyfc/index.jhtml" target="_blank">更多</a>
+                </div>
+                <div id="box">
+                                            <table border='0' align='center' cellpadding='1' cellspacing='1' cellspace='0' >
+                                                <tr>
+                                                    <td valign='top' bgcolor='ffffff' id='marquePic1'>
+                                                        <table width='100%' border='0' cellspacing='0'>
+                                                            <tr>
+                                                                  [@cms_content_list channelId=2 count=10 orderBy='1']
+                                               [#list tag_list as c]
+                                                                <td align='center'>
+                                                                	<a href="${c.url}" target="_blank"><img src="${c.titleImg!?html}" width="200" height="130" border="0" /></a>
+                                                                </td>
+                                                                 [/#list]
+                                             [/@cms_content_list]  
+                                                                
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                    <td id='marquePic2' valign='top'></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                <!-- 党员风采 向左滚动效果 js -->
+                <script type="text/javascript">
+                    var speed = 50; 
+                    marquePic2.innerHTML = marquePic1.innerHTML; 
+                    function Marquee(){ 
+                        if(box.scrollLeft >= marquePic1.scrollWidth){ 
+                            box.scrollLeft = 0; 
+                        }else{ 
+                            box.scrollLeft++; 
+                        } 
+                    } 
+                    var MyMar = setInterval(Marquee,speed); 
+                    box.onmouseover = function(){
+                        clearInterval(MyMar);
+                    } 
+                    box.onmouseout = function(){
+                        MyMar = setInterval(Marquee,speed);
+                    } 
+                </script>
+            </div>
+        </div>
+        <div class="column_right">
+            <!----- news 党员新闻 ----->
+            <div class="news">
+                <div class="news_title">
+                    <b>党员新闻</b>
+                    <a href="/dyxw/index.jhtml" target="_blank">更多</a>
+                </div>
+                <div class="list_lh">
+                                        	<ul>
+                                        	 [@cms_content_list channelId=1 count=20 orderBy='1']
+                                               [#list tag_list as c]
+                                                <li>
+                                                    <a href="${c.url}" target="_blank">${c.title}</a>
+                                                </li>
+                                                [/#list]
+                                             [/@cms_content_list]
+                                                 
+                                            </ul>
+                                        </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!-- 党员动态 新闻图片滚动效果 js -->
+    <script type="text/javascript">movec();</script>
+</body>
+</html>

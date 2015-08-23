@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zyz.persistence.ChartmgrMapper">
+
+  <insert id="insertChartmgr" parameterType="Chartmgr" >
+  	INSERT INTO CHARTMGR (ID,NAME,URL,BZ,TYPE,FILED) VALUES (#{id,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{url,jdbcType=VARCHAR},#{bz,jdbcType=VARCHAR},#{type,jdbcType=VARCHAR},#{filed,jdbcType=VARCHAR})
+  </insert>
+
+
+  <delete id="deleteChartmgr"  parameterType="map">
+  	DELETE FROM CHARTMGR WHERE  ID=#{id} 
+  </delete>
+
+
+  <update id="updateChartmgr"  parameterType="Chartmgr"> 
+	UPDATE CHARTMGR
+	<set>
+		<if test="id != null">ID=#{id},</if>
+		<if test="name != null">NAME=#{name},</if>
+		<if test="url != null">URL=#{url},</if>
+		<if test="bz != null">BZ=#{bz},</if>
+		<if test="type != null">TYPE=#{type},</if>
+		<if test="filed != null">FILED=#{filed}</if>
+	</set>
+	WHERE  ID=#{id}   
+  </update>
+ 
+    <select id="getChartmgr" parameterType="map" resultType="Chartmgr">
+    SELECT
+     ID,
+     NAME,
+     URL,
+     BZ,
+     TYPE,
+     FILED      
+    FROM CHARTMGR
+    WHERE  ID = #{id}   
+    </select>
+    
+    
+    <select id="getChartmgrList" parameterType="map" resultType="Chartmgr">
+    SELECT
+     ID,
+     NAME,
+     URL,
+     BZ,
+     TYPE,
+     FILED      
+    FROM CHARTMGR
+     <where>
+    	<if test="id != null and id != ''">
+    		ID = #{id}
+    	</if>
+    	<if test="name != null and name != ''">
+    		AND NAME = #{name}
+    	</if>     
+    	<if test="url != null and url != ''">
+    		AND URL = #{url}
+    	</if>     
+    	<if test="bz != null and bz != ''">
+    		AND BZ = #{bz}
+    	</if>     
+    	<if test="type != null and type != ''">
+    		AND TYPE = #{type}
+    	</if>     
+    	<if test="filed != null and filed != ''">
+    		AND FILED = #{filed}
+    	</if>     
+     </where>
+     	<if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>      
+     
+    </select>
+  
+    <select id="getTotalRows"  parameterType="map" resultType="int">
+    SELECT count(*) 
+    FROM CHARTMGR
+     <where>
+    	<if test="id != null and id != ''">
+    		ID = #{id}
+    	</if>
+    	<if test="name != null and name != ''">
+    		AND NAME = #{name}
+    	</if>     
+    	<if test="url != null and url != ''">
+    		AND URL = #{url}
+    	</if>     
+    	<if test="bz != null and bz != ''">
+    		AND BZ = #{bz}
+    	</if>     
+    	<if test="type != null and type != ''">
+    		AND TYPE = #{type}
+    	</if>     
+    	<if test="filed != null and filed != ''">
+    		AND FILED = #{filed}
+    	</if>     
+     </where>
+    </select>
+
+</mapper>

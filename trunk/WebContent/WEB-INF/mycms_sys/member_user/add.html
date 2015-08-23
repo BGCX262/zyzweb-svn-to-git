@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>会员注册</title>
+<#include "/mycms_sys/head.html"/>
+<script type="text/javascript">
+$(function() {
+	$("#cmForm").validate();
+});
+</script>
+</head>
+<body>
+<div class="body-box">
+<div class="rhead">
+	<div class="clear"></div>
+</div>
+<@p.form id="cmForm" action="o_save.do" labelWidth="12">
+<@p.text width="50" colspan="1" label="cmsMemberUser.userName" required="true"  name="userName"/>
+<@p.text width="50" colspan="1" label="cmsMemberUser.userMobile" required="true"name="userMobile"  size="30" maxlength="100" class="userMobile"/><@p.tr/>
+
+<@p.password width="50" colspan="1" label="cmsMemberUser.password" class="required" required="true" id="password" name="password" maxlength="100" />
+<@p.password width="50" colspan="1" label="cmsUser.pwdAgain" class="required" required="true" equalTo="#password" /><@p.tr/>
+
+<@p.text width="50" colspan="1" label="cmsMemberUser.mimsi"  name="mimsi"/>
+<@p.radio width="50" colspan="1" label="cmsMemberUser.userType" required="true" name="userType"  list={"0":"普通","1":"会员"}/><@p.tr/>
+
+<@p.radio width="50" colspan="1" label="cmsMemberUser.userGender" required="true" name="userGender"  list={"0":"女","1":"男","2":"未知"}/>
+<@p.text width="50" colspan="1" label="cmsMemberUser.userEmail" required="true" name="userEmail"  size="30" maxlength="100" class="email"/><@p.tr/>
+
+<@p.text width="100" colspan="2" label="cmsMemberUser.userAddress" required="true" name="userAddress"  size="100" maxlength="100"/><@p.tr/>
+
+<@p.text width="50" colspan="1" label="cmsMemberUser.otherPhone"    name="otherPhone"/>
+<@p.text width="50" colspan="1" label="cmsMemberUser.identifier" name="identifier"  /><@p.tr/>
+
+<@p.radio width="50" colspan="1" label="cmsMemberUser.carType" name="carType"  list={"A":"A","B":"B","C":"C"}/>
+<@p.text width="50" colspan="1" label="cmsMemberUser.validBeginDate"   name="validBeginDate"/><@p.tr/>
+
+<@p.text width="50" colspan="1" label="cmsMemberUser.validPeriod"   name="validPeriod" />
+<@p.text width="50" colspan="1" label="cmsMemberUser.carNumber"   name="carNumber"/><@p.tr/>
+
+<@p.text width="50" colspan="2" label="cmsMemberUser.suffixNum"   name="suffixNum" />
+<@p.tr/>
+
+<@p.textarea colspan="2" label="cmsMemberUser.memo" name="memo"  maxlength="255" cols="70" rows="5"/><@p.tr/>
+
+<@p.td colspan="2">
+	<@p.hidden name="id" />
+	<@p.submit code="global.submit"/> &nbsp; <@p.reset code="global.reset"/>
+</@p.td>
+</@p.form>
+</div>
+</body>
+</html>

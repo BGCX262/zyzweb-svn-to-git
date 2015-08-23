@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+	default-lazy-init="true">
+
+	<bean id="tplMessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="cacheSeconds" value="0"/>
+		<property name="basenames">
+			<list>
+				<value>/WEB-INF/languages/mycms_tpl/messages</value>
+			</list>
+		</property>
+	</bean>
+	<!--标签-->
+	<bean id="cms_pagination" class="com.mycms.cms.action.directive.PaginationDirective"/>
+	<bean id="cms_channel_list" class="com.mycms.cms.action.directive.ChannelListDirective"/>
+	<bean id="cms_channel_page" class="com.mycms.cms.action.directive.ChannelPageDirective"/>
+	<bean id="cms_channel" class="com.mycms.cms.action.directive.ChannelDirective"/>
+	<bean id="cms_content" class="com.mycms.cms.action.directive.ContentDirective"/>
+	<bean id="cms_content_list" class="com.mycms.cms.action.directive.ContentListDirective"/>
+	<bean id="cms_content_list1" class="com.mycms.cms.action.directive.ContentListDirective1"/>
+	<bean id="cms_content_page" class="com.mycms.cms.action.directive.ContentPageDirective"/>
+	<bean id="cms_content_page1" class="com.mycms.cms.action.directive.ContentPageDirective1"/>
+	<bean id="cms_tag_list" class="com.mycms.cms.action.directive.ContentTagListDirective"/>
+	<bean id="cms_tag_page" class="com.mycms.cms.action.directive.ContentTagPageDirective"/>
+	<bean id="cms_topic_list" class="com.mycms.cms.action.directive.CmsTopicListDirective"/>
+	<bean id="cms_topic_page" class="com.mycms.cms.action.directive.CmsTopicPageDirective"/>
+	<bean id="cms_comment_list" class="com.mycms.cms.action.directive.CmsCommentListDirective"/>
+	<bean id="cms_comment_page" class="com.mycms.cms.action.directive.CmsCommentPageDirective"/>
+	<bean id="cms_guestbook_ctg_list" class="com.mycms.cms.action.directive.CmsGuestbookCtgListDirective"/>
+	<bean id="cms_guestbook_list" class="com.mycms.cms.action.directive.CmsGuestbookListDirective"/>
+	<bean id="cms_guestbook_page" class="com.mycms.cms.action.directive.CmsGuestbookPageDirective"/>
+	<bean id="cms_vote" class="com.mycms.cms.action.directive.CmsVoteDirective"/>
+	<bean id="cms_friendlink_ctg_list" class="com.mycms.cms.action.directive.CmsFriendlinkCtgListDirective"/>
+	<bean id="cms_friendlink_list" class="com.mycms.cms.action.directive.CmsFriendlinkListDirective"/>
+	<bean id="cms_lucene_list" class="com.mycms.cms.lucene.LuceneDirectiveList"/>
+	<bean id="cms_lucene_page" class="com.mycms.cms.lucene.LuceneDirectivePage"/>
+	<bean id="cms_advertising" class="com.mycms.cms.action.directive.CmsAdvertisingDirective"/>
+    <bean id="zyz_List" class="com.mycms.cms.action.directive.ZyzListDirective"/>
+	
+	<!--后台权限标签-->
+	<bean id="cms_perm" class="com.mycms.cms.web.PermistionDirective"/>
+	
+	<!--SERVICE-->
+	<bean id="contentCountCache" class="com.mycms.cms.service.ContentCountCacheImpl"/>
+	<bean id="acquisitionSvc" class="com.mycms.cms.service.AcquisitionSvcImpl"/>
+	<bean id="luceneContentSvc" class="com.mycms.cms.lucene.LuceneContentSvcImpl"/>
+	<bean id="staticPageSvc" class="com.mycms.cms.staticpage.StaticPageSvcImpl">
+		<property name="tplMessageSource" ref="tplMessageSource"/>
+		<property name="freeMarkerConfigurer">
+			<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+				<property name="freemarkerVariables">
+					<map>
+					   <entry key="zyz_List" value-ref="zyz_List"/>
+						<entry key="uuid" value-ref="uuid"/>
+						<entry key="process_time" value-ref="process_time"/>
+						<entry key="text_cut" value-ref="text_cut"/>
+						<entry key="html_cut" value-ref="html_cut"/>
+						<entry key="cms_pagination" value-ref="cms_pagination"/>
+						<entry key="cms_channel_list" value-ref="cms_channel_list"/>
+						<entry key="cms_channel_page" value-ref="cms_channel_page"/>
+						<entry key="cms_channel" value-ref="cms_channel"/>
+						<entry key="cms_content" value-ref="cms_content"/>
+						<entry key="cms_content_list" value-ref="cms_content_list"/>
+						<entry key="cms_content_list1" value-ref="cms_content_list1"/>
+						<entry key="cms_content_page" value-ref="cms_content_page"/>
+						<entry key="cms_content_page1" value-ref="cms_content_page1"/>
+						<entry key="cms_tag_list" value-ref="cms_tag_list"/>
+						<entry key="cms_tag_page" value-ref="cms_tag_page"/>
+						<entry key="cms_topic_list" value-ref="cms_topic_list"/>
+						<entry key="cms_topic_page" value-ref="cms_topic_page"/>
+						<entry key="cms_comment_list" value-ref="cms_comment_list"/>
+						<entry key="cms_comment_page" value-ref="cms_comment_page"/>
+						<entry key="cms_guestbook_ctg_list" value-ref="cms_guestbook_ctg_list"/>
+						<entry key="cms_guestbook_list" value-ref="cms_guestbook_list"/>
+						<entry key="cms_guestbook_page" value-ref="cms_guestbook_page"/>
+						<entry key="cms_vote" value-ref="cms_vote"/>
+						<entry key="cms_friendlink_ctg_list" value-ref="cms_friendlink_ctg_list"/>
+						<entry key="cms_friendlink_list" value-ref="cms_friendlink_list"/>
+						<entry key="cms_lucene_list" value-ref="cms_lucene_list"/>
+						<entry key="cms_lucene_page" value-ref="cms_lucene_page"/>
+						<entry key="cms_advertising" value-ref="cms_advertising"/>
+					</map>
+				</property>
+				<property name="templateLoaderPath" value=""/>
+				<property name="freemarkerSettings">
+					<props>
+						<prop key="tag_syntax">auto_detect</prop>
+						<prop key="template_update_delay">5</prop>
+						<prop key="defaultEncoding">UTF-8</prop>
+						<prop key="url_escaping_charset">UTF-8</prop>
+						<prop key="locale">zh_CN</prop>
+						<prop key="boolean_format">true,false</prop>
+						<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+						<prop key="date_format">yyyy-MM-dd</prop>
+						<prop key="time_format">HH:mm:ss</prop>
+						<prop key="number_format">0.######</prop>
+						<prop key="whitespace_stripping">true</prop>
+						<prop key="auto_import">/WEB-INF/ftl/pony/index.ftl as p,/WEB-INF/ftl/spring.ftl as s</prop>
+					</props>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!--LISTENER-->
+	<bean id="contentLuceneListener" class="com.mycms.cms.lucene.ContentLuceneListener"/>
+	<bean id="contentStaticPageListener" class="com.mycms.cms.staticpage.ContentStaticPageListener"/>
+	
+	<!--MANAGER-->
+	<bean id="channelMng" class="com.mycms.cms.manager.main.impl.ChannelMngImpl">
+		<property name="deleteCheckerList">
+			<list>
+				<ref bean="contentMng"/>
+				<ref bean="cmsTopicMng"/>
+				<ref bean="cmsAcquisitionMng"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="channelExtMng" class="com.mycms.cms.manager.main.impl.ChannelExtMngImpl"/>
+	<bean id="channelTxtMng" class="com.mycms.cms.manager.main.impl.ChannelTxtMngImpl"/>
+	<bean id="contentMng" class="com.mycms.cms.manager.main.impl.ContentMngImpl">
+		<property name="listenerList">
+			<list>				
+			   <ref bean="contentLuceneListener"/>
+				<ref bean="contentStaticPageListener"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="contentTagMng" class="com.mycms.cms.manager.main.impl.ContentTagMngImpl"/>
+	<bean id="contentTypeMng" class="com.mycms.cms.manager.main.impl.ContentTypeMngImpl"/>
+	<bean id="contentExtMng" class="com.mycms.cms.manager.main.impl.ContentExtMngImpl"/>
+	<bean id="contentTxtMng" class="com.mycms.cms.manager.main.impl.ContentTxtMngImpl"/>
+	<bean id="contentCountMng" class="com.mycms.cms.manager.main.impl.ContentCountMngImpl"/>
+	<bean id="contentCheckMng" class="com.mycms.cms.manager.main.impl.ContentCheckMngImpl"/>
+	<bean id="cmsSiteMng" class="com.mycms.cms.manager.main.impl.CmsSiteMngImpl"/>
+	<bean id="cmsConfigMng" class="com.mycms.cms.manager.main.impl.CmsConfigMngImpl"/>
+	<bean id="cmsUserMng" class="com.mycms.cms.manager.main.impl.CmsUserMngImpl"/>
+	<bean id="cmsUserExtMng" class="com.mycms.cms.manager.main.impl.CmsUserExtMngImpl"/>
+	<bean id="cmsUserSiteMng" class="com.mycms.cms.manager.main.impl.CmsUserSiteMngImpl"/>
+	<bean id="cmsModelMng" class="com.mycms.cms.manager.main.impl.CmsModelMngImpl"/>
+	<bean id="cmsModelItemMng" class="com.mycms.cms.manager.main.impl.CmsModelItemMngImpl"/>
+	<bean id="cmsTopicMng" class="com.mycms.cms.manager.main.impl.CmsTopicMngImpl"/>
+	<bean id="cmsGroupMng" class="com.mycms.cms.manager.main.impl.CmsGroupMngImpl"/>
+	<bean id="cmsRoleMng" class="com.mycms.cms.manager.main.impl.CmsRoleMngImpl"/>
+	<bean id="cmsLogMng" class="com.mycms.cms.manager.main.impl.CmsLogMngImpl"/>
+	<bean id="cmsMajorCompMng" class="com.mycms.cms.manager.main.impl.CmsMajorCompMngImpl"/>
+	<bean id="cmsCompanyTypeMng" class="com.mycms.cms.manager.main.impl.CmsCompanyTypeMngImpl"/>
+	<bean id="merchantMarkingMng" class="com.mycms.cms.manager.main.impl.MerchantMarkingMngImpl"/>
+	
+	<bean id="cmsAcquisitionMng" class="com.mycms.cms.manager.assist.impl.CmsAcquisitionMngImpl"/>
+	<bean id="cmsCommentMng" class="com.mycms.cms.manager.assist.impl.CmsCommentMngImpl"/>
+	<bean id="cmsCommentExtMng" class="com.mycms.cms.manager.assist.impl.CmsCommentExtMngImpl"/>
+	<bean id="cmsKeywordMng" class="com.mycms.cms.manager.assist.impl.CmsKeywordMngImpl"/>
+	<bean id="cmsSensitivityMng" class="com.mycms.cms.manager.assist.impl.CmsSensitivityMngImpl"/>
+	<bean id="cmsResourceMng" class="com.mycms.cms.manager.assist.impl.CmsResourceMngImpl"/>
+	<bean id="cmsGuestbookCtgMng" class="com.mycms.cms.manager.assist.impl.CmsGuestbookCtgMngImpl"/>
+	<bean id="cmsGuestbookExtMng" class="com.mycms.cms.manager.assist.impl.CmsGuestbookExtMngImpl"/>
+	<bean id="cmsGuestbookMng" class="com.mycms.cms.manager.assist.impl.CmsGuestbookMngImpl"/>	
+	<bean id="cmsVoteTopicMng" class="com.mycms.cms.manager.assist.impl.CmsVoteTopicMngImpl"/>
+	<bean id="cmsVoteItemMng" class="com.mycms.cms.manager.assist.impl.CmsVoteItemMngImpl"/>
+	<bean id="cmsVoteRecordMng" class="com.mycms.cms.manager.assist.impl.CmsVoteRecordMngImpl"/>
+	<bean id="cmsFriendlinkCtgMng" class="com.mycms.cms.manager.assist.impl.CmsFriendlinkCtgMngImpl"/>
+	<bean id="cmsFriendlinkMng" class="com.mycms.cms.manager.assist.impl.CmsFriendlinkMngImpl"/>
+	<bean id="cmsAdvertisingSpaceMng" class="com.mycms.cms.manager.assist.impl.CmsAdvertisingSpaceMngImpl"/>
+	<bean id="cmsAdvertisingMng" class="com.mycms.cms.manager.assist.impl.CmsAdvertisingMngImpl"/>
+	
+	<!--DAO-->
+	<bean id="channelDao" class="com.mycms.cms.dao.main.impl.ChannelDaoImpl"/>
+	<bean id="channelExtDao" class="com.mycms.cms.dao.main.impl.ChannelExtDaoImpl"/>
+	<bean id="channelTxtDao" class="com.mycms.cms.dao.main.impl.ChannelTxtDaoImpl"/>
+	<bean id="contentDao" class="com.mycms.cms.dao.main.impl.ContentDaoImpl"/>
+	<bean id="contentTagDao" class="com.mycms.cms.dao.main.impl.ContentTagDaoImpl"/>
+	<bean id="contentTypeDao" class="com.mycms.cms.dao.main.impl.ContentTypeDaoImpl"/>
+	<bean id="contentExtDao" class="com.mycms.cms.dao.main.impl.ContentExtDaoImpl"/>
+	<bean id="contentTxtDao" class="com.mycms.cms.dao.main.impl.ContentTxtDaoImpl"/>
+	<bean id="contentCountDao" class="com.mycms.cms.dao.main.impl.ContentCountDaoImpl"/>
+	<bean id="contentCheckDao" class="com.mycms.cms.dao.main.impl.ContentCheckDaoImpl"/>
+	<bean id="cmsSiteDao" class="com.mycms.cms.dao.main.impl.CmsSiteDaoImpl"/>
+	<bean id="cmsConfigDao" class="com.mycms.cms.dao.main.impl.CmsConfigDaoImpl"/>
+	<bean id="cmsUserDao" class="com.mycms.cms.dao.main.impl.CmsUserDaoImpl"/>
+	<bean id="cmsMemberUserDao" class="com.mycms.cms.dao.main.impl.CmsMemberUserDaoImpl"/>
+	<bean id="cmsUserExtDao" class="com.mycms.cms.dao.main.impl.CmsUserExtDaoImpl"/>
+	<bean id="cmsUserSiteDao" class="com.mycms.cms.dao.main.impl.CmsUserSiteDaoImpl"/>
+	<bean id="cmsModelDao" class="com.mycms.cms.dao.main.impl.CmsModelDaoImpl"/>
+	<bean id="cmsModelItemDao" class="com.mycms.cms.dao.main.impl.CmsModelItemDaoImpl"/>
+	<bean id="cmsTopicDao" class="com.mycms.cms.dao.main.impl.CmsTopicDaoImpl"/>
+	<bean id="cmsGroupDao" class="com.mycms.cms.dao.main.impl.CmsGroupDaoImpl"/>
+	<bean id="cmsRoleDao" class="com.mycms.cms.dao.main.impl.CmsRoleDaoImpl"/>
+	<bean id="cmsLogDao" class="com.mycms.cms.dao.main.impl.CmsLogDaoImpl"/>
+	<bean id="majorCompDao" class="com.mycms.cms.dao.main.impl.MajorCompDaoImpl"/>
+	<bean id="cmsCompanyTypeDao" class="com.mycms.cms.dao.main.impl.CmsCompanyTypeDaoImpl"/>
+	
+	<bean id="cmsAcquisitionDao" class="com.mycms.cms.dao.assist.impl.CmsAcquisitionDaoImpl"/>
+	<bean id="cmsCommentDao" class="com.mycms.cms.dao.assist.impl.CmsCommentDaoImpl"/>
+	<bean id="cmsCommentExtDao" class="com.mycms.cms.dao.assist.impl.CmsCommentExtDaoImpl"/>
+	<bean id="cmsKeywordDao" class="com.mycms.cms.dao.assist.impl.CmsKeywordDaoImpl"/>
+	<bean id="cmsSensitivityDao" class="com.mycms.cms.dao.assist.impl.CmsSensitivityDaoImpl"/>
+	<bean id="cmsGuestbookCtgDao" class="com.mycms.cms.dao.assist.impl.CmsGuestbookCtgDaoImpl"/>
+	<bean id="cmsGuestbookExtDao" class="com.mycms.cms.dao.assist.impl.CmsGuestbookExtDaoImpl"/>
+	<bean id="cmsGuestbookDao" class="com.mycms.cms.dao.assist.impl.CmsGuestbookDaoImpl"/>	
+	<bean id="cmsVoteTopicDao" class="com.mycms.cms.dao.assist.impl.CmsVoteTopicDaoImpl"/>
+	<bean id="cmsVoteItemDao" class="com.mycms.cms.dao.assist.impl.CmsVoteItemDaoImpl"/>
+	<bean id="cmsVoteRecordDao" class="com.mycms.cms.dao.assist.impl.CmsVoteRecordDaoImpl"/>
+	<bean id="cmsFriendlinkCtgDao" class="com.mycms.cms.dao.assist.impl.CmsFriendlinkCtgDaoImpl"/>
+	<bean id="cmsFriendlinkDao" class="com.mycms.cms.dao.assist.impl.CmsFriendlinkDaoImpl"/>
+	<bean id="cmsAdvertisingSpaceDao" class="com.mycms.cms.dao.assist.impl.CmsAdvertisingSpaceDaoImpl"/>
+	<bean id="cmsAdvertisingDao" class="com.mycms.cms.dao.assist.impl.CmsAdvertisingDaoImpl"/>
+	
+	<bean id="luceneContentDao" class="com.mycms.cms.lucene.LuceneContentDaoImpl"/>
+	<bean id="staticPageDao" class="com.mycms.cms.staticpage.StaticPageDaoImpl"/>
+</beans>

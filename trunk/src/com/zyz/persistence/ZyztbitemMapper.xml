@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zyz.persistence.ZyztbitemMapper">
+
+  <insert id="insertZyztbitem" parameterType="Zyztbitem" >
+  	INSERT INTO ZYZTBITEM (ITEMID,TARGETNAME,TITLE,TARGETAMOUNT,DEADLINE,CREATETIME,AMOUNT,CONTENT,IMAGE,SCORE,TYPE,STATUS,REMARK,TOP) VALUES (#{itemid,jdbcType=NUMERIC},#{targetname,jdbcType=VARCHAR},#{title,jdbcType=VARCHAR},#{targetamount,jdbcType=VARCHAR},#{deadline,jdbcType=TIMESTAMP},#{createtime,jdbcType=TIMESTAMP},#{amount,jdbcType=VARCHAR},#{content,jdbcType=VARCHAR},#{image,jdbcType=VARCHAR},#{score,jdbcType=NUMERIC},#{type,jdbcType=NUMERIC},#{status,jdbcType=NUMERIC},#{remark,jdbcType=VARCHAR},#{top,jdbcType=NUMERIC})
+  </insert>
+
+
+  <delete id="deleteZyztbitem"  parameterType="map">
+  	DELETE FROM ZYZTBITEM WHERE  ITEMID=#{itemid} 
+  </delete>
+
+
+  <update id="updateZyztbitem"  parameterType="Zyztbitem"> 
+	UPDATE ZYZTBITEM
+	<set>
+		<if test="itemid != null">ITEMID=#{itemid},</if>
+		<if test="targetname != null">TARGETNAME=#{targetname},</if>
+		<if test="title != null">TITLE=#{title},</if>
+		<if test="targetamount != null">TARGETAMOUNT=#{targetamount},</if>
+		<if test="deadline != null">DEADLINE=#{deadline},</if>
+		<if test="createtime != null">CREATETIME=#{createtime},</if>
+		<if test="amount != null">AMOUNT=#{amount},</if>
+		<if test="content != null">CONTENT=#{content},</if>
+		<if test="image != null">IMAGE=#{image},</if>
+		<if test="score != null">SCORE=#{score},</if>
+		<if test="type != null">TYPE=#{type},</if>
+		<if test="status != null">STATUS=#{status},</if>
+		<if test="remark != null">REMARK=#{remark},</if>
+		<if test="top != null">TOP=#{top}</if>
+	</set>
+	WHERE  ITEMID=#{itemid}   
+  </update>
+ 
+    <select id="getZyztbitem" parameterType="map" resultType="Zyztbitem">
+    SELECT
+     ITEMID,
+     TARGETNAME,
+     TITLE,
+     TARGETAMOUNT,
+     DEADLINE,
+     CREATETIME,
+     AMOUNT,
+     CONTENT,
+     IMAGE,
+     SCORE,
+     TYPE,
+     STATUS,
+     REMARK,
+     TOP      
+    FROM ZYZTBITEM
+    WHERE  ITEMID = #{itemid}   
+    </select>
+    
+    
+    <select id="getZyztbitemList" parameterType="map" resultType="Zyztbitem">
+    SELECT
+     ITEMID,
+     TARGETNAME,
+     TITLE,
+     TARGETAMOUNT,
+     DEADLINE,
+     CREATETIME,
+     AMOUNT,
+     CONTENT,
+     IMAGE,
+     SCORE,
+     TYPE,
+     STATUS,
+     REMARK,
+     TOP      
+    FROM ZYZTBITEM
+     <where>
+    	<if test="itemid != null and itemid != ''">
+    		ITEMID = #{itemid}
+    	</if>
+    	<if test="targetname != null and targetname != ''">
+    		AND TARGETNAME = #{targetname}
+    	</if>     
+    	<if test="title != null and title != ''">
+    		AND TITLE = #{title}
+    	</if>     
+    	<if test="targetamount != null and targetamount != ''">
+    		AND TARGETAMOUNT = #{targetamount}
+    	</if>     
+    	<if test="deadline != null and deadline != ''">
+    		AND DEADLINE = #{deadline}
+    	</if>     
+    	<if test="createtime != null and createtime != ''">
+    		AND CREATETIME = #{createtime}
+    	</if>     
+    	<if test="amount != null and amount != ''">
+    		AND AMOUNT = #{amount}
+    	</if>     
+    	<if test="content != null and content != ''">
+    		AND CONTENT = #{content}
+    	</if>     
+    	<if test="image != null and image != ''">
+    		AND IMAGE = #{image}
+    	</if>     
+    	<if test="score != null and score != ''">
+    		AND SCORE = #{score}
+    	</if>     
+    	<if test="type != null and type != ''">
+    		AND TYPE = #{type}
+    	</if>     
+    	<if test="status != null and status != ''">
+    		AND STATUS = #{status}
+    	</if>     
+    	<if test="remark != null and remark != ''">
+    		AND REMARK = #{remark}
+    	</if>     
+    	<if test="top != null and top != ''">
+    		AND TOP = #{top}
+    	</if>     
+     </where>
+     	<if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>      
+     
+    </select>
+  
+    <select id="getTotalRows"  parameterType="map" resultType="int">
+    SELECT count(*) 
+    FROM ZYZTBITEM
+     <where>
+    	<if test="itemid != null and itemid != ''">
+    		ITEMID = #{itemid}
+    	</if>
+    	<if test="targetname != null and targetname != ''">
+    		AND TARGETNAME = #{targetname}
+    	</if>     
+    	<if test="title != null and title != ''">
+    		AND TITLE = #{title}
+    	</if>     
+    	<if test="targetamount != null and targetamount != ''">
+    		AND TARGETAMOUNT = #{targetamount}
+    	</if>     
+    	<if test="deadline != null and deadline != ''">
+    		AND DEADLINE = #{deadline}
+    	</if>     
+    	<if test="createtime != null and createtime != ''">
+    		AND CREATETIME = #{createtime}
+    	</if>     
+    	<if test="amount != null and amount != ''">
+    		AND AMOUNT = #{amount}
+    	</if>     
+    	<if test="content != null and content != ''">
+    		AND CONTENT = #{content}
+    	</if>     
+    	<if test="image != null and image != ''">
+    		AND IMAGE = #{image}
+    	</if>     
+    	<if test="score != null and score != ''">
+    		AND SCORE = #{score}
+    	</if>     
+    	<if test="type != null and type != ''">
+    		AND TYPE = #{type}
+    	</if>     
+    	<if test="status != null and status != ''">
+    		AND STATUS = #{status}
+    	</if>     
+    	<if test="remark != null and remark != ''">
+    		AND REMARK = #{remark}
+    	</if>     
+    	<if test="top != null and top != ''">
+    		AND TOP = #{top}
+    	</if>     
+     </where>
+    </select>
+    
+	<select id="getHistoryTotalAmount" resultType="double">
+		SELECT CASE WHEN SUM(t1.AMOUNT) IS NULL THEN 0 ELSE SUM(t1.AMOUNT) END FROM ZYZTBRECORD t1 inner join zyztbitem t2
+		on t1.itemid = t2.itemid where t2.type = 2
+		 
+	</select>
+	
+	<select id="getMonthAmount" resultType="double">
+		SELECT CASE WHEN SUM(t1.AMOUNT) IS NULL THEN 0 ELSE SUM(t1.AMOUNT) END FROM ZYZTBRECORD t1 inner join zyztbitem t2 
+		on t1.itemid = t2.itemid WHERE MONTH(CREATEDATE) = MONTH(NOW()) and t2.type = 2
+		
+	</select>
+	
+	<select id="getPeopleCount" resultType="String" >
+		SELECT COUNT(INID) END FROM ZYZTBRECORD
+	</select>
+	
+	<select id="getIndexHelpList" parameterType="map" resultType="Zyztbitem">
+    SELECT
+     ITEMID,
+     TARGETNAME,
+     TITLE,
+     TARGETAMOUNT,
+     DEADLINE,
+     CREATETIME,
+     AMOUNT,
+     CONTENT,
+     IMAGE,
+     SCORE,
+     TYPE,
+     STATUS,
+     REMARK,
+     TOP      
+    FROM ZYZTBITEM
+    WHERE  type = 2 or type = 3
+    order by createtime desc limit 0,20
+	<!-- <if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+    	limit ${startRows},${limitRows}    
+      </if>   -->  
+    </select>
+</mapper>

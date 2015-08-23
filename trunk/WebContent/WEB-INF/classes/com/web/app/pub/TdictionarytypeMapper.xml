@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.web.app.pub.TdictionarytypeMapper">
+
+  <insert id="insertTdictionarytype" parameterType="Tdictionarytype" >
+		<selectKey keyProperty="type" resultType="int" order="BEFORE"> 
+         SELECT PUBSEQUENCE.nextval FROM dual 
+        </selectKey> 
+  	INSERT INTO T_DICTIONARYTYPE (TYPE,NAME,REMARK) VALUES (#{type,jdbcType=VARCHAR},#{name,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR})
+  </insert>
+
+
+  <delete id="deleteTdictionarytype"  parameterType="map">
+  	DELETE FROM T_DICTIONARYTYPE WHERE  TYPE=#{type} 
+  </delete>
+
+
+  <update id="updateTdictionarytype"  parameterType="Tdictionarytype"> 
+	UPDATE T_DICTIONARYTYPE
+	<set>
+		<if test="type != null">TYPE=#{type},</if>
+		<if test="name != null">NAME=#{name},</if>
+		<if test="remark != null">REMARK=#{remark}</if>
+	</set>
+	WHERE  TYPE=#{type}   
+  </update>
+ 
+    <select id="getTdictionarytype" parameterType="map" resultType="Tdictionarytype">
+    SELECT
+     TYPE,
+     NAME,
+     REMARK      
+    FROM T_DICTIONARYTYPE
+    WHERE  TYPE = #{type}   
+    </select>
+    
+    
+    <select id="getTdictionarytypeList" parameterType="map" resultType="Tdictionarytype">
+    <if test="endRows != null ">
+    SELECT * FROM ( SELECT A.*, ROWNUM RN FROM (
+    </if>    
+    SELECT
+     TYPE,
+     NAME,
+     REMARK      
+    FROM T_DICTIONARYTYPE
+     <where>
+    	<if test="type != null and type != ''">
+    		TYPE = #{type}
+    	</if>
+    	<if test="name != null and name != ''">
+    		AND NAME = #{name}
+    	</if>     
+    	<if test="remark != null and remark != ''">
+    		AND REMARK = #{remark}
+    	</if>     
+     </where>
+     	<if test="orderby != null and orderby != ''">
+      ORDER BY ${orderby}  ${order}
+     	</if>
+   	<if test="endRows != null ">
+      ) A WHERE ROWNUM <![CDATA[<]]>= ${endRows} ) WHERE RN > ${startRows}
+      </if>      
+     
+    </select>
+  
+    <select id="getTotalRows"  parameterType="map" resultType="int">
+    SELECT count(*) 
+    FROM T_DICTIONARYTYPE
+     <where>
+    	<if test="type != null and type != ''">
+    		TYPE = #{type}
+    	</if>
+    	<if test="name != null and name != ''">
+    		AND NAME = #{name}
+    	</if>     
+    	<if test="remark != null and remark != ''">
+    		AND REMARK = #{remark}
+    	</if>     
+     </where>
+    </select>
+
+</mapper>

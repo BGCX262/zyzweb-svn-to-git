@@ -1,0 +1,14 @@
+1、后台模型管理->新建模型，模型名称：测试，栏目模板前缀：测试栏目，内容模板前缀：测试内容
+2、后台模型管理->选择“测试”栏目，修改栏目模型：全部独自1行，显示：name path title tplChannel tplContent docImg link，保持系统默认字段，保持内容。(栏目模型里面可以选择标题图，内容图，栏目管理选择某个栏目，选择是否有标题图，内容图）
+3、后台模型管理->选择“测试”栏目，修改内容模型，全部独自1行，显示：channelId title releaseDate txt
+2、后台栏目管理，根目录-》添加子栏目：测试-》党政路线，访问路径：dzlx
+3、新建WEB-INF\t\cms\www\red\channel\测试栏目.html，WEB-INF\t\cms\www\red\content\测试内容.html，修改模板内容 
+3、
+
+1、前台页面访问通过上下文路径来调用不同的模板文件，如：/dzlx/index.jhtml，则dzlx代表的是党政路线栏目，index代表的是栏目模板，其对应的模板是：channel/测试栏目.html
+2 前台展现 测试栏目.html，主要是栏目文件列表
+3、点击具体文章，路径是，/dzlx/8.jhtml，则代表党政路线栏目下的具体文章，对应的模板是content/测试内容.html
+2、cms_content_page1，根据channel ID来查找该id下的文章，包括子栏目。
+
+/dzlx/index.jhtml 模板页
+/dzlx/11.jhtml    内容页

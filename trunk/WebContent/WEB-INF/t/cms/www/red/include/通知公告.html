@@ -1,0 +1,59 @@
+  <div class="notice" id="notice">
+            <div class="hd">
+                <h2>通知公告</h2><span><a href="/tzgg/index.jhtml" title="更多通知公告">更多</a></span>
+            </div>
+        <div id="notice_div">
+            <div id="notice1">
+            [@cms_content_list1 channelId=2 count=10 orderBy='2']
+            [#list tag_list as c]
+            <p><a title="${c.title}" href="${c.url}"> ${c.title}</a></p>
+            [/#list]     
+             [/@cms_content_list1]  
+            </div>
+            <div id="notice2"></div>
+        </div>
+        <script type="text/javascript">
+            var speed=40;
+            var notice=document.getElementById('notice_div');
+            var notice1=document.getElementById('notice1');
+            var notice2=document.getElementById('notice2');
+            notice2.innerHTML=notice1.innerHTML
+            function Marquee1(){
+            if(notice2.offsetHeight-notice.scrollTop<=0)
+            notice.scrollTop-=notice1.offsetHeight
+            else{
+            notice.scrollTop++
+            }
+            }
+            var MyMar1=setInterval(Marquee1,speed)
+            notice.onmouseover=function() {clearInterval(MyMar1)}
+            notice.onmouseout=function() {MyMar1=setInterval(Marquee1,speed)}
+        </script>
+ 
+            <div class="hd mt10">
+                <h2>站内动态</h2><span><a   title="更多站内动态"></a></span>
+            </div>
+        <div id="bulletin_div">
+            <div id="bulletin1">
+                                    
+                          </div>
+            <div id="bulletin2"></div>
+        </div>
+        <script type="text/javascript">
+            var speed=40;
+            var bulletin=document.getElementById('bulletin_div');
+            var bulletin1=document.getElementById('bulletin1');
+            var bulletin2=document.getElementById('bulletin2');
+            bulletin2.innerHTML=bulletin1.innerHTML
+            function Marquee2(){
+            if(bulletin2.offsetHeight-bulletin.scrollTop<=0)
+            bulletin.scrollTop-=bulletin1.offsetHeight
+            else{
+            bulletin.scrollTop++
+            }
+            }
+            var MyMar2=setInterval(Marquee2,speed)
+            bulletin.onmouseover=function() {clearInterval(MyMar2)}
+            bulletin.onmouseout=function() {MyMar2=setInterval(Marquee2,speed)}
+        </script>
+        </div>

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title></title>
+<#include "/mycms_sys/head.html"/>
+<script type="text/javascript">
+$(function() {
+	$("#cmForm").validate();
+});
+</script>
+</head>
+<body>
+<div class="body-box">
+<div class="rhead">
+	<div class="rpos"><@s.m "global.position"/>:  <@s.m "cmsAdminLocal.function"/> - <@s.m "global.edit"/></div>
+	<form class="ropt">
+		<input type="button" value="<@s.m "global.backToList"/>" onclick="history.back();"/>
+	</form>
+	<div class="clear"></div>
+</div>
+<@p.form id="cmForm" action="o_update.do" labelWidth="12">
+<@p.text width="50" colspan="1" label="cmsMemberUser.userName"  value=cmsMemberUser.userName name="userName"/>
+<@p.text width="50" colspan="1" label="cmsMemberUser.userMobile" name="userMobile" value=cmsMemberUser.userMobile size="30" maxlength="100" class="userMobile"/><@p.tr/>
+
+<@p.password width="50" colspan="1" label="cmsMemberUser.password" id="password" name="password" maxlength="100" help="cmsUser.password.help"/>
+<@p.password width="50" colspan="1" label="cmsUser.pwdAgain" equalTo="#password" help="cmsUser.password.help"/><@p.tr/>
+
+<@p.text width="50" colspan="1" label="cmsMemberUser.mimsi" value=cmsMemberUser.mimsi name="mimsi"/>
+<@p.radio width="50" colspan="1" label="cmsMemberUser.userType" name="userType" value=cmsMemberUser.userType list={"0":"普通","1":"会员"}/><@p.tr/>
+
+<@p.radio width="50" colspan="1" label="cmsMemberUser.userGender" name="userGender" value=cmsMemberUser.userGender list={"0":"女","1":"男","2":"未知"}/>
+<@p.text width="50" colspan="1" label="cmsMemberUser.userEmail" name="userEmail" value=cmsMemberUser.userEmail size="30" maxlength="100" class="email"/><@p.tr/>
+
+<@p.text width="50" colspan="2" label="cmsMemberUser.userAddress" name="userAddress" value=cmsMemberUser.userAddress maxlength="100"/><@p.tr/>
+
+<@p.text width="50" colspan="1" label="cmsMemberUser.otherPhone"   value=cmsMemberUser.otherPhone name="otherPhone"/>
+<@p.text width="50" colspan="1" label="cmsMemberUser.identifier" name="identifier" value=cmsMemberUser.identifier /><@p.tr/>
+
+<@p.radio width="50" colspan="1" label="cmsMemberUser.carType" name="carType" value=cmsMemberUser.carType list={"A":"A","B":"B","C":"C"}/>
+<@p.text width="50" colspan="1" label="cmsMemberUser.validBeginDate"  value=cmsMemberUser.validBeginDate name="validBeginDate"/><@p.tr/>
+
+<@p.text width="50" colspan="1" label="cmsMemberUser.validPeriod"  value=cmsMemberUser.validPeriod name="validPeriod" />
+<@p.text width="50" colspan="1" label="cmsMemberUser.carNumber"  value=cmsMemberUser.carNumber name="carNumber"/><@p.tr/>
+
+<@p.text width="50" colspan="1" label="cmsMemberUser.suffixNum"  value=cmsMemberUser.suffixNum name="suffixNum" />
+<@p.td width="50" colspan="1" label="cmsMemberUser.carRegisterTime">${cmsMemberUser.carRegisterTime}</@p.td><@p.tr/>
+
+<@p.td width="50" colspan="1" label="cmsMemberUser.registerTime" >${cmsMemberUser.registerTime?string('yyyy-MM-dd HH:mm:ss')}</@p.td>
+<@p.radio width="50" colspan="1" label="cmsMemberUser.userStatus" name="userStatus" value=cmsMemberUser.userStatus list={"0":"退订","1":"正常","2":"锁定"}/><@p.tr/>
+
+<@p.textarea colspan="2" label="cmsMemberUser.memo" name="memo" value=cmsMemberUser.memo maxlength="255" cols="70" rows="5"/><@p.tr/>
+
+<@p.td colspan="2">
+	<@p.hidden name="id" value=cmsMemberUser.id/>
+	<@p.submit code="global.submit"/> &nbsp; <@p.reset code="global.reset"/>
+</@p.td>
+</@p.form>
+</div>
+</body>
+</html>

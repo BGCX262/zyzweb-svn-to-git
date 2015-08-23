@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>海珠区党员自愿者信息网</title>
+        <!-- 首页样式 -->
+        <link rel="stylesheet" href="style/index_css.css">
+        <!-- jquery-ui css 样式 -->
+        <link rel="stylesheet" href="style/jquery-ui-main.css">
+        <!-- jquery 包 -->
+        <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
+        <!-- jquery-ui 包 -->
+        <script src="js/jquery-ui-1.8.11.js" type="text/javascript"></script>
+        <!-- 党员动态 的滚动新闻图片 js -->
+        <script src="js/focus.js" type="text/javascript"></script>
+        <!-- 党员动态 "党员新闻" 和 志愿淘宝 "动态公告" 向上滚动效果 js -->
+        <script src="js/scroll.js" type="text/javascript"></script>
+        
+        <script type="text/javascript" >
+			$(document).ready(function(){
+				//选项框tabs
+				var $uli = $(".layout .ul div");
+				var $oli = $(".layout .ol .ol_div");
+				$uli.addClass("normal");
+				$oli.addClass("none_div");
+				//$uli[0].className = "hover";
+				$oli[0].className = "show_div";
+				$uli.each(function(n){
+					$(this).click(function(){
+						//$uli.removeClass().addClass("normal");
+						//$(this).removeClass().addClass("hover");
+						$oli.removeClass().addClass("none_div");
+						$($oli[n]).removeClass().addClass("show_div");
+					});   
+				});
+			});
+		</script>
+    </head>
+    <!------------------------ 首页 -------------------------------->
+    <body class="body">
+    	<div id="main">
+        	<div class="logo">logo</div>
+            <div class="layout">
+            	<div class="ul">
+                    <div class="dynamic_butt"></div>
+                    <div class="ranking_butt"></div>
+                    <div class="interact_butt"></div>
+                    <div class="serve_butt"></div>
+                    <p class="clear"></p>
+                </div>
+                <div class="ol">
+                	<!----- 党员动态_div ----->
+                	<div class="ol_div">
+                        <div class="dynamic-div">
+                            <div class="title">
+                            	<a href="dynamic.html" target="dynamic_iframe">党员动态</a>
+                            </div>
+                            <div class="iframe-dynamic">
+                            	<iframe src="/index.jhtml" name="dynamic_iframe" width="962px" height="457px" frameborder="0" scrolling="no"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <!----- 党员龙虎榜_div ----->
+                    <div class="ol_div">
+                    	<div class="ranking-div">
+                        	<div class="title">党员龙虎榜</div>
+                            <div class="iframe-ranking">
+                            	<iframe src="/zyzinfo/px_dy.do?t=f&order=desc&sort=score" name="ranking_iframe" width="962px" height="557px" frameborder="0" scrolling="no" ></iframe>
+                            </div>
+                        </div>
+                    	<!--<iframe src="/zyzinfo/px_dy.do?t=f&order=desc&sort=score" name="ranking_iframe" width="972px" height="604px" frameborder="0" scrolling="no" ></iframe>-->
+                    </div>
+                    <!----- 党员互动_div ----->
+                    <div class="ol_div">
+                    	<div class="interact-div">
+                            <div class="title">党员互动</div>
+                            <div class="templatebg">
+                                <div class="interact_left">
+                                	<!----- message 留言板 ----->
+                                	<div class="message"></div>
+                                </div>
+                                <div class="interact_right">
+                                	<!----- bbs 论坛 ----->
+                                	<div class="bbs"></div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!----- 志愿淘宝_div ----->
+                    <div class="ol_div">
+                    	<div class="serve-div">
+                        	<div class="title">志愿ATM</div>
+                            <div class="iframe-serve">
+                            	<iframe src="/zyztbitem/zyztbitemIndex.do" name="serve_iframe" width="100%" height="580px" frameborder="0" scrolling="no" ></iframe>
+                            </div>
+                        </div>
+                    	<!--<iframe src="/zyztbitem/zyztbitemIndex.do" name="serve_iframe" width="962px" height="629px" frameborder="0" scrolling="no" ></iframe>-->
+                    </div>
+                    <div class="clear" style="width:0px; height:0px; border:none;"></div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="opacitybg"></div>-->
+        
+    </body>
+</html>

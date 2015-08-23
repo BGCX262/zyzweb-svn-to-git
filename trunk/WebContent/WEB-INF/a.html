@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0047)http://www9.53kf.com/kf.php -->
+<HTML>
+<HEAD>
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 8.00.7600.16490">
+</HEAD>
+<BODY>
+	<script type="text/javascript">
+	function hz6d$(id) { return document.getElementById(id) ?
+	document.getElementById(id) : null; }var kf_success=1; var kftype=2; //
+	获取cookie便 function hz6d_getCookie(name) { var offset =
+	document.cookie.indexOf(name + "="); if (offset != -1) { offset +=
+	name.length + 1; var end = document.cookie.indexOf(";", offset); if
+	(end == -1) { end = document.cookie.length; } return
+	document.cookie.substring(offset, end); } else { return ""; } } var
+	hz6d_from_page = hz6d_getCookie("53kf_68891775_keyword"); if
+	(hz6d_from_page == "") { hz6d_from_page = document.referrer;
+	document.cookie = "53kf_68891775_keyword=" + hz6d_from_page; }
+	hz6d_from_page = "&amp;keyword=" + escape(hz6d_from_page); function
+	hz6d_html_replace(html) { var pattern = /{hz6d_keyword}/gim; var str =
+	hz6d_from_page + "&amp;tfrom=1"; var hz6d_html = html.replace(pattern,
+	str); return hz6d_html; } // has defined function hasdoctype() { if
+	(document.compatMode == "BackCompat") { ret = false; } else { ret =
+	true; } return ret; } // ie8 = IE8_Partner_Build [2008-12-11] function
+	detectBrowser() { var ret = "ie6"; // default var user_agent =
+	navigator.userAgent; if (user_agent.indexOf("compatible") &gt; -1) { if
+	(user_agent.indexOf("MSIE 6.0") &gt; -1) { ret = "ie6"; } else if
+	(user_agent.indexOf("MSIE 7.0") &gt; -1) { ret = "ie7"; } else if
+	(user_agent.indexOf("MSIE 8.0") &gt; -1) { ret = "ie8"; } if
+	(user_agent.indexOf("360") &gt; -1) { ret = "360"; } } else if
+	(user_agent.indexOf("Gecko") &gt; -1) { ret = "firefox"; } if ("" ==
+	"TheWorld") { ret = "TheWorld"; } return ret; } // 间距小于步进，则移动间距的距礿
+	function smoothMove(start, end) { var step = Math.abs(end - start); var
+	forword = end - start; if (step &gt; 2) { step = Math.ceil(step * 0.2)
+	* (forword / Math.abs(forword)); } else { step = step * (forword /
+	Math.abs(forword)); } posi = start + step; if (step &gt; 0) { if (posi
+	&gt; end) posi = end; } else { if (posi &lt; end) posi = end; } return
+	posi; } var hasdoctype = hasdoctype(); var browser = detectBrowser();
+	// 点击图标设置变量 function setIsinvited() { try { onliner_zdfq = 2; if
+	(acc_autotype == 3) { document.cookie = "onliner_zdfq68891775=" +
+	onliner_zdfq; } } catch (e) {} } var onliner_zdfq =
+	hz6d_getCookie("onliner_zdfq68891775"); // onliner_zdfq: 0.初始便2.点击接受
+	3.点击拒绝 if (onliner_zdfq == "") { onliner_zdfq = 0; document.cookie =
+	"onliner_zdfq68891775=" + onliner_zdfq; } var hz6d_kf_type = 2; var
+	hz6d_pos_model = 3; var hz6d_hidden = 0; var hz6d_close_icon = 0; //
+	加载ivt.php，即中间的接受邀请层 if (!hz6d$("ivt_script")) document.write("
+	<SCR "+"IPT id=ivt_script type="text/javascript"
+		src='http://www9.53kf.com/kf_ivt.php?arg=zvz1983&amp;test_do=&amp;style=1&amp;isonline=1&amp;kfonline=1&amp;lang=zh-cn&amp;resize=yes&amp;charset=utf-8&amp;kflist=off&amp;kf=74e3ad42-06bf-102e-9f32-0018716864bc,92d10ff2-e09f-102d-835f-0018716864bc,a125657c-e301-11df-83be-00151765c518,4ee068b9c8e3a16b71000283&amp;zdkf_type=2&amp;referer="+hz6d_from_page+"&amp;lytype=0&amp;tpl_name=crystal_blue&amp;tpl_width=703&amp;tpl_height=473'></SCR"+"IPT>
+	"); var kf_script_num = 0; var script_total =
+	document.getElementsByTagName('script'); for (var i = 0; i &lt;
+	script_total.length; i++) { if (script_total[i].src.indexOf('kf.php')
+	!= -1) { kf_script_num += 1; break; } } if (kf_script_num &lt;= 1) {
+	document.write('
+	<IFRAME
+		style="POSITION: absolute; WIDTH: 0px; HEIGHT: 0px; OVERFLOW: hidden"
+		id=hz6d_im_iframe src="about:blank" frameBorder=0></IFRAME>
+	'); function init_zdytb_arr(zdytb_str) { // 生成 图标 数组 var zdytb_arrs =
+	[]; var tmp_arrs = zdytb_str.split('#'); for (var i = 0; i &lt;
+	tmp_arrs.length; i++) { zdytb_arrs[i] = []; zdytb_arrs[i] =
+	tmp_arrs[i].split(','); } return zdytb_arrs; } function
+	get_input_name_pos(_input_name_arr,_input_name) { // 获取自定义图枿输入值位绿 var
+	_pos = 0; for (var i = 0; i &lt; _input_name_arr.length; i++) { if
+	(_input_name_arr[i] == _input_name) { _pos = i; break; } } return _pos;
+	} // 组装自定义图标div function
+	get_zdytb_divs(on_off,zdytb_on_arrs,zdytb_off_arrs,kficon_click_str) {
+	var element_arrs = (String(on_off) == '1') ? zdytb_on_arrs :
+	zdytb_off_arrs; var divs_str = ''; for (var i = 0; i &lt;
+	element_arrs.length; i++) { var element_arr = element_arrs[i]; var
+	css_arr_1 = css_name_arr_1; //var css_arr_2 = css_name_arr_2; var
+	css_arr_3 = css_name_arr_3; var css_str = ''; var link_str = ''; var
+	target_str = ''; var text_str = ''; var click_str = ''; // 处理css for
+	(var j = 0;j &lt; css_arr_3.length; j++) { var css_pos = css_arr_3[j];
+	if (element_arr[css_pos] == '' || element_arr[css_pos] == '-')
+	continue; if (css_pos == 8 &amp;&amp;
+	element_arr[css_pos].indexOf('http://') == -1) element_arr[css_pos] =
+	"http://" + "www9.53kf.com" + "/" + element_arr[css_pos]; css_str +=
+	css_arr_1[j].replace("c_c",element_arr[css_pos]) + ';'; } // 处理文本内容 var
+	text_type_pos = get_input_name_pos(input_name_arr,'text_type'); var
+	text_content_pos = get_input_name_pos(input_name_arr,'text_content');
+	var tmp_type = element_arr[text_type_pos].Trim(); var tmp_text =
+	element_arr[text_content_pos].Trim().replace(/&amp;/g,
+	'&amp;').HtmlDecode(); if (tmp_type != '' &amp;&amp; tmp_type != '-'
+	&amp;&amp; tmp_text != '' &amp;&amp; tmp_text != '-') { text_str =
+	tmp_text; } // 处理连接 var element_type_pos =
+	get_input_name_pos(input_name_arr,'element_type'); var link_href_pos =
+	get_input_name_pos(input_name_arr,'link_href'); var tmp_e_type =
+	element_arr[element_type_pos].Trim(); var tmp_herf =
+	element_arr[link_href_pos].Trim().replace(/&amp;/g,
+	'&amp;').HtmlDecode(); if ((tmp_e_type == '' || tmp_e_type == '-')
+	&amp;&amp; tmp_herf.Trim().replace('http://','') != '' &amp;&amp;
+	tmp_herf.Trim() != '-') { link_str = tmp_herf.Trim(); } else { var
+	im_account_pos = get_input_name_pos(input_name_arr,'im_account'); var
+	tmp_im_account = element_arr[im_account_pos].Trim(); switch
+	(tmp_e_type) { case 'chat': click_str = kficon_click_str; break; case
+	'close': click_str =
+	'this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)';
+	break; case 'etel': click_str =
+	'window.open(\'http://chat.53kf.com/eht.php?company_id=68891775&amp;style_id=103594655\',\'_blank\',\'height=400,width=300,top=100,left=200,status=yes,toolbar=no,menubar=no,resizable=no,scrollbars=no,location=no,titlebar=no\')';
+	break; case 'qq': if (tmp_im_account != '' &amp;&amp; tmp_im_account !=
+	'-') link_str = 'tencent://message/?uin=' + tmp_im_account; break; case
+	'wang': if (tmp_im_account != '' &amp;&amp; tmp_im_account != '-')
+	link_str = 'aliim://sendmsg?touid=cntaobao' + tmp_im_account; break;
+	case 'msn': if (tmp_im_account != '' &amp;&amp; tmp_im_account != '-')
+	link_str = 'msnim:chat?contact=' + tmp_im_account; break; default:
+	link_str = '';click_str = ''; } } // 处理是否新窗卿 var link_target_pos =
+	get_input_name_pos(input_name_arr,'link_target'); var tmp_target =
+	element_arr[link_target_pos].Trim(); if (tmp_target == '' || tmp_target
+	== '-' || tmp_target == '_blank') target_str = '_blank'; else
+	target_str = '_self'; // if (tmp_im_account != '' &amp;&amp;
+	tmp_im_account != '-' &amp;&amp; link_str != '') // { //click_str =
+	"chatwindow =
+	window.open('','','width=1,height=1,top=0,left=0');chatwindow.location='"
+	+ link_str + "';if(typeof chatwindow != 'undefined') closeTimer =
+	window.setInterval(function(){chatwindow.close();},1000);else
+	window.clearInterval(closeTimer);"; // click_str =
+	"hz6d$('hz6d_im_iframe').src='" + link_str + "'"; // link_str = ''; //
+	} var onclick_str = ''; if (link_str == '' &amp;&amp; click_str != '')
+	onclick_str = 'onclick="' + click_str + ';"'; else if (link_str !=
+	''&amp;&amp; click_str != '') onclick_str = ' onclick="' + click_str +
+	';window.open(\'' + link_str +'\',\'' + target_str + '\');" '; else if
+	(link_str != ''&amp;&amp; click_str == '') onclick_str = '
+	onclick="window.open(\'' + link_str +'\',\'' + target_str + '\');" ';
+	if (link_str != '' || click_str != '') css_str += "cursor: pointer;";
+	var height_str =
+	element_arr[get_input_name_pos(input_name_arr,'div_height')]; if
+	(text_str != '') css_str += "line-height: " + height_str + "px;"; //if
+	(text_str != '') css_str += "padding-top: " + parseInt(height_str/2) +
+	"px;" + "padding-bottom: " + parseInt(height_str/2) + "px;"; // 组装成div
+	var title_str = ''; if (text_str != ''&amp;&amp; onclick_str != '') {
+	title_str = 'title=\"' + text_str + '\"'; } if(i == 0) { onclick_str =
+	''; divs_str += "
+	<DIV style="" position: " ? + onclick_str ?\? css_str
+		hidden;z-index:10086;? 
+relative;overflow:>
+		"; } else if(tmp_im_account != '' &amp;&amp; tmp_im_account != '-'
+		&amp;&amp; link_str != '') { divs_str += "<A
+			href="http://www9.53kf.com/%22%22" target='\"_blank\"'+ ?\? link_str+>
+			<DIV style="" position: " ? + ?\? css_str title_str
+				hidden;text-decoration:none;? 
+absolute;overflow:>" +
+				text_str + "</DIV>
+		</A>"; } else { divs_str += "
+		<DIV style="" position: " ? + onclick_str ?\? css_str title_str
+			absolute;overflow:hidden;?>" + text_str + "</DIV>
+		"; } } divs_str += '
+	</DIV>
+	'; return divs_str; } String.prototype.Trim = function() { var tmp =
+	this.replace(/(^\s*)|(\s*$)/g, ""); return tmp; }
+	String.prototype.HtmlDecode = function() { var msg =
+	this.replace(/&amp;/g, '&amp;').replace(/"/g, '\"').replace(/'/g,
+	'\'').replace(/&lt;/g, '&lt;').replace(/&gt;/g,
+	'&gt;').replace(/&amp;douhao/g,",").replace(/&amp;jinghao/g,'#');
+	return msg; } // 定义全局解码数组 var css_name_arr_1 = ["width: c_cpx","height:
+	c_cpx","left: c_cpx","top: c_cpx","z-index: c_c","background-image:
+	url(c_c)","background-repeat: c_c","background-color: #c_c","font-size:
+	c_cpx","color: #c_c","text-align:c_c","font-weight: c_c","font-style:
+	c_c","text-decoration: c_c","font-family:c_c","border-style:
+	c_c","border-width: c_cpx","border-color:#c_c;word-break:break-all;"];
+	var css_name_arr_2 =
+	["div_width","div_height","div_left","div_top","div_zindex","bg_img_url","bg_img_repeat","bg_color","font_size","text_color","text_align","font_bold","font_italic","text_underline","font_family","border_style","border_width","border_color"];
+	var css_name_arr_3 = [3,4,5,6,7,8,9,10,14,15,16,17,18,19,20,21,22,23];
+	var input_name_str =
+	'element_id#element_name#element_type#div_width#div_height#div_left#div_top#div_zindex#bg_img_url#bg_img_repeat#bg_color#im_account#text_type#text_content#font_size#text_color#text_align#font_bold#font_italic#text_underline#font_family#border_style#border_width#border_color#link_href#link_target';
+	var input_name_arr = input_name_str.split('#'); // 初始化解码数繿 } if
+	(typeof(kf_icon_id) == "undefined") { kf_icon_id = 1; } else {
+	kf_icon_id++; } function hz6d_createFixedDiv(html) { var div =
+	document.createElement("div"); div.style.position = "fixed";
+	div.style.zIndex = "10085"; if (!hasdoctype) div.style.position =
+	"absolute"; div.id = "hz6d_kf_icon_" + kf_icon_id; if (1 == 1) {
+	div.style.top = "140" + "px"; } else { div.style.bottom = "140" + "px";
+	} if (2 == 1) { div.style.left = "5" + "px"; } else { div.style.right =
+	"5" + "px"; } if
+	("1,\u5916\u6846,-,166,423,-,-,1,-,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#2,\u5934\u90e8\u80cc\u666f,-,166,180,0,0,1,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722277.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#3,\u5e95\u90e8\u80cc\u666f,-,166,26,0,397,3,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722396.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#4,53KF\u80cc\u666f,chat,166,31,0,180,4,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722470.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#5,QQ\u80cc\u666f,qq,166,31,0,211,5,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722609.gif,no-repeat,-,1925232951,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#6,\u65fa\u65fa\u80cc\u666f,qq,166,31,0,242,6,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994019.gif,no-repeat,-,2507258786,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#7,MSN\u80cc\u666f,qq,166,31,0,273,7,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994029.gif,no-repeat,-,1422177812,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#8,\u5728\u7ebf\u5f62\u8c61,chat,121,120,20,49,8,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313723354.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#9,53KF,chat,106,22,37,184,9,-,no-repeat,-,-,zdy,53\u5ba2\u670d\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#10,QQ,qq,106,22,37,215,10,-,no-repeat,-,1925232951,zdy,QQ\u5728\u7ebf\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#11,\u65fa\u65fa,qq,106,22,37,246,11,-,no-repeat,-,1820231064,zdy,QQ\u5728\u7ebf\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#12,MSN,qq,106,22,37,277,12,-,no-repeat,-,1422177812,zdy,QQ\u5728\u7ebf\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#13,\u5ba2\u670dLOGO,-,22,20,9,8,13,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313723164.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#14,\u6807\u9898,-,120,24,30,5,14,-,no-repeat,-,-,zdy,53KF-\u7f51\u4e0a\u5ba2\u670d,14,FFFFFF,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#15,\u7248\u6743\u6240\u6709,-,156,26,0,397,15,-,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,http:\/\/www.53kf.com,_blank#16,400\u80cc\u666f,etel,166,31,0,304,16,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722866.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#17,400\u7535\u8bdd,etel,106,22,37,308,17,-,no-repeat,-,-,zdy,\u514d\u8d39\u7535\u8bdd\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#18,\u672a\u547d\u540d,wang,166,31,0,335,18,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994646.gif,no-repeat,-,zengwzh,zdy,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#19,\u672a\u547d\u540d,msn,166,31,0,366,19,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994793.gif,no-repeat,-,penfei92yu@hotmail.com,zdy,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#20,\u672a\u547d\u540d,wang,106,22,37,339,20,-,no-repeat,-,zengwzh,zdy,\u6dd8\u5b9d\u65fa\u65fa,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#21,\u672a\u547d\u540d,msn,106,22,37,365,21,-,no-repeat,-,penfei92yu@hotmail.com,zdy,MSN\u8054\u7cfb\u6211\u4eec,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank"
+	!= '' &amp;&amp;
+	"1,\u5916\u6846,-,166,423,-,-,1,-,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#2,\u5934\u90e8\u80cc\u666f,-,166,180,0,0,1,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722277.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#3,\u5e95\u90e8\u80cc\u666f,-,166,26,0,397,3,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722396.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#4,53KF\u80cc\u666f,chat,166,31,0,180,4,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722470.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#5,QQ\u80cc\u666f,qq,166,31,0,211,5,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722609.gif,no-repeat,-,1925232951,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#6,\u65fa\u65fa\u80cc\u666f,qq,166,31,0,242,6,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994019.gif,no-repeat,-,1820231064,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#7,MSN\u80cc\u666f,qq,166,31,0,273,7,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994029.gif,no-repeat,-,1422177812,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#8,\u5728\u7ebf\u5f62\u8c61,chat,121,120,20,49,8,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320997084.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#9,53KF,chat,106,22,37,184,9,-,no-repeat,-,-,zdy,53\u5ba2\u670d\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#10,QQ,qq,106,22,37,215,10,-,no-repeat,-,1925232951,zdy,QQ\u5728\u7ebf\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#11,\u65fa\u65fa,qq,106,22,37,246,11,-,no-repeat,-,1820231064,zdy,QQ\u5728\u7ebf\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#12,MSN,qq,106,22,37,277,12,-,no-repeat,-,1422177812,zdy,QQ\u5728\u7ebf\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#13,\u5ba2\u670dLOGO,-,22,20,9,8,13,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313723164.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#14,\u6807\u9898,-,120,24,30,5,14,-,no-repeat,-,-,zdy,53KF-\u7f51\u4e0a\u5ba2\u670d,14,FFFFFF,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#15,\u7248\u6743\u6240\u6709,-,156,26,0,397,15,-,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,http:\/\/www.53kf.com,_blank#16,400\u80cc\u666f,etel,166,31,0,304,16,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722866.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#17,400\u7535\u8bdd,etel,106,22,37,308,17,-,no-repeat,-,-,zdy,\u514d\u8d39\u7535\u8bdd\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#18,\u672a\u547d\u540d,wang,166,31,0,335,18,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994646.gif,no-repeat,-,zengwzh,zdy,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#19,\u672a\u547d\u540d,msn,166,31,0,366,19,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994793.gif,no-repeat,-,penfei92yu@hotmail.com,zdy,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#20,\u672a\u547d\u540d,wang,106,22,37,339,20,-,no-repeat,-,zengwzh,zdy,\u6dd8\u5b9d\u65fa\u65fa,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#21,\u672a\u547d\u540d,msn,106,22,37,365,21,-,no-repeat,-,penfei92yu@hotmail.com,zdy,MSN\u8054\u7cfb\u6211\u4eec,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank"
+	!= '' &amp;&amp; "yes" == 'yes' &amp;&amp; 2 == 2) { div.innerHTML =
+	html; } else { div.innerHTML = html + hz6d_closeIcon(kf_icon_id); } try
+	{ document.getElementsByTagName("body")[0].appendChild(div); } catch
+	(e) { setTimeout(function () { hz6d_createFixedDiv(html); }, 500); } }
+	function hz6d_closeIcon(kf_icon_id) { var str_onmove = ""; if (2 == 1
+	&amp;&amp; ('new_blue' == "new_blue" || 'new_blue' == "new_red" ||
+	'new_blue' == "new_yellow" || 'new_blue' == "new_green")) { str_onmove
+	=
+	"onmousemove='this.src=\"http://www9.53kf.com/img/kflist/list_close_move.gif\"'
+	onmouseout='this.src=\"http://www9.53kf.com/img/kflogo/close.gif\"'"; }
+	if (1 == 1 || 68891775 == 600603 || 68891775 == 61393572 || 68891775 ==
+	1413303 || 68891775 == 61389920 || 68891775 == 61420906 || 68891775 ==
+	61578368) { if (2 == 1) { return "
+	<IMG style="POSITION: absolute; TOP: 0px; CURSOR: pointer; RIGHT: 0px"
+		onclick='hz6d$(\"hz6d_kf_icon_" + kf_icon_id + "\").style.display=\"none\"'
+		src="kf_files/close.gif" ? + str_onmove>"; } return "
+	<IMG style="POSITION: absolute; TOP: 0px; CURSOR: pointer; RIGHT: 0px"
+		onclick='hz6d$(\"hz6d_kf_icon_" + kf_icon_id + "\").style.display=\"none\"'
+		src="kf_files/close.gif">"; } return ""; } function
+	getClickUrl_3() { var _click_str = ''; if ("" != "" &amp;&amp; "1" ==
+	"0") { _click_str += 'window.open(\'\',\'_blank\')'; } else {
+	_click_str +=
+	'setIsinvited();window.open(\'http://www.bj53kf.cn/kefu.htm?arg=zvz1983&amp;style=1&amp;kflist=off&amp;kf=74e3ad42-06bf-102e-9f32-0018716864bc,92d10ff2-e09f-102d-835f-0018716864bc,a125657c-e301-11df-83be-00151765c518,4ee068b9c8e3a16b71000283&amp;zdkf_type=2&amp;language=zh-cn&amp;charset=utf-8&amp;lytype=0&amp;referer={hz6d_keyword}&amp;tpl=crystal_blue\',\'_blank\',\'height=473,width=703,top=200,left=200,status=yes,toolbar=no,menubar=no,resizable=yes,scrollbars=no,location=no,titlebar=no\')';
+	} return _click_str; } var zdytb_on_arrs =
+	init_zdytb_arr("1,\u5916\u6846,-,166,423,-,-,1,-,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#2,\u5934\u90e8\u80cc\u666f,-,166,180,0,0,1,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722277.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#3,\u5e95\u90e8\u80cc\u666f,-,166,26,0,397,3,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722396.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#4,53KF\u80cc\u666f,chat,166,31,0,180,4,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722470.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#5,QQ\u80cc\u666f,qq,166,31,0,211,5,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722609.gif,no-repeat,-,1925232951,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#6,\u65fa\u65fa\u80cc\u666f,qq,166,31,0,242,6,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994019.gif,no-repeat,-,2507258786,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#7,MSN\u80cc\u666f,qq,166,31,0,273,7,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994029.gif,no-repeat,-,1422177812,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#8,\u5728\u7ebf\u5f62\u8c61,chat,121,120,20,49,8,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313723354.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#9,53KF,chat,106,22,37,184,9,-,no-repeat,-,-,zdy,53\u5ba2\u670d\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#10,QQ,qq,106,22,37,215,10,-,no-repeat,-,1925232951,zdy,QQ\u5728\u7ebf\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#11,\u65fa\u65fa,qq,106,22,37,246,11,-,no-repeat,-,1820231064,zdy,QQ\u5728\u7ebf\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#12,MSN,qq,106,22,37,277,12,-,no-repeat,-,1422177812,zdy,QQ\u5728\u7ebf\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#13,\u5ba2\u670dLOGO,-,22,20,9,8,13,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313723164.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#14,\u6807\u9898,-,120,24,30,5,14,-,no-repeat,-,-,zdy,53KF-\u7f51\u4e0a\u5ba2\u670d,14,FFFFFF,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#15,\u7248\u6743\u6240\u6709,-,156,26,0,397,15,-,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,http:\/\/www.53kf.com,_blank#16,400\u80cc\u666f,etel,166,31,0,304,16,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722866.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#17,400\u7535\u8bdd,etel,106,22,37,308,17,-,no-repeat,-,-,zdy,\u514d\u8d39\u7535\u8bdd\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#18,\u672a\u547d\u540d,wang,166,31,0,335,18,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994646.gif,no-repeat,-,zengwzh,zdy,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#19,\u672a\u547d\u540d,msn,166,31,0,366,19,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994793.gif,no-repeat,-,penfei92yu@hotmail.com,zdy,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#20,\u672a\u547d\u540d,wang,106,22,37,339,20,-,no-repeat,-,zengwzh,zdy,\u6dd8\u5b9d\u65fa\u65fa,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#21,\u672a\u547d\u540d,msn,106,22,37,365,21,-,no-repeat,-,penfei92yu@hotmail.com,zdy,MSN\u8054\u7cfb\u6211\u4eec,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank");
+	var zdytb_off_arrs =
+	init_zdytb_arr("1,\u5916\u6846,-,166,423,-,-,1,-,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#2,\u5934\u90e8\u80cc\u666f,-,166,180,0,0,1,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722277.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#3,\u5e95\u90e8\u80cc\u666f,-,166,26,0,397,3,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722396.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#4,53KF\u80cc\u666f,chat,166,31,0,180,4,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722470.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#5,QQ\u80cc\u666f,qq,166,31,0,211,5,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722609.gif,no-repeat,-,1925232951,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#6,\u65fa\u65fa\u80cc\u666f,qq,166,31,0,242,6,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994019.gif,no-repeat,-,1820231064,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#7,MSN\u80cc\u666f,qq,166,31,0,273,7,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994029.gif,no-repeat,-,1422177812,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#8,\u5728\u7ebf\u5f62\u8c61,chat,121,120,20,49,8,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320997084.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#9,53KF,chat,106,22,37,184,9,-,no-repeat,-,-,zdy,53\u5ba2\u670d\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#10,QQ,qq,106,22,37,215,10,-,no-repeat,-,1925232951,zdy,QQ\u5728\u7ebf\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#11,\u65fa\u65fa,qq,106,22,37,246,11,-,no-repeat,-,1820231064,zdy,QQ\u5728\u7ebf\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#12,MSN,qq,106,22,37,277,12,-,no-repeat,-,1422177812,zdy,QQ\u5728\u7ebf\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#13,\u5ba2\u670dLOGO,-,22,20,9,8,13,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313723164.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#14,\u6807\u9898,-,120,24,30,5,14,-,no-repeat,-,-,zdy,53KF-\u7f51\u4e0a\u5ba2\u670d,14,FFFFFF,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#15,\u7248\u6743\u6240\u6709,-,156,26,0,397,15,-,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,http:\/\/www.53kf.com,_blank#16,400\u80cc\u666f,etel,166,31,0,304,16,\/img\/kflogo\/zdytb\/new2011_02\/zdytb_53kf_1313722866.gif,no-repeat,-,-,-,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#17,400\u7535\u8bdd,etel,106,22,37,308,17,-,no-repeat,-,-,zdy,\u514d\u8d39\u7535\u8bdd\u54a8\u8be2,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#18,\u672a\u547d\u540d,wang,166,31,0,335,18,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994646.gif,no-repeat,-,zengwzh,zdy,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#19,\u672a\u547d\u540d,msn,166,31,0,366,19,\/img\/upload\/zvz1983\/zdytb\/zdytb_53kf_1320994793.gif,no-repeat,-,penfei92yu@hotmail.com,zdy,-,12,-,left,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#20,\u672a\u547d\u540d,wang,106,22,37,339,20,-,no-repeat,-,zengwzh,zdy,\u6dd8\u5b9d\u65fa\u65fa,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank#21,\u672a\u547d\u540d,msn,106,22,37,365,21,-,no-repeat,-,penfei92yu@hotmail.com,zdy,MSN\u8054\u7cfb\u6211\u4eec,14,0059AB,center,-,-,-,\u5b8b\u4f53,none,-,-,-,_blank");
+	var div_str =
+	get_zdytb_divs(1,zdytb_on_arrs,zdytb_off_arrs,getClickUrl_3());
+	hz6d_con_img = hz6d_html_replace(div_str);
+	hz6d_createFixedDiv(hz6d_con_img); if (!hz6d$("stat_script"))
+	document.write("
+	<SCR "+"IPT id=stat_script type="text/javascript"
+		src='http://www9.53kf.com/stat.php?com_id=68891775&amp;referer="+hz6d_from_page+"'></SCR"+"IPT>
+	");
+		</script>
+</BODY>
+</HTML>
